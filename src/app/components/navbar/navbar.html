@@ -1,0 +1,22 @@
+<md-toolbar layout="row" class="md-primay hue-2" md-scroll-shrink>
+  <div class="md-toolbar-tools">
+    <md-button class="md-icon-button material-icons" aria-label="menu" ng-click="toggle()">menu</md-button>
+
+    <!--<md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>-->
+    <md-menu md-position-mode="target-right target">
+      <md-button aria-label="options menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+        <md-icon md-menu-origin class="material-icons">more_vert</md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item ui-sref="settings">
+          <md-button >
+              <div layout="row">
+                <p flex>Settings</p>
+                <md-icon md-menu-align-target class="material-icons">settings_applications</md-icon>
+              </div>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
+</md-toolbar>

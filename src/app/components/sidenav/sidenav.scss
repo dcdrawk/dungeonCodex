@@ -1,0 +1,12 @@
+md-sidenav,
+md-backdrop {
+  position: fixed !important;
+}
+md-sidenav {
+  > md-content {
+    margin-top: 56px;
+  }
+  a.md-button{
+    margin:0;
+  }
+}

@@ -1,0 +1,32 @@
+<md-dialog aria-label="New Character" class="size-lg" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>New Character</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="dialog.cancel()">
+                    <md-icon class="material_icons" aria-label="Close dialog">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-padding" layout="column">
+            <md-input-container>
+                <label>Name</label>
+                <input ng-model="character.name">
+            </md-input-container>
+            <md-input-container>
+                <label>Level</label>
+                <input type="number" ng-model="character.level">
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="dialog.cancel()">
+                Cancel
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="dialog.newCharacter(character)" style="margin-right:20px;">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

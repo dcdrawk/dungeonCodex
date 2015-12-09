@@ -1,0 +1,6 @@
+md-card{
+	&[md-ink-ripple]{
+		cursor: pointer;
+		-webkit-user-select: none;
+	}
+}

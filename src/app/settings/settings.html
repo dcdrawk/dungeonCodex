@@ -1,0 +1,37 @@
+<div class="title-bar">
+	<div class="md-padding">
+
+		<h1 class="md-headline">Settings</h1>
+	</div>
+	<!-- <md-toolbar md-scroll-shrink>
+    <div class="md-toolbar-tools">
+      <h3>
+        <span>Settings</span>
+      </h3>
+    </div>
+  </md-toolbar> -->
+</div>
+<section layout="row" layout-wrap>
+	<!-- <div class="md-padding">
+	  <h2 class="md-title">Settings and controls</h2>
+	</div> -->
+
+
+	<div flex="100">
+		<md-divider></md-divider>
+		<md-list>
+			<md-subheader class="md-no-sticky"><md-icon class="material_icons">storage</md-icon>Database</md-subheader>
+			<md-list-item class="md-2-line md-no-proxy">
+				<div class="md-list-item-text md-offset">
+					<md-button class="md-raised md-warn" ng-click="vm.showConfirm($event)">Reset Database</md-button>
+				</div>
+			</md-list-item>
+		</md-list>
+		<!-- <section  class="md-padding">
+			<md-icon class="material_icons">settings</md-icon><span>Database</span>
+	    <md-button class="md-raised md-warn" ng-click="vm.showConfirm($event)">Delete Database</md-button>
+	    <md-button class="md-raised md-warn" ng-click="vm.populateDB()">Populate Database</md-button>
+
+		</section> -->
+	</div>
+</section>

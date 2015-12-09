@@ -1,0 +1,25 @@
+<div class="title-bar">
+	<div class=" md-padding">
+
+	<h1 class="md-headline">Characters</h1>
+	</div>
+</div>
+<md-button ng-click="vm.showAdvanced($event)" class="md-fab md-accent add-button" aria-label="Comment">
+	<md-icon class="material-icons ">add</md-icon>
+</md-button>
+<section class="md-padding" layout="row" layout-wrap>
+	<!--<md-button class="md-primary md-raised" ng-click="showAdvanced($event)" flex-sm="100" flex-md="100">
+      Custom Dialog
+    </md-button>-->
+		<!-- <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/> -->
+	<div flex="33" ng-repeat="character in vm.characters" class="character-card">
+		<md-card md-ink-ripple id="my-button" ui-sref="character-sheet">
+			<md-card-title>
+				<md-card-title-text>
+					<p class="md-title">{{character.name}}</p>
+					<p class="md-subhead">Level {{character.level}} Halfling Rogue</p>
+				</md-card-title-text>
+			</md-card-title>
+		</md-card>
+	</div>
+</section>

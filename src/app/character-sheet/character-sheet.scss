@@ -1,0 +1,19 @@
+md-input-container.character-name .md-input{
+  font-size:34px;
+  height:45px;
+}
+md-input-container.character-name label.character-label{
+  font-size:24px;
+  transform: translate3d(0, 45px, 0) scale(1);
+}
+md-input-container.character-name.md-input-focused label:not(.md-no-float),
+md-input-container.character-name.md-input-has-value label:not(.md-no-float)
+{
+  // font-size:24px;
+  -webkit-transform: translate3d(0, 6px, 0) scale(0.75)!important;
+  transform: translate3d(0, 6px, 0) scale(0.75)!important;
+}
+
+#character-sheet{
+  padding-top:16px;
+}
