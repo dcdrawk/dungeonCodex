@@ -21,7 +21,7 @@
           },
           "basic@character-sheet": {
             templateUrl: 'app/character-sheet/views/basic-info.html',
-            controller: 'CharacterController',
+            controller: 'basicInfoController',
             controllerAs: 'vm'
           },
           "": {

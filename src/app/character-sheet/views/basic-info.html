@@ -1,1 +1,65 @@
-<h1>BASIC INFO</h1>
+<div layout="row" layout-wrap>
+  <!-- Class -->
+  <md-input-container flex="33">
+    <label>Class</label>
+    <md-select ng-model="class">
+      <md-option ng-repeat="class in vm.classes" value="{{class}}">{{class}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <!-- Archetype -->
+  <md-input-container flex="33">
+    <label>Archetype</label>
+    <md-select ng-model="archetype">
+      <md-option ng-repeat="background in vm.backgrounds" value="{{background}}">{{background}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <!-- Background -->
+  <md-input-container flex="33">
+    <label>Background</label>
+    <md-select ng-model="background">
+      <md-option ng-repeat="background in vm.backgrounds" value="{{background}}">{{background}}</md-option>
+    </md-select>
+  </md-input-container>
+</div>
+
+<div layout="row" layout-wrap>
+  <!-- Race -->
+  <md-input-container flex="33">
+    <label>Race</label>
+    <md-select ng-model="race">
+      <md-option ng-repeat="race in vm.races" value="{{race}}">{{race}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <!-- Subrace -->
+  <md-input-container flex="33">
+    <label>Subrace</label>
+    <md-select ng-model="race">
+      <md-option ng-repeat="subrace in vm.subraces track by $index" value="{{subrace}}">{{subrace}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <!-- Alignment -->
+  <md-input-container flex="33">
+    <label>Alignment</label>
+    <md-select ng-model="archetype">
+      <md-option ng-repeat="background in vm.backgrounds" value="{{background}}">{{background}}</md-option>
+    </md-select>
+  </md-input-container>
+
+  <!-- Level -->
+  <md-input-container flex>
+    <label>Level</label>
+    <input type="number" model="experience"></input>
+  </md-input-container>
+
+  <!-- Experience -->
+  <md-input-container flex>
+    <label>Exp</label>
+    <input type="number" model="experience"></input>
+  </md-input-container>
+
+
+</div>

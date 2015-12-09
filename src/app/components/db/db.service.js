@@ -7,19 +7,18 @@
 
   /** @ngInject */
   function dbService($http, $log, $mdToast, $q) {
-    // var vm = this;
-    // var fileNames = ['alignments', 'backgrounds', 'classes', 'feats', 'languages', 'races'];
-    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes' ];
 
+    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes' ];
     var path = '/assets/game-data/';
     var fileExtension = '.json';
     var url = '';
 
-    // deleteDB();
     return {
       newDB: newDB,
       deleteDB: deleteDB,
-      populateDB: populateDB
+      populateDB: populateDB,
+      getKeys: getKeys,
+      getItems: getItems
     };
 
     function newDB() {
@@ -91,6 +90,7 @@
           // .hideDelay(3000)
       );
     }
+
     //Adds items to a table
     function addItems(db, table, data){
       db.transaction('rw!', db[table], function () {
@@ -100,6 +100,23 @@
       });
     }
 
+    //Gets keys from a table
+    function getKeys(db, table, param){
+      // List all the first name of all my friends:
+      return db[table].orderBy('name').keys(function (keys) {
+          // $log.log(keys);
+          return keys;
+      });
+    }
+
+    function getItems(db, table, key, query){
+      var queryResult = [];
+      return db[table].each(function(item, cursor){
+        queryResult.push(item[key]);
+      }).then(function(){
+        return queryResult;
+      });
+    }
 
     //Returns a json file
     function getFile(fileName) {
