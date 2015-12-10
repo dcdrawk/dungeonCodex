@@ -109,14 +109,36 @@
       });
     }
 
+    // function getCollection(db, table, key, query){
+    //   var queryResult = [];
+    //   return db[table]
+    //     .where(key).equalsIgnoreCase(query)
+    //     .each(function(item, cursor){
+    //       queryResult.push(item[key]);
+    //   }).then(function(){
+    //     return queryResult;
+    //   });
+    // }
+
     function getItems(db, table, key, query){
       var queryResult = [];
-      return db[table].each(function(item, cursor){
-        queryResult.push(item[key]);
-      }).then(function(){
-        return queryResult;
+      // return queryResult;
+      return db.races.where(key).equalsIgnoreCase(query).toArray(function(array){
+        return array[0];
       });
+        // return db.races.where("id").equalsIgnoreCase("1");
+
+
     }
+
+    // function getItems(db, table, key, query){
+    //   var queryResult = [];
+    //   return db[table]..each(function(item, cursor){
+    //     queryResult.push(item[key]);
+    //   }).then(function(){
+    //     return queryResult;
+    //   });
+    // }
 
     //Returns a json file
     function getFile(fileName) {
