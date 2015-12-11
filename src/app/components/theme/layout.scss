@@ -38,34 +38,23 @@ md-card{
 $easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
 $easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
 $easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
-.character-card{
-  height: 100px!important;
-}
-.character-card .red{
-  transition: all .5s ease;
-  // position: absolute;
-  // width: auto;
-  top: 56px!important;
-  left: 0px!important;
-  // margin: 0;
-  height: 200px!important;
-  width: 100%!important;
-  z-index: 20;
-}
+// .character-card{
+//   height: 100px!important;
+// }
 
-#main-view.ng-enter {
-  transition:1.5s $easeOutExpo all;
-  opacity:0;
-}
-
-#main-view.ng-leave {
-  opacity:0;
-}
-
-/* The finishing CSS styles for the enter animation */
-#main-view.ng-enter-active {
-  opacity:1;
-}
+// #main-view.ng-enter {
+//   transition:1.5s $easeOutExpo all;
+//   opacity:0;
+// }
+//
+// #main-view.ng-leave {
+//   opacity:0;
+// }
+//
+// /* The finishing CSS styles for the enter animation */
+// #main-view.ng-enter-active {
+//   opacity:1;
+// }
 
 .character-card.ng-enter {
   position:relative;

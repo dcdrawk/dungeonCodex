@@ -18,7 +18,8 @@
       deleteDB: deleteDB,
       populateDB: populateDB,
       getKeys: getKeys,
-      getItems: getItems
+      getItems: getItems,
+      getById: getById
     };
 
     function newDB() {
@@ -122,14 +123,21 @@
 
     function getItems(db, table, key, query){
       var queryResult = [];
+      $log.log('querying for: ' + query);
       // return queryResult;
-      return db.races.where(key).equalsIgnoreCase(query).toArray(function(array){
+      return db[table].where(key).equalsIgnoreCase(query).toArray(function(array){
+        $log.log(array);
         return array[0];
       });
-        // return db.races.where("id").equalsIgnoreCase("1");
-
-
     }
+
+    function getById(db, table, id){
+      return db[table].where("id").equals(parseInt(id)).toArray(function(array){
+        $log.log(array);
+        return array[0];
+      });
+    }
+
 
     // function getItems(db, table, key, query){
     //   var queryResult = [];
