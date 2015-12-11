@@ -16,7 +16,7 @@
   </md-input-container>
 
   <!-- Background -->
-  <md-input-container flex="25">
+  <md-input-container flex>
     <label>Background</label>
     <md-select ng-model="vm.background">
       <md-option ng-repeat="background in vm.backgrounds" value="{{background}}">{{background}}</md-option>
@@ -24,7 +24,7 @@
   </md-input-container>
 
   <!-- Alignment -->
-  <md-input-container flex="25">
+  <md-input-container flex>
     <label>Alignment</label>
     <md-select ng-model="vm.alignment">
       <md-option ng-repeat="alignment in vm.alignments" value="{{alignment}}">{{alignment}}</md-option>
@@ -34,7 +34,7 @@
 
 <div layout="row" layout-wrap>
   <!-- Race -->
-  <md-input-container flex="25">
+  <md-input-container flex>
     <label>Race</label>
     <md-select ng-model="vm.race" ng-change="vm.getSubraces(vm.race)">
       <md-option ng-repeat="race in vm.races" value="{{race}}">{{race}}</md-option>
@@ -42,7 +42,7 @@
   </md-input-container>
 
   <!-- Subrace -->
-  <md-input-container flex="25">
+  <md-input-container flex ng-if="vm.subraces.length > 0">
     <label>Subrace</label>
     <md-select ng-model="vm.subrace">
       <md-option ng-repeat="subrace in vm.subraces track by $index" value="{{subrace.name}}">{{subrace.name}}</md-option>

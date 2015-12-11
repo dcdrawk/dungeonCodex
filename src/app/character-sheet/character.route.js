@@ -9,7 +9,7 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('character-sheet', {
-        url: '/character-sheet',
+        url: '/character-sheet?characterId',
         // templateUrl: 'app/character-sheet/character-sheet.html',
         // controller: 'CharacterController',
         // controllerAs: 'vm',
