@@ -26,7 +26,7 @@
   <!-- Alignment -->
   <md-input-container flex>
     <label>Alignment</label>
-    <md-select ng-model="basicCtrl.alignment">
+    <md-select ng-model="charCtrl.character.alignment" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {alignment:charCtrl.character.alignment})">
       <md-option ng-repeat="alignment in basicCtrl.alignments" value="{{alignment}}">{{alignment}}</md-option>
     </md-select>
   </md-input-container>
@@ -36,16 +36,17 @@
   <!-- Race -->
   <md-input-container flex>
     <label>Race</label>
-    <md-select ng-model="basicCtrl.race" ng-change="basicCtrl.getSubraces(basicCtrl.race)">
+    <md-select ng-model="charCtrl.character.race" ng-change="basicCtrl.getSubraces(charCtrl.character.race);
+      charCtrl.updateCharacter(charCtrl.character.id, {race:charCtrl.character.race}); charCtrl.character.subrace = ''">
       <md-option ng-repeat="race in basicCtrl.races" value="{{race}}">{{race}}</md-option>
     </md-select>
   </md-input-container>
 
   <!-- Subrace -->
-  <md-input-container flex ng-if="basicCtrl.subraces.length > 0">
+  <md-input-container flex ng-if="charCtrl.character.race" ng-init="basicCtrl.getSubraces(charCtrl.character.race);">
     <label>Subrace</label>
-    <md-select ng-model="basicCtrl.subrace">
-      <md-option ng-repeat="subrace in basicCtrl.subraces track by $index" value="{{subrace.name}}">{{subrace.name}}</md-option>
+    <md-select ng-model="charCtrl.character.subrace" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {subrace:charCtrl.character.subrace})">
+      <md-option ng-repeat="subrace in basicCtrl.subraces track by subrace.name" value="{{subrace.name}}">{{subrace.name}}</md-option>
     </md-select>
   </md-input-container>
 
@@ -54,13 +55,13 @@
   <!-- Level -->
   <md-input-container flex>
     <label>Level</label>
-    <input type="number" model="basicCtrl.level"></input>
+    <input type="number" ng-model="charCtrl.character.level" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {level:charCtrl.character.level})"></input>
   </md-input-container>
 
   <!-- Experience -->
   <md-input-container flex>
     <label>Exp</label>
-    <input type="number" model="basicCtrl.experience"></input>
+    <input type="number" ng-model="charCtrl.character.experience" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {experience:charCtrl.character.experience})"></input>
   </md-input-container>
 
 

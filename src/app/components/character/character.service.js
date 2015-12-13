@@ -15,11 +15,14 @@ Author: Devin Cook
     /* @ngInject */
     function characterService($log, $http, dbService, $q) {
       var characters = [];
+      var character = 'test';
+      var self = this;
 
       var service = {
           getCharacters: getCharacters,
           getCharacter: getCharacter,
-          updateCharacter: updateCharacter
+          updateCharacter: updateCharacter,
+          character: character
       };
 
       return service;
@@ -41,7 +44,13 @@ Author: Devin Cook
       //Get a specific character by id
       function getCharacter(id) {
         var db = dbService.newDB();
-        return dbService.getById(db, 'characters', id);
+        $log.log('dwa');
+        self.character = 'weeaboo';
+        return dbService.getById(db, 'characters', id).then(function(response){
+          character = response;
+          return character;
+        });
+        // return dbService.getById(db, 'characters', id);
       }
 
       function updateCharacter(id, object) {
