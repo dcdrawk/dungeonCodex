@@ -16,6 +16,11 @@
           });
         }
 
+        vm.updateCharacter = function(id, object){
+          $log.log('update the cahracter!');
+          characterService.updateCharacter(id, object);
+        }
+
         activate();
 
         function activate() {

@@ -19,7 +19,8 @@
       populateDB: populateDB,
       getKeys: getKeys,
       getItems: getItems,
-      getById: getById
+      getById: getById,
+      updateById: updateById
     };
 
     function newDB() {
@@ -114,6 +115,16 @@
         url: path + fileName + fileExtension
       }).then(function(response) {
         return response.data;
+      });
+    }
+
+    function updateById(db, table, id, object){
+      return db[table].update(id, object).then(function (updated) {
+        if (updated)
+          $log.log("Item updated");
+        else
+          $log.error("Item id " + id + " could not be updated. Does it exist?");
+        return;
       });
     }
   }

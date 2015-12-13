@@ -2,32 +2,32 @@
   <!-- Class -->
   <md-input-container flex="25">
     <label>Class</label>
-    <md-select ng-model="vm.class">
-      <md-option ng-repeat="class in vm.classes" value="{{class}}">{{class}}</md-option>
+    <md-select ng-model="charCtrl.character.class" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {class:charCtrl.character.class})">
+      <md-option ng-repeat="class in basicCtrl.classes" value="{{class}}">{{class}}</md-option>
     </md-select>
   </md-input-container>
 
   <!-- Archetype -->
   <md-input-container flex="25">
     <label>Archetype</label>
-    <md-select ng-model="vm.archetype">
-      <md-option ng-repeat="background in vm.backgrounds" value="{{background}}">{{background}}</md-option>
+    <md-select ng-model="basicCtrl.archetype" >
+      <md-option ng-repeat="background in basicCtrl.backgrounds" value="{{background}}">{{background}}</md-option>
     </md-select>
   </md-input-container>
 
   <!-- Background -->
   <md-input-container flex>
     <label>Background</label>
-    <md-select ng-model="vm.background">
-      <md-option ng-repeat="background in vm.backgrounds" value="{{background}}">{{background}}</md-option>
+    <md-select ng-model="charCtrl.character.background" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {background:charCtrl.character.background})">
+      <md-option ng-repeat="background in basicCtrl.backgrounds" value="{{background}}">{{background}}</md-option>
     </md-select>
   </md-input-container>
 
   <!-- Alignment -->
   <md-input-container flex>
     <label>Alignment</label>
-    <md-select ng-model="vm.alignment">
-      <md-option ng-repeat="alignment in vm.alignments" value="{{alignment}}">{{alignment}}</md-option>
+    <md-select ng-model="basicCtrl.alignment">
+      <md-option ng-repeat="alignment in basicCtrl.alignments" value="{{alignment}}">{{alignment}}</md-option>
     </md-select>
   </md-input-container>
 </div>
@@ -36,16 +36,16 @@
   <!-- Race -->
   <md-input-container flex>
     <label>Race</label>
-    <md-select ng-model="vm.race" ng-change="vm.getSubraces(vm.race)">
-      <md-option ng-repeat="race in vm.races" value="{{race}}">{{race}}</md-option>
+    <md-select ng-model="basicCtrl.race" ng-change="basicCtrl.getSubraces(basicCtrl.race)">
+      <md-option ng-repeat="race in basicCtrl.races" value="{{race}}">{{race}}</md-option>
     </md-select>
   </md-input-container>
 
   <!-- Subrace -->
-  <md-input-container flex ng-if="vm.subraces.length > 0">
+  <md-input-container flex ng-if="basicCtrl.subraces.length > 0">
     <label>Subrace</label>
-    <md-select ng-model="vm.subrace">
-      <md-option ng-repeat="subrace in vm.subraces track by $index" value="{{subrace.name}}">{{subrace.name}}</md-option>
+    <md-select ng-model="basicCtrl.subrace">
+      <md-option ng-repeat="subrace in basicCtrl.subraces track by $index" value="{{subrace.name}}">{{subrace.name}}</md-option>
     </md-select>
   </md-input-container>
 
@@ -54,13 +54,13 @@
   <!-- Level -->
   <md-input-container flex>
     <label>Level</label>
-    <input type="number" model="vm.level"></input>
+    <input type="number" model="basicCtrl.level"></input>
   </md-input-container>
 
   <!-- Experience -->
   <md-input-container flex>
     <label>Exp</label>
-    <input type="number" model="vm.experience"></input>
+    <input type="number" model="basicCtrl.experience"></input>
   </md-input-container>
 
 

@@ -10,12 +10,9 @@
         var vm = this;
         vm.characters = [];
 
-        activate();
 
-        function activate() {
-          //Get the list of characters from the db
-          vm.getCharacters();
-        }
+
+
 
         vm.showAdvanced = function(ev) {
             $mdDialog.show({
@@ -63,6 +60,13 @@
                 db.characters.add(character);
                 $mdDialog.hide(character);
             };
+        }
+
+        activate();
+
+        function activate() {
+          //Get the list of characters from the db
+          vm.getCharacters();
         }
     }
 })();

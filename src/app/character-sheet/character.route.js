@@ -17,17 +17,17 @@
           "name@character-sheet": {
             templateUrl: 'app/character-sheet/views/name.html',
             controller: 'CharacterController',
-            controllerAs: 'vm'
+            controllerAs: 'nameCtrl'
           },
           "basic@character-sheet": {
             templateUrl: 'app/character-sheet/views/basic-info.html',
             controller: 'basicInfoController',
-            controllerAs: 'vm'
+            controllerAs: 'basicCtrl'
           },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',
-            controllerAs: 'vm'
+            controllerAs: 'charCtrl'
           }
 
         }

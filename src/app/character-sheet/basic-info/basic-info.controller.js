@@ -48,6 +48,11 @@
           });
         }
 
+        // vm.updateCharacter = function(id, object){
+        //   $log.log('update the cahracter!')
+        //   characterService.updateCharacter(id, object);
+        // }
+
         vm.getRaces();
         vm.getClasses();
         vm.getBackgrounds();

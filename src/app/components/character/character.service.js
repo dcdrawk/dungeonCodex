@@ -18,7 +18,8 @@ Author: Devin Cook
 
       var service = {
           getCharacters: getCharacters,
-          getCharacter: getCharacter
+          getCharacter: getCharacter,
+          updateCharacter: updateCharacter
       };
 
       return service;
@@ -32,14 +33,22 @@ Author: Devin Cook
             characters.push(character);
         }).then(function(){
             deferred.resolve(characters);
-            return deferred.promise;
+            // return deferred.promise;
         });
+        return deferred.promise;
       }
 
       //Get a specific character by id
       function getCharacter(id) {
         var db = dbService.newDB();
         return dbService.getById(db, 'characters', id);
+      }
+
+      function updateCharacter(id, object) {
+        $log.log(id);
+        $log.log(object);
+        var db = dbService.newDB();
+        return dbService.updateById(db, 'characters', id, object)
       }
     }
 })();
