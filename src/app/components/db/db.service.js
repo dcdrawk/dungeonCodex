@@ -120,9 +120,9 @@
 
     function updateById(db, table, id, object){
       return db[table].update(id, object).then(function (updated) {
-        if (updated)
-          $log.log("Item updated");
-        else
+        if (!updated)
+        //   $log.log("Item updated");
+        // else
           $log.error("Item id " + id + " could not be updated. Does it exist?");
         return;
       });
