@@ -15,3 +15,8 @@ md-input-container.md-input-focused:not(.md-input-has-value){
     // display:none;
   }
 }
+md-input-container{
+  .md-errors-spacer{
+    display:none;
+  }
+}

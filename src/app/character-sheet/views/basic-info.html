@@ -50,12 +50,10 @@
     </md-select>
   </md-input-container>
 
-
-
   <!-- Level -->
   <md-input-container flex>
     <label>Level</label>
-    <input type="number" ng-model="charCtrl.character.level" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {level:charCtrl.character.level})"></input>
+    <input type="number" ng-model="charCtrl.character.level" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {level:charCtrl.character.level})" max="20"></input>
   </md-input-container>
 
   <!-- Experience -->

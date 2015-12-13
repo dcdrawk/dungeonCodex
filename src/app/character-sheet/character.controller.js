@@ -27,7 +27,5 @@
           $log.log(characterId);
           vm.getCharacter(characterId);
         }
-
-
     }
 })();

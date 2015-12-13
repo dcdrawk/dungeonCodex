@@ -5,11 +5,20 @@
 	</div>
 </div> -->
 <section id="character-sheet" layout="row" layout-wrap>
+	<div flex="33" layout="column">
+		<div ui-view="name" class="md-padding" ></div>
+		
+		<div layout="row">
+			<div ui-view="stats" flex="50" class="md-padding" ></div>
+		</div>
 
-	<div ui-view="name" flex="33" class="md-padding" ></div>
+	</div>
+
 	<!-- <md-divider></md-divider> -->
 	<div ui-view="basic" flex="66" class="md-padding" ></div>
-	<div flex="100">
+
+
+	<!-- <div flex="100"> -->
 		<!-- <md-divider flex="100"></md-divider> -->
-	</div>
+	<!-- </div> -->
 </section>

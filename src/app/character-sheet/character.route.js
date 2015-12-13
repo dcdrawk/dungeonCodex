@@ -24,6 +24,11 @@
             controller: 'basicInfoController',
             controllerAs: 'basicCtrl'
           },
+          "stats@character-sheet": {
+            templateUrl: 'app/character-sheet/views/stats.html',
+            controller: 'statsController',
+            controllerAs: 'statsCtrl'
+          },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',
