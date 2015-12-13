@@ -8,17 +8,12 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, basicInfoService, $timeout) {
+    function basicInfoController($http, $scope, basicInfoService) {
         var vm = this;
-
-        // vm.getRaces = getRaces();
-        // vm.getBackgrounds = getBackgrounds();
-        // vm.getSubraces = getSubraces('elf');
         //Get Races
         vm.getRaces = function() {
           basicInfoService.getRaces().then(function(races){
             vm.races = races;
-            // $log.log(races);
             $scope.$digest();
           });
         }
@@ -59,17 +54,3 @@
         vm.getAlignments();
     }
 })();
-
-// (function() {
-//   'use strict';
-//
-//   angular
-//     .module('dc')
-//     .controller('CharacterController', CharacterController);
-//
-//   /** @ngInject */
-//     function CharacterController(characterService) {
-//         var vm = this;
-//
-//     }
-// })();

@@ -8,18 +8,7 @@
     // factory.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoService($log, dbService, $q) {
-
-      // var deferred = $q.defer();
-      //
-      // db.characters.each(function(character){
-      //     characters.push(character);
-      // }).then(function(){
-      //     deferred.resolve(characters);
-      // });
-
-      // return deferred.promise;
-
+    function basicInfoService($log, dbService) {
 
         var service = {
             getRaces: getRaces,
@@ -32,11 +21,8 @@
         return service;
 
         function getRaces() {
-          // var deferred = $q.defer();
           var db = dbService.newDB();
           return dbService.getKeys(db, 'races', 'name');
-
-          //return dbService.getKeys(db, 'races', 'name');
         }
 
         function getClasses() {
