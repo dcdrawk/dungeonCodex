@@ -6,7 +6,7 @@
     .controller('CharacterController', CharacterController);
 
   /** @ngInject */
-    function CharacterController($stateParams, characterService, $log, basicInfoService) {
+    function CharacterController($stateParams, characterService, $log) {
         var vm = this;
         var characterId = $stateParams.characterId;
 
