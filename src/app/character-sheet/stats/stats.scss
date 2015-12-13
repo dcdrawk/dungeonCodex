@@ -1,0 +1,16 @@
+.stat-input {
+  input, label, .modifier{
+    text-align: center;
+  }
+  input {
+    font-size:22px;
+    width:50%;
+  }
+  span {
+    width:25%;
+    vertical-align: middle;
+    &.material-icons{
+      opacity:.35;
+    }
+  }
+}
