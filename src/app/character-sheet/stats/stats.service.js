@@ -8,14 +8,10 @@
     // factory.$inject = ['dependencies'];
 
     /* @ngInject */
-    function statsService($log, dbService) {
+    function statsService() {
 
         var service = {
-            getStatModifier: getStatModifier,
-            // getClasses: getClasses,
-            // getBackgrounds: getBackgrounds,
-            // getSubraces: getSubraces,
-            // getAlignments: getAlignments
+            getStatModifier: getStatModifier
         };
 
         return service;

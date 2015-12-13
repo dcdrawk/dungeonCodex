@@ -3,12 +3,12 @@
 
     angular
         .module('dc')
-        .controller('statsController', statsController);
+        .controller('StatsController', StatsController);
 
-    // basicInfoController.$inject = ['dependencies'];
+    // statsController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function statsController(statsService, $log) {
+    function StatsController(statsService) {
         var vm = this;
         vm.statMods = {};
 

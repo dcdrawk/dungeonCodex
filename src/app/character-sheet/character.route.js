@@ -26,7 +26,7 @@
           },
           "stats@character-sheet": {
             templateUrl: 'app/character-sheet/views/stats.html',
-            controller: 'statsController',
+            controller: 'StatsController',
             controllerAs: 'statsCtrl'
           },
           "": {
