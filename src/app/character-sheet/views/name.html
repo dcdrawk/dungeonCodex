@@ -1,4 +1,4 @@
 <md-input-container class="character-name">
     <label class="character-label">Character Name</label>
-    <input ng-model="charCtrl.character.name" >
+    <input ng-model="charCtrl.character.name" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {name:charCtrl.character.name})">
 </md-input-container>
