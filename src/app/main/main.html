@@ -13,7 +13,7 @@
     </md-button>-->
 		<!-- <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide"><br/> -->
 	<div flex="33" ng-repeat="character in vm.characters" class="character-card" ng-show="character">
-		<md-card md-ink-ripple id="my-button" ui-sref="character-sheet">
+		<md-card md-ink-ripple id="my-button" ui-sref="character-sheet({characterId: character.id})">
 			<md-card-title>
 				<md-card-title-text>
 					<p class="md-title">{{character.name}}</p>
