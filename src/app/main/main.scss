@@ -1,0 +1,48 @@
+$easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+.character-card{
+  height: 200px!important;
+}
+
+.character-card.ng-enter {
+  position:relative;
+  transition:0.5s $easeOutExpo all;
+  top:24px;
+  opacity:0;
+  // transition-delay: .9s;
+}
+
+.character-card.ng-enter-stagger {
+  /* this will have a 50ms delay between each successive leave animation */
+  transition-delay: .05s;
+  //
+  // /* As of 1.4.4, this must always be set: it signals ngAnimate
+  //   to not accidentally inherit a delay property from another CSS class */
+  transition-duration: 0s;
+}
+
+.character-card.ng-leave {
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.character-card.ng-enter-active {
+  opacity:1;
+  top:0px;
+}
+
+// #main-view.ng-enter {
+//   transition:1.5s $easeOutExpo all;
+//   opacity:0;
+// }
+//
+// #main-view.ng-leave {
+//   opacity:0;
+// }
+//
+// /* The finishing CSS styles for the enter animation */
+// #main-view.ng-enter-active {
+//   opacity:1;
+// }
