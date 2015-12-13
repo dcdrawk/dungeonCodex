@@ -34,7 +34,6 @@ Author: Devin Cook
             deferred.resolve(characters);
             return deferred.promise;
         });
-
       }
 
       //Get a specific character by id
