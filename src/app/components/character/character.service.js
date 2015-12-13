@@ -32,13 +32,15 @@ Author: Devin Cook
             characters.push(character);
         }).then(function(){
             deferred.resolve(characters);
+            return deferred.promise;
         });
-         return deferred.promise;
-      };
 
-      function getCharacter(characterId) {
+      }
+
+      //Get a specific character by id
+      function getCharacter(id) {
         var db = dbService.newDB();
-        return dbService.getById(db, 'characters', characterId);
+        return dbService.getById(db, 'characters', id);
       }
     }
 })();

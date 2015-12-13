@@ -6,12 +6,12 @@
     .service('dbService', dbService);
 
   /** @ngInject */
-  function dbService($http, $log, $mdToast, $q) {
+  function dbService($http, $log, $mdToast) {
 
     var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes' ];
     var path = '/assets/game-data/';
     var fileExtension = '.json';
-    var url = '';
+    // var url = '';
 
     return {
       newDB: newDB,
@@ -33,62 +33,45 @@
         races: "++id,name,abilityScoreIncrease,speed,languages,traits,subraces",
         alignments: "++id,name,description"
       });
-      // db.on("populate", populateDB(db));
-      // populateDB(db);
       db.open();
       return db;
     }
 
     function deleteDB(db) {
-      // db = newDB();
       db.delete().then(function() {
-          // toastr.info("Database successfully deleted");
-          //$log.log("Database successfully deleted");
-          // $mdToast.show(
-          //   $mdToast.simple()
-          //     .textContent('Database successfully deleted! ')
-          //     // .position($scope.getToastPosition())
-          //     // .hideDelay(3000)
-          // );
+        //Databse is deleted
       }).catch(function (err) {
-          $log.error("Could not delete database");
-          $log.error(err);
+        //Catch any errors
+        $log.error("Could not delete database");
+        $log.error(err);
       }).finally(function() {
-          // Do what should be done next...
-          populateDB(db);
+        // Repopulate the db
+        populateDB(db);
       });
     }
 
     function populateDB(db) {
-      // db = newDB();
       db.open();
-      $log.log('lets populate the db!');
-      $log.log(fileNames);
-
-      // var deferred = $q.defer();
-      // var promises = [];
-
+      //go through each file name in the array
       angular.forEach( fileNames, function(fileName){
         return new Dexie.Promise(function (resolve, reject) {
-          $log.log('I PROMISE TO GET:');
-          $log.log(fileName);
           getFile(fileName).then(function(data){
-            $log.log(data);
             addItems(db, fileName, data);
             resolve(data);
+            reject(data);
           });
         }).then(function (data) {
-
+          $log.log(data);
+        }).catch(function (error) {
+          $log.log(error);
         }).then(function () {
-          console.log ("Transaction committed");
+          $log.log("Transaction committed");
         });
       });
       //Show the toast
       $mdToast.show(
         $mdToast.simple()
-          .textContent('Database successfully reset! ')
-          // .position($scope.getToastPosition())
-          // .hideDelay(3000)
+          .textContent('Database successfully reset!')
       );
     }
 
@@ -104,49 +87,25 @@
     //Gets keys from a table
     function getKeys(db, table, param){
       // List all the first name of all my friends:
-      return db[table].orderBy('name').keys(function (keys) {
-          // $log.log(keys);
+      return db[table].orderBy(param).keys(function (keys) {
           return keys;
       });
     }
 
-    // function getCollection(db, table, key, query){
-    //   var queryResult = [];
-    //   return db[table]
-    //     .where(key).equalsIgnoreCase(query)
-    //     .each(function(item, cursor){
-    //       queryResult.push(item[key]);
-    //   }).then(function(){
-    //     return queryResult;
-    //   });
-    // }
-
+    //Get multiple items
     function getItems(db, table, key, query){
-      var queryResult = [];
-      $log.log('querying for: ' + query);
       // return queryResult;
       return db[table].where(key).equalsIgnoreCase(query).toArray(function(array){
-        $log.log(array);
         return array[0];
       });
     }
 
+    //Get by id
     function getById(db, table, id){
       return db[table].where("id").equals(parseInt(id)).toArray(function(array){
-        $log.log(array);
         return array[0];
       });
     }
-
-
-    // function getItems(db, table, key, query){
-    //   var queryResult = [];
-    //   return db[table]..each(function(item, cursor){
-    //     queryResult.push(item[key]);
-    //   }).then(function(){
-    //     return queryResult;
-    //   });
-    // }
 
     //Returns a json file
     function getFile(fileName) {
