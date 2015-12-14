@@ -30,7 +30,7 @@
             controllerAs: 'statsCtrl'
           },
           "proficiency-bonus@character-sheet": {
-            templateUrl: 'app/character-sheet/views/proficiency-bonus.html',
+            templateUrl: 'app/character-sheet/views/proficiency-bonus.html'
             // controller: 'ProficiencyBonusController',
             // controllerAs: 'profCtrl'
           },
