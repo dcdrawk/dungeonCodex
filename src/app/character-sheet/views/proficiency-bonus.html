@@ -1,0 +1,10 @@
+<!-- Dexterity -->
+<span class="md-body-2 title">Proficiency Bonus</span>
+<md-input-container class="proficiency-bonus" flex>
+  <!-- <label>Proficiency Bonus</label> -->
+  <input type="number" ng-model="charCtrl.character.proficiencyBonus"
+   ng-if="charCtrl.character.level"
+   ng-init="charCtrl.getProficiencyBonus(charCtrl.character.level)"
+   aria-label="Proficiency Bonus">
+ </input>
+</md-input-container>
