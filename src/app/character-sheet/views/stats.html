@@ -1,54 +1,57 @@
 <span class="md-body-2 title">Stats</span>
-<!-- Strength -->
-<md-input-container class="stat-input" flex>
-  <label>Str</label>
-  <input type="number" ng-model="charCtrl.character.strength" ng-change="statsCtrl.getStatModifier('strength', charCtrl.character.strength);
-  charCtrl.updateCharacter(charCtrl.character.id, {strength:charCtrl.character.strength})"></input>
-  <span class="material-icons">chevron_right</span>
-  <span class="modifier" ng-if="charCtrl.character.strength" ng-init="statsCtrl.getStatModifier('strength', charCtrl.character.strength);">{{statsCtrl.statMods.strength}}</span>
-</md-input-container>
 
-<!-- Dexterity -->
-<md-input-container class="stat-input" flex>
-  <label>Dex</label>
-  <input type="number" ng-model="charCtrl.character.dexterity" ng-change="statsCtrl.getStatModifier('dexterity', charCtrl.character.dexterity);
-  charCtrl.updateCharacter(charCtrl.character.id, {dexterity:charCtrl.character.dexterity})"></input>
-  <span class="material-icons">chevron_right</span>
-  <span class="modifier" ng-if="charCtrl.character.dexterity" ng-init="statsCtrl.getStatModifier('dexterity', charCtrl.character.dexterity);">{{statsCtrl.statMods.dexterity}}</span>
-</md-input-container>
+<section id="stats" layout="row" layout-wrap>
+  <!-- Strength -->
+  <md-input-container class="stat-input" flex="50">
+    <label>Str</label>
+    <input type="number" ng-model="charCtrl.character.strength" ng-change="statsCtrl.getStatModifier('strength', charCtrl.character.strength);
+    charCtrl.updateCharacter(charCtrl.character.id, {strength:charCtrl.character.strength})"></input>
+    <span class="material-icons">chevron_right</span>
+    <span class="modifier" ng-if="charCtrl.character.strength" ng-init="statsCtrl.getStatModifier('strength', charCtrl.character.strength);">{{statsCtrl.statMods.strength}}</span>
+  </md-input-container>
 
-<!-- Constitution -->
-<md-input-container class="stat-input" flex>
-  <label>Con</label>
-  <input type="number" ng-model="charCtrl.character.constitution" ng-change="statsCtrl.getStatModifier('constitution', charCtrl.character.constitution);
-  charCtrl.updateCharacter(charCtrl.character.id, {constitution:charCtrl.character.constitution})"></input>
-  <span class="material-icons">chevron_right</span>
-  <span class="modifier" ng-if="charCtrl.character.constitution" ng-init="statsCtrl.getStatModifier('constitution', charCtrl.character.constitution);">{{statsCtrl.statMods.constitution}}</span>
-</md-input-container>
+  <!-- Dexterity -->
+  <md-input-container class="stat-input" flex="50">
+    <label>Dex</label>
+    <input type="number" ng-model="charCtrl.character.dexterity" ng-change="statsCtrl.getStatModifier('dexterity', charCtrl.character.dexterity);
+    charCtrl.updateCharacter(charCtrl.character.id, {dexterity:charCtrl.character.dexterity})"></input>
+    <span class="material-icons">chevron_right</span>
+    <span class="modifier" ng-if="charCtrl.character.dexterity" ng-init="statsCtrl.getStatModifier('dexterity', charCtrl.character.dexterity);">{{statsCtrl.statMods.dexterity}}</span>
+  </md-input-container>
 
-<!-- Intelligence -->
-<md-input-container class="stat-input" flex>
-  <label>Int</label>
-  <input type="number" ng-model="charCtrl.character.intelligence" ng-change="statsCtrl.getStatModifier('intelligence', charCtrl.character.intelligence);
-  charCtrl.updateCharacter(charCtrl.character.id, {intelligence:charCtrl.character.intelligence})"></input>
-  <span class="material-icons">chevron_right</span>
-  <span class="modifier" ng-if="charCtrl.character.intelligence" ng-init="statsCtrl.getStatModifier('intelligence', charCtrl.character.intelligence);">{{statsCtrl.statMods.intelligence}}</span>
-</md-input-container>
+  <!-- Constitution -->
+  <md-input-container class="stat-input" flex="50">
+    <label>Con</label>
+    <input type="number" ng-model="charCtrl.character.constitution" ng-change="statsCtrl.getStatModifier('constitution', charCtrl.character.constitution);
+    charCtrl.updateCharacter(charCtrl.character.id, {constitution:charCtrl.character.constitution})"></input>
+    <span class="material-icons">chevron_right</span>
+    <span class="modifier" ng-if="charCtrl.character.constitution" ng-init="statsCtrl.getStatModifier('constitution', charCtrl.character.constitution);">{{statsCtrl.statMods.constitution}}</span>
+  </md-input-container>
 
-<!-- Wisdom -->
-<md-input-container class="stat-input" flex>
-  <label>Wis</label>
-  <input type="number" ng-model="charCtrl.character.wisdom" ng-change="statsCtrl.getStatModifier('wisdom', charCtrl.character.wisdom);
-  charCtrl.updateCharacter(charCtrl.character.id, {wisdom:charCtrl.character.wisdom})"></input>
-  <span class="material-icons">chevron_right</span>
-  <span class="modifier" ng-if="charCtrl.character.wisdom" ng-init="statsCtrl.getStatModifier('wisdom', charCtrl.character.wisdom);">{{statsCtrl.statMods.wisdom}}</span>
-</md-input-container>
+  <!-- Intelligence -->
+  <md-input-container class="stat-input" flex="50">
+    <label>Int</label>
+    <input type="number" ng-model="charCtrl.character.intelligence" ng-change="statsCtrl.getStatModifier('intelligence', charCtrl.character.intelligence);
+    charCtrl.updateCharacter(charCtrl.character.id, {intelligence:charCtrl.character.intelligence})"></input>
+    <span class="material-icons">chevron_right</span>
+    <span class="modifier" ng-if="charCtrl.character.intelligence" ng-init="statsCtrl.getStatModifier('intelligence', charCtrl.character.intelligence);">{{statsCtrl.statMods.intelligence}}</span>
+  </md-input-container>
 
-<!-- Charisma -->
-<md-input-container class="stat-input" flex>
-  <label>Cha</label>
-  <input type="number" ng-model="charCtrl.character.charisma" ng-change="statsCtrl.getStatModifier('charisma', charCtrl.character.charisma);
-  charCtrl.updateCharacter(charCtrl.character.id, {charisma:charCtrl.character.charisma})"></input>
-  <span class="material-icons">chevron_right</span>
-  <span class="modifier" ng-if="charCtrl.character.charisma" ng-init="statsCtrl.getStatModifier('charisma', charCtrl.character.charisma);">{{statsCtrl.statMods.charisma}}</span>
-</md-input-container>
+  <!-- Wisdom -->
+  <md-input-container class="stat-input" flex="50">
+    <label>Wis</label>
+    <input type="number" ng-model="charCtrl.character.wisdom" ng-change="statsCtrl.getStatModifier('wisdom', charCtrl.character.wisdom);
+    charCtrl.updateCharacter(charCtrl.character.id, {wisdom:charCtrl.character.wisdom})"></input>
+    <span class="material-icons">chevron_right</span>
+    <span class="modifier" ng-if="charCtrl.character.wisdom" ng-init="statsCtrl.getStatModifier('wisdom', charCtrl.character.wisdom);">{{statsCtrl.statMods.wisdom}}</span>
+  </md-input-container>
+
+  <!-- Charisma -->
+  <md-input-container class="stat-input" flex="50">
+    <label>Cha</label>
+    <input type="number" ng-model="charCtrl.character.charisma" ng-change="statsCtrl.getStatModifier('charisma', charCtrl.character.charisma);
+    charCtrl.updateCharacter(charCtrl.character.id, {charisma:charCtrl.character.charisma})"></input>
+    <span class="material-icons">chevron_right</span>
+    <span class="modifier" ng-if="charCtrl.character.charisma" ng-init="statsCtrl.getStatModifier('charisma', charCtrl.character.charisma);">{{statsCtrl.statMods.charisma}}</span>
+  </md-input-container>
+</section>
