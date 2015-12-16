@@ -11,8 +11,7 @@
     var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'skills'];
     var path = '/assets/game-data/';
     var fileExtension = '.json';
-    // var url = '';
-
+    
     return {
       newDB: newDB,
       deleteDB: deleteDB,
