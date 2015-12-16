@@ -30,7 +30,9 @@
             templateUrl: 'app/character-sheet/proficiency-bonus/proficiency-bonus.html'
           },
           "skills@character-sheet": {
-            templateUrl: 'app/character-sheet/skills/skills.html'
+            templateUrl: 'app/character-sheet/skills/skills.html',
+            controller: 'SkillsController',
+            controllerAs: 'skillsCtrl'
           },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',

@@ -1,25 +1,52 @@
 <section id="character-sheet" layout-wrap layout="row">
   <div flex="33" layout="column">
 		<div layout-gt-md="row">
+
+      <!-- Character Name -->
 			<md-card flex>
 	      <div ui-view="name" class="md-padding"></div>
 	    </md-card>
+
+      <!-- Proficiency Bonus -->
 	    <md-card flex>
 	      <div ui-view="proficiency-bonus" class="md-padding"></div>
 	    </md-card>
 		</div>
 
+    <!-- Stats -->
     <md-card>
       <div ui-view="stats" class="md-padding"></div>
     </md-card>
 
+    <!-- Skills -->
     <md-card>
       <div ui-view="skills" class="md-padding"></div>
     </md-card>
   </div>
 
-	<div flex="66" layout="column">
-  <md-card>
-    <div  ui-view="basic" class="md-padding"></div>
-  </md-card>
+  <!-- Basic Info -->
+	<div flex="66" layout="column" >
+
+    <md-card flex="100">
+      <div  ui-view="basic" class="md-padding"></div>
+    </md-card>
+
+    <!-- <md-card flex>
+      <div  ui-view="basic" class="md-padding"></div>
+    </md-card> -->
+
+    <!-- <md-card flex>
+      <div  ui-view="basic" class="md-padding"></div>
+    </md-card> -->
+  <!-- </div> -->
+
+  <!-- Basic Info -->
+	<!-- <div flex="66" layout="column">
+
+    <md-card>
+      <div  ui-view="basic" class="md-padding"></div>
+    </md-card>
+  </div> -->
+
+
 </section>

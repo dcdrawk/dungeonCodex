@@ -60,7 +60,7 @@
     "abilityScore": "Charisma",
     "description": "Your Charisma (Deception) check determines whether you can convincingly hide the truth, either verbally or through your actions."
   }, {
-    "name": "Athletics",
+    "name": "Intimidation",
     "abilityScore": "Charisma",
     "description": "When you attempt to influence someone through overt threats, hostile actions, and physical violence, the DM might ask you to make a Charisma (Intimidation) check."
   }, {
