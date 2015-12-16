@@ -15,22 +15,22 @@
         // controllerAs: 'vm',
         views: {
           "name@character-sheet": {
-            templateUrl: 'app/character-sheet/views/name.html',
+            templateUrl: 'app/character-sheet/name/name.html',
             controller: 'CharacterController',
             controllerAs: 'nameCtrl'
           },
           "basic@character-sheet": {
-            templateUrl: 'app/character-sheet/views/basic-info.html',
+            templateUrl: 'app/character-sheet/basic-info/basic-info.html',
             controller: 'basicInfoController',
             controllerAs: 'basicCtrl'
           },
           "stats@character-sheet": {
-            templateUrl: 'app/character-sheet/views/stats.html',
+            templateUrl: 'app/character-sheet/stats/stats.html',
             controller: 'StatsController',
             controllerAs: 'statsCtrl'
           },
           "proficiency-bonus@character-sheet": {
-            templateUrl: 'app/character-sheet/views/proficiency-bonus.html'
+            templateUrl: 'app/character-sheet/proficiency-bonus/proficiency-bonus.html'
             // controller: 'ProficiencyBonusController',
             // controllerAs: 'profCtrl'
           },
