@@ -1,68 +1,46 @@
 <section id="character-sheet" layout-wrap layout="row">
   <div flex="33" layout="column">
-		<div layout-gt-md="row">
+    <div layout-gt-md="row">
 
       <!-- Character Name -->
-			<md-card flex>
-	      <div ui-view="name" class="md-padding"></div>
-	    </md-card>
+      <md-card flex>
+        <div class="md-padding" ui-view="name"></div>
+      </md-card>
 
       <!-- Proficiency Bonus -->
-	    <md-card flex>
-	      <div ui-view="proficiency-bonus" class="md-padding"></div>
-	    </md-card>
-		</div>
+      <md-card flex>
+        <div class="md-padding" ui-view="proficiency-bonus"></div>
+      </md-card>
+    </div>
 
     <!-- Stats -->
     <md-card>
-      <div ui-view="stats" class="md-padding"></div>
+      <div class="md-padding" ui-view="stats"></div>
     </md-card>
 
     <!-- Skills -->
     <md-card>
-      <div ui-view="skills" class="md-padding"></div>
+      <div class="md-padding" ui-view="skills"></div>
     </md-card>
   </div>
 
   <!-- Basic Info -->
-	<!-- <div flex="66" layout="row" layout-wrap >
-
-    <md-card flex="100">
-      <div  ui-view="basic" class="md-padding"></div>
-    </md-card>
-
-    <md-card flex="50">
-      <div  ui-view="basic" class="md-padding"></div>
-    </md-card>
-
-    <md-card flex flex="50">
-      <div  ui-view="basic" class="md-padding"></div>
-    </md-card>
-
-    <md-card flex="50">
-      <div  ui-view="basic" class="md-padding"></div>
-    </md-card>
-
-    <md-card flex flex="50">
-      <div  ui-view="basic" class="md-padding"></div>
-    </md-card>
-  </div> -->
-
-  <!-- Basic Info -->
-	<div flex="66" layout="column">
+  <div flex="66" layout="column">
 
     <md-card>
-      <div  ui-view="basic" class="md-padding"></div>
+      <div class="md-padding" ui-view="basic"></div>
     </md-card>
     <div layout="row">
+
+      <!-- Combat Stats -->
       <md-card flex="50">
-        test
+        Combat Stats View
       </md-card>
+
       <md-card flex="50">
         test
       </md-card>
     </div>
   </div>
-
 
 </section>
