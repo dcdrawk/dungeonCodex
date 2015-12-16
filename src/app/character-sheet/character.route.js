@@ -10,9 +10,6 @@
     $stateProvider
       .state('character-sheet', {
         url: '/character-sheet?characterId',
-        // templateUrl: 'app/character-sheet/character-sheet.html',
-        // controller: 'CharacterController',
-        // controllerAs: 'vm',
         views: {
           "name@character-sheet": {
             templateUrl: 'app/character-sheet/name/name.html',
@@ -31,8 +28,6 @@
           },
           "proficiency-bonus@character-sheet": {
             templateUrl: 'app/character-sheet/proficiency-bonus/proficiency-bonus.html'
-            // controller: 'ProficiencyBonusController',
-            // controllerAs: 'profCtrl'
           },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
