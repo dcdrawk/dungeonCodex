@@ -8,7 +8,7 @@
   /** @ngInject */
   function dbService($http, $log, $mdToast) {
 
-    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes' ];
+    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'skills'];
     var path = '/assets/game-data/';
     var fileExtension = '.json';
     // var url = '';
@@ -25,14 +25,15 @@
 
     function newDB() {
       var db = new Dexie("DungeonCodex");
-      db.version(2).stores({
+      db.version(3).stores({
         characters: "++id,name,race,subrace,class,alignment,background,level,experience",
         classes: "++id,name,hitPoints,proficiencies,abilities,specializations",
         backgrounds: "++id,name,description,toolProficiencies,skillProficiencies,languages,equipment,feature,special",
         feats: "++id,name,description",
         languages: "++id,type",
         races: "++id,name,abilityScoreIncrease,speed,languages,traits,subraces",
-        alignments: "++id,name,description"
+        alignments: "++id,name,description",
+        skills: "++id,name,abilityScore,description"
       });
       db.open();
       return db;
