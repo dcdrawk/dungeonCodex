@@ -1,5 +1,14 @@
-md-dialog{
-	&.size-lg{
-		width:800px;
+md-dialog {
+  &.size-lg {
+    width: 800px;
+  }
+	&.size-md {
+    width: 600px;
+  }
+  md-toolbar {
+    position: relative;
+  }
+	md-dialog-content{
+		margin-top:0;
 	}
 }

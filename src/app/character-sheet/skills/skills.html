@@ -1,5 +1,6 @@
 <!-- Dexterity -->
 <span class="md-body-2 title md-padding">Skills</span>
+<span class="md-body-2 title md-padding">{{skillsCtrl.test}}</span>
 <!-- <div ng-repeat="skill in skillsCtrl.skillNames">
   <md-checkbox class="md-primary" ng-checked="" ng-click="">
     <span>{{skill}}</span>
@@ -9,10 +10,13 @@
   </md-input-container>
   <md-divider></md-divider>
 </div> -->
-<md-list-item ng-repeat="skill in skillsCtrl.skills" ng-if="charCtrl.character && skillsCtrl.skills" ng-init="charCtrl.getSkillTotals(skillCtrl.skills, statsCtrl.statMods)">
-  <md-checkbox ng-model="skill.selected"></md-checkbox>
+<md-list-item ng-repeat="skill in skillsCtrl.skills" ng-if="charCtrl.character && skillsCtrl.skills">
+  <md-checkbox ng-model="skill.trained" ng-change="skillsCtrl.setTraining(skill.trained, skill, charCtrl.character.proficiencyBonus)"></md-checkbox>
   <!-- <div> -->
-    <p ng-click="skillsCtrl.doSecondaryAction($event);  $event.stopPropagation();">{{skill.name}}</p>
-    <span ng-click="skillsCtrl.doSecondaryAction($event);  $event.stopPropagation();">{{skill.total}}</span>
+    <p ng-click="skillsCtrl.showSkillDialog($event, skill);  $event.stopPropagation();">{{skill.name}}</p>
+    <!-- <span ng-click="skillsCtrl.doSecondaryAction($event);  $event.stopPropagation();" ng-bind-html="skillsCtrl.statMods[skill.abilityScore.toLowerCase()]"></span> -->
+    <!-- <span ng-click="skillsCtrl.showSkillDialog($event, skill);  $event.stopPropagation();">{{skillsCtrl.statMods[skill.abilityScore.toLowerCase()] + skill.bonus + skill.proficiencyBonus}}</span> -->
+    <span ng-click="skillsCtrl.setTraining(skill.trained, skill, charCtrl.character.proficiencyBonus);$event.stopPropagation();">{{skillsCtrl.statMods[skill.abilityScore.toLowerCase()] + skill.bonus + skill.proficiencyBonus}}</span>
+
   <!-- </div> -->
 </md-list-item>
