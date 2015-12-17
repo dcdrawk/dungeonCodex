@@ -82,7 +82,8 @@
     //     });
     // };
 
-    vm.showSkillDialog = function(ev, skill) {
+    vm.showSkillDialog = function(ev, skill, trained, abilityModifier) {
+
     $mdDialog.show({
       controller: SkillDialogController,
       templateUrl: '/app/character-sheet/skills/skill.dialog.html',
@@ -91,7 +92,9 @@
       clickOutsideToClose:true,
       controllerAs: 'dialog',
       locals: {
-        skill: skill
+        skill: skill,
+        trained: trained,
+        abilityModifier: abilityModifier
       }
     })
         .then(function(answer) {
@@ -101,9 +104,13 @@
         });
   };
 
-    function SkillDialogController($mdDialog, skill) {
+    function SkillDialogController($mdDialog, skill, trained, abilityModifier) {
       var vm = this;
       vm.skill = skill;
+      vm.trained = trained;
+      vm.abilityModifier = abilityModifier;
+      
+      $log.log(vm.trained);
       vm.hide = function() {
         $mdDialog.hide();
       };

@@ -39,3 +39,40 @@
     margin-right : 19px;
   }
 }
+
+.skill-stats{
+  md-input-container, .stat-container, input{
+    text-align:center;
+  }
+  md-input-container{
+    display: block;
+  }
+  .stat-container{
+    margin-top:16px;
+  }
+  .stat{
+    display: inline-block;
+    text-align:center;
+
+  }
+  input{
+    width:2em;
+    margin-top:-4px;
+  }
+  .stat{
+    margin-top: 6px;
+    margin-bottom: 7px;
+    &.bonus{
+      margin-top:4px;
+    }
+  }
+  md-checkbox{
+    margin-bottom: 0px;
+  }
+}
+.bonus{
+  margin-top:3px;
+  md-input-container{
+    margin:0;
+  }
+}

@@ -1,17 +1,20 @@
 <!-- Skills -->
 <span class="md-body-2 title md-padding">Skills</span>
-<span class="md-body-2 title md-padding">{{skillsCtrl.test}}</span>
 
 <md-list-item ng-if="charCtrl.character && skillsCtrl.skills" ng-repeat="skill in skillsCtrl.skills | orderBy:'name'">
   <!-- <md-checkbox ng-model="skill.trained"></md-checkbox> -->
   <md-checkbox ng-model="charCtrl.character.skills[skill.name].trained" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {skills:charCtrl.character.skills})"></md-checkbox>
-  <p ng-click="skillsCtrl.showSkillDialog($event, skill);  $event.stopPropagation();">{{skill.name}}</p>
+  <p ng-click="skillsCtrl.showSkillDialog($event, skill, charCtrl.character.skills[skill.name].trained, skillsCtrl.statMods[skill.abilityScore.toLowerCase()]);  $event.stopPropagation();">{{skill.name}}</p>
   <div ng-switch on="charCtrl.character.skills[skill.name].trained">
     <div ng-switch-when="true">
-      <span ng-click="skillsCtrl.showSkillDialog($event, skill);  $event.stopPropagation();">{{skillsCtrl.statMods[skill.abilityScore.toLowerCase()] + skill.bonus + charCtrl.character.proficiencyBonus}}</span>
+      <span ng-click="skillsCtrl.showSkillDialog($event, skill, charCtrl.character.skills[skill.name].trained, skillsCtrl.statMods[skill.abilityScore.toLowerCase()]); $event.stopPropagation();">
+        {{skillsCtrl.statMods[skill.abilityScore.toLowerCase()] + skill.bonus + charCtrl.character.proficiencyBonus}}
+      </span>
     </div>
     <div ng-switch-default>
-      <span ng-click="skillsCtrl.showSkillDialog($event, skill);  $event.stopPropagation();">{{skillsCtrl.statMods[skill.abilityScore.toLowerCase()] + skill.bonus}}</span>
+      <span ng-click="skillsCtrl.showSkillDialog($event, skill, charCtrl.character.skills[skill.name].trained, skillsCtrl.statMods[skill.abilityScore.toLowerCase()]); $event.stopPropagation();">
+        {{skillsCtrl.statMods[skill.abilityScore.toLowerCase()] + skill.bonus}}
+      </span>
     </div>
   </div>
 
