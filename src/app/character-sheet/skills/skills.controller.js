@@ -28,7 +28,7 @@
 
         vm.getSkillMods = function(skills, statMods){
           for(var skill of skills){
-            skill.total = skill.abilityScore;
+            skill.total = statMods[skill.abilityScore.toLowerCase()];
             $log.log(statMods);
           }
         };
