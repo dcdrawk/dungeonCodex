@@ -11,7 +11,7 @@
     var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'skills'];
     var path = '/assets/game-data/';
     var fileExtension = '.json';
-    
+
     return {
       newDB: newDB,
       deleteDB: deleteDB,
@@ -19,13 +19,14 @@
       getKeys: getKeys,
       getItems: getItems,
       getById: getById,
-      updateById: updateById
+      updateById: updateById,
+      getCollection: getCollection
     };
 
     function newDB() {
       var db = new Dexie("DungeonCodex");
-      db.version(3).stores({
-        characters: "++id,name,race,subrace,class,alignment,background,level,experience",
+      db.version(4).stores({
+        characters: "++id,name,race,subrace,class,alignment,background,level,experience,skills",
         classes: "++id,name,hitPoints,proficiencies,abilities,specializations",
         backgrounds: "++id,name,description,toolProficiencies,skillProficiencies,languages,equipment,feature,special",
         feats: "++id,name,description",
@@ -95,9 +96,15 @@
 
     //Get multiple items
     function getItems(db, table, key, query){
-      // return queryResult;
       return db[table].where(key).equalsIgnoreCase(query).toArray(function(array){
         return array[0];
+      });
+    }
+
+    //Get a whole collection
+    function getCollection(db, table){
+      return db[table].toArray(function(array){
+        return array;
       });
     }
 

@@ -12,9 +12,7 @@ md-dialog-content{
 }
 md-card{
     background-color: $grey-100;
-    p{
-      margin:0;
-    }
+
     // p:first-child{
     //     margin-top:0;
     // }
@@ -26,9 +24,12 @@ md-card{
     }
 }
 
-// .character-card {
-//   opacity: 1;
-// }
+.character-card {
+  // opacity: 1;
+  p{
+    margin:0;
+  }
+}
 //
 // .character-card.ng-hide-add, .character-card.ng-hide-remove {
 //   transition: all linear 1s;

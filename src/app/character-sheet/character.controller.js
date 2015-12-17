@@ -26,6 +26,11 @@
           // $log.log(vm.proficiencyBonus);
         };
 
+        vm.getSkillTotals = function(skills, stats){
+          // vm.character.proficiencyBonus = proficiencyBonusService.getProficiencyBonus(level);
+          $log.log('test');
+        };
+
         activate();
 
         function activate() {

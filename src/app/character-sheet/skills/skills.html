@@ -1,5 +1,18 @@
 <!-- Dexterity -->
-<span class="md-body-2 title">Skills</span>
-<p ng-repeat="skill in skillsCtrl.skillNames">
-  {{skill}}
-</p>
+<span class="md-body-2 title md-padding">Skills</span>
+<!-- <div ng-repeat="skill in skillsCtrl.skillNames">
+  <md-checkbox class="md-primary" ng-checked="" ng-click="">
+    <span>{{skill}}</span>
+  </md-checkbox>
+  <md-input-container>
+        <input type="number">
+  </md-input-container>
+  <md-divider></md-divider>
+</div> -->
+<md-list-item ng-repeat="skill in skillsCtrl.skills" ng-if="charCtrl.character && skillsCtrl.skills" ng-init="charCtrl.getSkillTotals(skillCtrl.skills, statsCtrl.statMods)">
+  <md-checkbox ng-model="skill.selected"></md-checkbox>
+  <!-- <div> -->
+    <p ng-click="skillsCtrl.doSecondaryAction($event);  $event.stopPropagation();">{{skill.name}}</p>
+    <span ng-click="skillsCtrl.doSecondaryAction($event);  $event.stopPropagation();">{{skill.total}}</span>
+  <!-- </div> -->
+</md-list-item>

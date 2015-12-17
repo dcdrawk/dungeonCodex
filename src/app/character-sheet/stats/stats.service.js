@@ -9,15 +9,18 @@
 
     /* @ngInject */
     function statsService() {
+      var statMods = {};
 
         var service = {
-            getStatModifier: getStatModifier
+            getStatModifier: getStatModifier,
+            statMods: statMods
         };
 
         return service;
 
-        function getStatModifier(score) {
-          return Math.floor((parseInt(score)/2 - 5));
+        function getStatModifier(stat, score) {
+          statMods[stat] = Math.floor((parseInt(score)/2 - 5));
+          return statMods;
         }
     }
 })();

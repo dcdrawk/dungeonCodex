@@ -1,14 +1,41 @@
 .proficiency-bonus {
-  margin:0;
-  width: 100%;
-  input, label{
+  margin: 0;
+  width : 100%;
+  input,
+  label {
     text-align: center;
-
   }
   input {
-    font-size:22px;
-    width:50%;
-    margin-left:25%;
-    margin-right:25%;
+    font-size   : 22px;
+    width       : 50%;
+    margin-left : 25%;
+    margin-right: 25%;
+  }
+}
+#skills {
+  md-input-container {
+    float  : right;
+    display: inline;
+    width  : 2em;
+    margin : 0;
+
+  }
+  md-list-item,
+  md-list-item .md-list-item-inner {
+    padding-right: 0;
+    p, span{
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+    span{
+      padding-right:16px;
+      right:16px;
+    }
+    min-height: 36px;
+  }
+  md-checkbox {
+    margin-top   : 8px;
+    margin-bottom: 8px;
+    margin-right : 19px;
   }
 }

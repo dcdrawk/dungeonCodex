@@ -31,7 +31,8 @@ Author: Devin Cook
         characters = [];
         var db = dbService.newDB();
         var deferred = $q.defer();
-
+        $log.log('getting characters!');
+        $log.log(db.version());
         db.characters.each(function(character){
             characters.push(character);
         }).then(function(){

@@ -13,7 +13,7 @@
         vm.statMods = {};
 
         vm.getStatModifier = function(stat, score){
-          vm.statMods[stat] = statsService.getStatModifier(score);
+          vm.statMods = statsService.getStatModifier(stat, score);
         }
     }
 })();
