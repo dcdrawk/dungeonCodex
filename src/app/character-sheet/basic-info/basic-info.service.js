@@ -37,8 +37,6 @@
 
         function getSubraces(raceName) {
           var db = dbService.newDB();
-          $log.log('get subraces');
-
           return dbService.getItems(db, 'races', 'name', raceName).then(function(race){
             return race.subraces;
           });

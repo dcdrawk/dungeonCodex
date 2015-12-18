@@ -8,7 +8,7 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, basicInfoService, characterService, $log, $timeout) {
+    function basicInfoController($http, $scope, basicInfoService) {
         var vm = this;
 
 
@@ -50,30 +50,9 @@
           });
         }
 
-        vm.checkCharacterRace = function() {
-          $timeout(function() {
-            $log.log(characterService.character);
-          }, 1000)
-
-          // $timeout(function() {
-          //     otherService.updateTestService('Mellow Yellow')
-          //     console.log('update with timeout fired')
-          // }, 3000);
-          // $log.log(characterService.character);
-          // if(characterService.character.race){
-          //   vm.getSubraces(characterService.character.race);
-          // }
-        }
-
-        // vm.updateCharacter = function(id, object){
-        //   $log.log('update the cahracter!')
-        //   characterService.updateCharacter(id, object);
-        // }
-
         vm.getRaces();
         vm.getClasses();
         vm.getBackgrounds();
         vm.getAlignments();
-        vm.checkCharacterRace();
     }
 })();

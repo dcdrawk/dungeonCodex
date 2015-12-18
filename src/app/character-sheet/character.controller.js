@@ -14,21 +14,14 @@
           characterService.getCharacter(characterId).then(function(character){
             vm.character = character;
           });
-        }
+        };
 
         vm.updateCharacter = function(id, object){
-          $log.log('update the cahracter!');
           characterService.updateCharacter(id, object);
-        }
+        };
 
         vm.getProficiencyBonus = function(level){
           vm.character.proficiencyBonus = proficiencyBonusService.getProficiencyBonus(level);
-          // $log.log(vm.proficiencyBonus);
-        };
-
-        vm.getSkillTotals = function(skills, stats){
-          // vm.character.proficiencyBonus = proficiencyBonusService.getProficiencyBonus(level);
-          $log.log('test');
         };
 
         activate();

@@ -12,9 +12,9 @@
         url: '/character-sheet?characterId',
         views: {
           "name@character-sheet": {
-            templateUrl: 'app/character-sheet/name/name.html',
-            controller: 'CharacterController',
-            controllerAs: 'nameCtrl'
+            templateUrl: 'app/character-sheet/name/name.html'
+            // controller: 'CharacterController',
+            // controllerAs: 'nameCtrl'
           },
           "basic@character-sheet": {
             templateUrl: 'app/character-sheet/basic-info/basic-info.html',
