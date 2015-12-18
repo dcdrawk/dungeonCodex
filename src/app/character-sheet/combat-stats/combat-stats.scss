@@ -6,4 +6,6 @@
 }
 .combat-stat-container {
   position: relative;
+  user-select: none;
+  cursor: pointer;
 }

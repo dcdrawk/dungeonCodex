@@ -36,8 +36,8 @@
           },
           "combat-stats@character-sheet": {
             templateUrl: 'app/character-sheet/combat-stats/combat-stats.html',
-            // controller: 'SkillsController',
-            // controllerAs: 'skillsCtrl'
+            controller: 'CombatStatsController',
+            controllerAs: 'combatCtrl'
           },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
