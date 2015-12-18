@@ -1,0 +1,4 @@
+$breakpoints  : (phone: 640px, tablet: 960px, desktop: 1024px) !default;
+$easeOutExpo  : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$easeInExpo   : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$easeInOutExpo: cubic-bezier(1.000, 0.000, 0.000, 1.000);

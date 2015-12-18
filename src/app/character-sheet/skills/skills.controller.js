@@ -82,7 +82,7 @@
     //     });
     // };
 
-    vm.showSkillDialog = function(ev, skill, trained, abilityModifier) {
+    vm.showSkillDialog = function(ev, id, skill, skills, abilityModifier) {
 
     $mdDialog.show({
       controller: SkillDialogController,
@@ -92,8 +92,10 @@
       clickOutsideToClose:true,
       controllerAs: 'dialog',
       locals: {
+        id: id,
         skill: skill,
-        trained: trained,
+        skills: skills,
+        // trained: trained,
         abilityModifier: abilityModifier
       }
     })
@@ -104,13 +106,16 @@
         });
   };
 
-    function SkillDialogController($mdDialog, skill, trained, abilityModifier) {
+    function SkillDialogController($mdDialog, id, skill, skills, abilityModifier, characterService) {
       var vm = this;
+
+      vm.id = id;
       vm.skill = skill;
-      vm.trained = trained;
+      vm.skills = skills;
+      // vm.trained = trained;
       vm.abilityModifier = abilityModifier;
-      
-      $log.log(vm.trained);
+
+      // $log.log(vm.trained);
       vm.hide = function() {
         $mdDialog.hide();
       };
@@ -122,6 +127,10 @@
       vm.answer = function(answer) {
         $mdDialog.hide(answer);
       };
+
+      vm.saveSkills = function(skills) {
+        characterService.updateCharacter(vm.id,{skills: skills});
+      }
 
       // //use dbService to save a new character to the database
       // vm.newCharacter = function(character){

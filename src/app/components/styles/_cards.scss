@@ -1,6 +1,8 @@
 md-card{
+	transition: all .5s ease;
 	&[md-ink-ripple]{
 		cursor: pointer;
 		-webkit-user-select: none;
 	}
+
 }

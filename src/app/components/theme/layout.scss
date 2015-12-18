@@ -1,3 +1,4 @@
+@import '../styles/variables';
 
 #main-view{
   min-height:calc(100vh - 56px);
@@ -38,9 +39,11 @@ md-card{
 // .character-card.ng-hide {
 //   opacity: 0;
 // }
-$easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
-$easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
-$easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+// $easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+// $easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+// $easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
 // .character-card{
 //   height: 100px!important;
 // }
@@ -90,4 +93,17 @@ $easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
 .character-card.ng-enter-active {
   opacity:1;
   top:0px;
+}
+
+@media screen and (min-width: map-get($breakpoints, 'tablet')) {
+  #main-view{
+    margin-top:64px;
+  }
+}
+
+@media screen and (max-width: map-get($breakpoints, 'tablet')) {
+  md-toolbar, .md-toolbar-tools{
+    height: 56px;
+    max-height: 56px;
+  }
 }

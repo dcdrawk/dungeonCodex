@@ -12,9 +12,6 @@
     </md-toolbar>
     <md-dialog-content class="md-padding" layout="column">
       <md-content>
-        <!-- <p class="md-body-2">
-              Description
-            </p> -->
         <p class="md-body-1">
           {{dialog.skill.description}}
           {{dialog.trained}}
@@ -24,7 +21,7 @@
           <div class="stat-container" flex="33">
             <p>Training</p>
             <md-input-container>
-              <md-checkbox ng-model="dialog.trained"></md-checkbox>
+              <md-checkbox ng-change="dialog.saveSkills(dialog.skills)" ng-model="dialog.skills[dialog.skill.name].trained"></md-checkbox>
             </md-input-container>
             <p class="md-caption">(+ prof. bonus)</p>
           </div>
@@ -37,23 +34,12 @@
             <p>Bonus</p>
             <p class="stat bonus">
               <md-input-container flex="33" md-no-float>
-                <input aria-label="skill bonus" placeholder="0">
+                <input aria-label="skill bonus" ng-change="dialog.saveSkills(dialog.skills)" ng-model="dialog.skills[dialog.skill.name].bonus" placeholder="0" type="number">
               </md-input-container>
             </p>
           </div>
         </div>
-
-        <!-- </div> -->
       </md-content>
     </md-dialog-content>
-    <md-dialog-actions layout="row">
-      <span flex></span>
-      <md-button ng-click="dialog.cancel()">
-        Cancel
-      </md-button>
-      <md-button class="md-primary md-raised" style="margin-right:20px;">
-        Save
-      </md-button>
-    </md-dialog-actions>
   </form>
 </md-dialog>
