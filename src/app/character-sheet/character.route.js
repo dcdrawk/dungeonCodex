@@ -34,6 +34,11 @@
             controller: 'SkillsController',
             controllerAs: 'skillsCtrl'
           },
+          "combat-stats@character-sheet": {
+            templateUrl: 'app/character-sheet/combat-stats/combat-stats.html',
+            // controller: 'SkillsController',
+            // controllerAs: 'skillsCtrl'
+          },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',

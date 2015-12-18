@@ -1,0 +1,9 @@
+.combat-stat {
+  @extend .title;
+  font-size  : 20px;
+  font-weight: 500;
+  margin     : 8px 0;
+}
+.combat-stat-container {
+  position: relative;
+}

@@ -96,13 +96,14 @@ md-card{
 }
 
 @media screen and (min-width: map-get($breakpoints, 'tablet')) {
-  #main-view{
+  #main-view, md-sidenav > md-content {
     margin-top:64px;
   }
 }
 
 @media screen and (max-width: map-get($breakpoints, 'tablet')) {
-  md-toolbar, .md-toolbar-tools{
+  md-toolbar, .md-toolbar-tools {
+    // margin-top: 56px;
     height: 56px;
     max-height: 56px;
   }
