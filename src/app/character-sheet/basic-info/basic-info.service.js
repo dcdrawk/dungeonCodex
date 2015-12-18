@@ -15,7 +15,8 @@
             getClasses: getClasses,
             getBackgrounds: getBackgrounds,
             getSubraces: getSubraces,
-            getAlignments: getAlignments
+            getAlignments: getAlignments,
+            getSpeed: getSpeed
         };
 
         return service;
@@ -46,5 +47,14 @@
           var db = dbService.newDB();
           return dbService.getKeys(db, 'alignments', 'name');
         }
+
+        function getSpeed(race) {
+          var db = dbService.newDB();
+          return dbService.getItems(db, 'races', 'name', race).then(function(race){
+            $log.log(race.speed);
+            return race.speed;
+          });
+          // return dbService.getItems(db, 'races', 'name', race);
+        };
     }
 })();

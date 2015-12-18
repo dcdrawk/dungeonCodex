@@ -37,7 +37,8 @@
   <md-input-container flex>
     <label>Race</label>
     <md-select ng-model="charCtrl.character.race" ng-change="basicCtrl.getSubraces(charCtrl.character.race);
-      charCtrl.updateCharacter(charCtrl.character.id, {race:charCtrl.character.race}); charCtrl.character.subrace = '';">
+      charCtrl.updateCharacter(charCtrl.character.id, {race:charCtrl.character.race}); charCtrl.character.subrace = '';
+      charCtrl.getSpeed(charCtrl.character.race);">
       <md-option ng-repeat="race in basicCtrl.races" value="{{race}}">{{race}}</md-option>
     </md-select>
   </md-input-container>

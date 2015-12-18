@@ -8,7 +8,7 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, basicInfoService) {
+    function basicInfoController($http, $scope, basicInfoService, dbService, $log, $q) {
         var vm = this;
 
 
@@ -50,9 +50,34 @@
           });
         }
 
+        vm.getSpeed = function(race){
+          $log.log(race);
+          // return basicInfoService.getSpeed(race);
+
+          // var deferred = $q.defer();
+          //
+          // // db.characters.each(function(character){
+          // //     characters.push(character);
+          // // }).then(function(){
+          // //     deferred.resolve(characters);
+          // // });
+          //
+          // basicInfoService.getSpeed(race).then(function(speed){
+          //   deferred.resolve(speed);
+          // });
+          // return deferred.promise;
+          //
+          // // basicInfoService.getSpeed(race).then(function(speed){
+          // //   $log.log(speed);
+          // //   return speed;
+          // //   $scope.$digest();
+          // });
+        };
+
         vm.getRaces();
         vm.getClasses();
         vm.getBackgrounds();
         vm.getAlignments();
+        // vm.getSpeed('elf');
     }
 })();
