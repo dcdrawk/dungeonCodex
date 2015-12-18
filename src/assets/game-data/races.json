@@ -321,7 +321,7 @@
     },{
       "name": "Tiefling",
       "abilityScoreIncrease": "Your Intelligence score increases by 1, and your Charisma score increases by 2.",
-      "speed": "62",
+      "speed": "30",
       "languages": "Common,Infernal",
       "traits": [{
         "title": "Darkvision",
