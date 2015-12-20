@@ -2,9 +2,9 @@ $easeOutExpo   : cubic-bezier(0.190, 1.000, 0.220, 1.000);
 $easeInExpo    : cubic-bezier(0.950, 0.050, 0.795, 0.035);
 $easeInOutExpo : cubic-bezier(1.000, 0.000, 0.000, 1.000);
 
-.character-card{
-  height: 200px!important;
-}
+// .character-card{
+//   height: 200px!important;
+// }
 
 .character-card.ng-enter {
   position:relative;

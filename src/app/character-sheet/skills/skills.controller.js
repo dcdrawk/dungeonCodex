@@ -46,28 +46,21 @@
     }
 
     vm.showSkillDialog = function(ev, id, skill, skills, abilityModifier) {
-
-    $mdDialog.show({
-      controller: SkillDialogController,
-      templateUrl: '/app/character-sheet/skills/skill.dialog.html',
-      parent: angular.element($document[0].body),
-      targetEvent: ev,
-      clickOutsideToClose:true,
-      controllerAs: 'dialog',
-      locals: {
-        id: id,
-        skill: skill,
-        skills: skills,
-        // trained: trained,
-        abilityModifier: abilityModifier
-      }
-    });
-        // .then(function(answer) {
-        //   vm.status = 'You said the information was "' + answer + '".';
-        // }, function() {
-        //   vm.status = 'You cancelled the dialog.';
-        // });
-  };
+      $mdDialog.show({
+        controller: SkillDialogController,
+        templateUrl: '/app/character-sheet/skills/skill.dialog.html',
+        parent: angular.element($document[0].body),
+        targetEvent: ev,
+        clickOutsideToClose: true,
+        controllerAs: 'dialog',
+        locals: {
+          id: id,
+          skill: skill,
+          skills: skills,
+          abilityModifier: abilityModifier
+        }
+      });
+    };
 
     function SkillDialogController($mdDialog, id, skill, skills, abilityModifier, characterService) {
       var vm = this;
@@ -92,15 +85,10 @@
       };
 
       vm.saveSkills = function(skills) {
-        characterService.updateCharacter(vm.id,{skills: skills});
+        characterService.updateCharacter(vm.id, {
+          skills: skills
+        });
       }
-
-      // //use dbService to save a new character to the database
-      // vm.newCharacter = function(character){
-      //     var db = dbService.newDB();
-      //     db.characters.add(character);
-      //     $mdDialog.hide(character);
-      // };
     }
   }
 })();

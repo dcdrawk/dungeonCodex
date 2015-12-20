@@ -55,6 +55,6 @@
             return race.speed;
           });
           // return dbService.getItems(db, 'races', 'name', race);
-        };
+        }
     }
 })();

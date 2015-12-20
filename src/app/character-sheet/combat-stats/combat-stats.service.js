@@ -8,7 +8,7 @@
     // factory.$inject = ['dependencies'];
 
     /* @ngInject */
-    function combatStatsService(dependencies) {
+    function combatStatsService() {
         var service = {
             // function: function
         };

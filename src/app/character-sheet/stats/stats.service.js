@@ -1,26 +1,31 @@
+/*
+Stats Service
+Author: Devin Cook
+*/
+
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('dc')
-        .factory('statsService', statsService);
+  angular
+    .module('dc')
+    .factory('statsService', statsService);
 
-    // factory.$inject = ['dependencies'];
+  // factory.$inject = ['dependencies'];
 
-    /* @ngInject */
-    function statsService() {
-      var statMods = {};
+  /* @ngInject */
+  function statsService() {
+    var statMods = {};
 
-        var service = {
-            getStatModifier: getStatModifier,
-            statMods: statMods
-        };
+    var service = {
+      getStatModifier: getStatModifier,
+      statMods: statMods
+    };
 
-        return service;
+    return service;
 
-        function getStatModifier(stat, score) {
-          statMods[stat] = Math.floor((parseInt(score)/2 - 5));
-          return statMods;
-        }
+    function getStatModifier(stat, score) {
+      statMods[stat] = Math.floor((parseInt(score) / 2 - 5));
+      return statMods;
     }
+  }
 })();

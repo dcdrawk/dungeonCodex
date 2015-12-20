@@ -1,7 +1,11 @@
 <div layout="row">
-  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple>
+  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
+  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Armor Class', 'acBonus',
+   combatCtrl.descriptions.ac, combatCtrl.statMods.dexterity, charCtrl.character.acBonus)">
     <span class="md-body-2 title">AC</span>
-    <span class="combat-stat" ng-if="charCtrl.character">{{combatCtrl.statMods.dexterity+10}}</span>
+    <!-- <span class="combat-stat" ng-if="charCtrl.character">{{combatCtrl.statMods.dexterity+10+charCtrl.character.acBonus}}</span> -->
+    <span class="combat-stat" ng-if="charCtrl.character">{{charCtrl.character.acBonus}}</span>
+
   </div>
   <div class="combat-stat-container md-padding" flex="33" md-ink-ripple>
     <span class="md-body-2 title">Init.</span>

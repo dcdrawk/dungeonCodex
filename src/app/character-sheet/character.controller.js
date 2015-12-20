@@ -9,10 +9,13 @@
     function CharacterController($stateParams, characterService, proficiencyBonusService, basicInfoService, $log, $scope) {
         var vm = this;
         var characterId = $stateParams.characterId;
+        // vm.character = characterService.character;
 
         vm.getCharacter = function(characterId){
           characterService.getCharacter(characterId).then(function(character){
             vm.character = character;
+            $log.log(characterService);
+            $log.log(character);
             vm.getSpeed(vm.character.race);
           });
         };

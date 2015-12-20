@@ -1,23 +1,27 @@
 <md-dialog aria-label="Skill Details" class="size-sm">
   <form>
+    <!-- Toolbar -->
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>Skill -
-          {{dialog.skill.name}}</h2>
+        <!-- Title -->
+        <h2>{{dialog.skill.name}}</h2>
         <span flex></span>
+        <!-- Close Button -->
         <md-button class="md-icon-button" ng-click="dialog.cancel()">
           <md-icon aria-label="Close dialog" class="material_icons">close</md-icon>
         </md-button>
       </div>
     </md-toolbar>
+    <!-- Dialog Content -->
     <md-dialog-content class="md-padding" layout="column">
       <md-content>
+        <!-- Description -->
         <p class="md-body-1">
           {{dialog.skill.description}}
-          {{dialog.trained}}
         </p>
-
+        <!-- Stats Row -->
         <div class="skill-stats" layout-wrap layout="row">
+          <!-- Training -->
           <div class="stat-container" flex="33">
             <p>Training</p>
             <md-input-container>
@@ -25,11 +29,13 @@
             </md-input-container>
             <p class="md-caption">(+ prof. bonus)</p>
           </div>
+          <!-- Ability Modifier -->
           <div class="stat-container" flex="33">
             <p>Ability Modifier</p>
             <p class="stat">{{dialog.abilityModifier}}</p>
             <p class="md-caption">({{dialog.skill.abilityScore}})</p>
           </div>
+          <!-- Bonus -->
           <div class="stat-container" flex="33">
             <p>Bonus</p>
             <p class="stat bonus">
