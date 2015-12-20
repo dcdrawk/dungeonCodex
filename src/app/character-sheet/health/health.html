@@ -1,0 +1,30 @@
+<div layout-wrap layout="row" ng-if="charCtrl.character.healthDetails">
+
+  <!-- Health -->
+  <div class="combat-stat-container md-padding" flex="50" md-ink-ripple ng-click="">
+    <span class="md-body-2 title">Hit Points</span>
+    <span class="combat-stat health-stat">43/53</span>
+  </div>
+
+  <!-- Initiative -->
+  <div flex="50">
+    <div flex="100" class="combat-stat-container md-padding" md-ink-ripple ng-click="">
+      <span class="md-body-2 title">Hit Dice</span>
+      <span class="combat-stat">{{charCtrl.character.level}}{{charCtrl.character.hitDice}}</span>
+    </div>
+
+    <div flex="100" class="combat-stat-container md-padding death-saves"  md-ink-ripple ng-click="">
+      <span class="md-body-2 title">Death Saves</span>
+      <p class="md-body-1">
+        Success 0/3
+      </p>
+      <p class="md-body-1">
+        Failure 0/3
+      </p>
+    </div>
+  </div>
+  <!-- Initiative -->
+  <div flex="50">
+
+  </div>
+</div>
