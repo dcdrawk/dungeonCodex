@@ -30,16 +30,27 @@
     <md-card>
       <div class="md-padding" ui-view="basic"></div>
     </md-card>
+
     <div layout="row">
 
       <!-- Combat Stats -->
-      <md-card flex="50">
-        <div id="combat-stats" ui-view="combat-stats"></div>
-      </md-card>
+      <div flex="50">
+        <md-card>
+          <div id="combat-stats" ui-view="combat-stats"></div>
+        </md-card>
 
-      <md-card flex="50">
+        <md-card>
+          <div id="combat-stats" ui-view="health"></div>
+        </md-card>
+    </div>
+    <div flex="50">
+      <md-card>
         {{charCtrl.character.combatStats}}
       </md-card>
+    </div>
+      <!-- <md-card flex="100">
+        <div id="health" ui-view="health"></div>
+      </md-card> -->
     </div>
   </div>
 

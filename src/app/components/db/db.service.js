@@ -26,8 +26,8 @@
     function newDB() {
       var db = new Dexie("DungeonCodex");
       db.version(4).stores({
-        characters: "++id,name,race,subrace,class,alignment,background,level,experience,skills,acBonus,initiativeBonus,speedBonus,combatStats",
-        classes: "++id,name,hitPoints,proficiencies,abilities,specializations",
+        characters: "++id,name,race,subrace,class,alignment,background,level,experience,skills,combatStats,health",
+        classes: "++id,name,hitDice,hitPoints,proficiencies,abilities,specializations",
         backgrounds: "++id,name,description,toolProficiencies,skillProficiencies,languages,equipment,feature,special",
         feats: "++id,name,description",
         languages: "++id,type",

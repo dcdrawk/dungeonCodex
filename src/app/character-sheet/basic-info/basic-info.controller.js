@@ -11,7 +11,6 @@
     function basicInfoController($http, $scope, basicInfoService, dbService, $log) {
         var vm = this;
 
-
         //Get Races
         vm.getRaces = function() {
           basicInfoService.getRaces().then(function(races){
@@ -28,6 +27,7 @@
           });
         }
 
+        //Get the list of classes
         vm.getClasses = function() {
           basicInfoService.getClasses().then(function(classes){
             vm.classes = classes;
@@ -35,6 +35,7 @@
           });
         }
 
+        //Get the list of subraces based on race name
         vm.getSubraces = function(raceName) {
           vm.subrace = undefined;
           basicInfoService.getSubraces(raceName).then(function(subraces){
@@ -43,6 +44,7 @@
           });
         }
 
+        //Get the list of alignments
         vm.getAlignments = function() {
           basicInfoService.getAlignments().then(function(alignments){
             vm.alignments = alignments;
@@ -50,34 +52,9 @@
           });
         }
 
-        vm.getSpeed = function(race){
-          $log.log(race);
-          // return basicInfoService.getSpeed(race);
-
-          // var deferred = $q.defer();
-          //
-          // // db.characters.each(function(character){
-          // //     characters.push(character);
-          // // }).then(function(){
-          // //     deferred.resolve(characters);
-          // // });
-          //
-          // basicInfoService.getSpeed(race).then(function(speed){
-          //   deferred.resolve(speed);
-          // });
-          // return deferred.promise;
-          //
-          // // basicInfoService.getSpeed(race).then(function(speed){
-          // //   $log.log(speed);
-          // //   return speed;
-          // //   $scope.$digest();
-          // });
-        };
-
         vm.getRaces();
         vm.getClasses();
         vm.getBackgrounds();
         vm.getAlignments();
-        // vm.getSpeed('elf');
     }
 })();
