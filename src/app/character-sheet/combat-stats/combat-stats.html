@@ -1,18 +1,26 @@
-<div layout="row">
+<div layout="row" ng-if="charCtrl.character">
+
+  <!-- Armor Class -->
   <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
   ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Armor Class', 'acBonus',
-   combatCtrl.descriptions.ac, combatCtrl.statMods.dexterity, charCtrl.character.acBonus)">
+   combatCtrl.descriptions.armorClass, combatCtrl.statMods.dexterity, charCtrl.character.combatStats);">
     <span class="md-body-2 title">AC</span>
-    <!-- <span class="combat-stat" ng-if="charCtrl.character">{{combatCtrl.statMods.dexterity+10+charCtrl.character.acBonus}}</span> -->
-    <span class="combat-stat" ng-if="charCtrl.character">{{charCtrl.character.acBonus}}</span>
+    <span class="combat-stat" >{{combatCtrl.statMods.dexterity + 10 + charCtrl.character.combatStats.acBonus}}</span>
+  </div>
 
-  </div>
-  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple>
+  <!-- Initiative -->
+  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
+  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Initiative', 'initiativeBonus',
+   combatCtrl.descriptions.initiative, combatCtrl.statMods.dexterity, charCtrl.character.combatStats);">
     <span class="md-body-2 title">Init.</span>
-    <span class="combat-stat">{{combatCtrl.statMods.dexterity}}</span>
+    <span class="combat-stat">{{combatCtrl.statMods.dexterity + charCtrl.character.combatStats.initiativeBonus}}</span>
   </div>
-  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple>
+
+  <!-- Speed -->
+  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
+  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Speed', 'speedBonus',
+   combatCtrl.descriptions.speed, charCtrl.character.speed, charCtrl.character.combatStats);">
     <span class="md-body-2 title">Spd.</span>
-    <span class="combat-stat">{{charCtrl.character.speed}}'</span>
+    <span class="combat-stat">{{1* charCtrl.character.speed + charCtrl.character.combatStats.speedBonus}}'</span>
   </div>
 </div>

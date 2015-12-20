@@ -1,98 +1,68 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('dc')
-        .controller('CombatStatsController', CombatStatsController);
+  angular
+    .module('dc')
+    .controller('CombatStatsController', CombatStatsController);
 
-    // Controller.$inject = ['dependencies'];
+  // Controller.$inject = ['dependencies'];
 
-    /* @ngInject */
-    function CombatStatsController(statsService, $log, $mdDialog, $document) {
-        var vm = this;
-        vm.statMods = statsService.statMods;
-        vm.descriptions = {};
-        vm.descriptions.ac = 'Test Description for AC';
-        // vm.dexMod = vm.statMods.dexterity;
-        // vm.statMods = 'lol';
-        // $log.log(statsService.statMods);
-        activate();
+  /* @ngInject */
+  function CombatStatsController(statsService, $log, $mdDialog, $document) {
+    var vm = this;
+    vm.statMods = statsService.statMods;
+    vm.descriptions = {
+      armorClass: 'Your Armor Class (AC) represents how well your character avoids being wounded in battle. Things that contribute to your AC include the armor you wear, the shield you carry, and your Dexterity modifier.',
+      initiative: 'At the beginning of every combat, you roll initiative by making a Dexterity check. Initiative determines the order of creatures’ turns in combat.',
+      speed: 'Every character and monster has a speed, which is the distance in feet that the character or monster can walk in 1 round.'
+    };
+    
+    activate();
 
-        function activate() {
+    function activate() {
 
-        }
-
-        vm.showCombatStatsDialog = function(ev, id, title, name, description, abilityModifier, bonus) {
-          $mdDialog.show({
-            controller: CombatStatsDialogController,
-            templateUrl: '/app/character-sheet/combat-stats/combat-stats.dialog.html',
-            parent: angular.element($document[0].body),
-            targetEvent: ev,
-            clickOutsideToClose: true,
-            controllerAs: 'dialog',
-            locals: {
-              id: id,
-              title: title,
-              name: name,
-              description: description,
-              abilityModifier: abilityModifier,
-              bonus: bonus
-            }
-          });
-        };
-
-        function CombatStatsDialogController($mdDialog, id, title, name, description, abilityModifier, bonus, characterService, $scope) {
-          var vm = this;
-
-          vm.id = id;
-          vm.description = description;
-          vm.abilityModifier = abilityModifier;
-          vm.name = name;
-          vm.title = title;
-          vm.bonus = bonus;
-
-          //$log.log(vm.trained);
-          vm.hide = function() {
-            $mdDialog.hide();
-          };
-
-          vm.cancel = function() {
-            $mdDialog.cancel();
-          };
-
-          vm.answer = function(answer) {
-            $mdDialog.hide(answer);
-          };
-
-          vm.saveBonus = function(name, bonus) {
-            $log.log(name);
-            // characterService.updateCharacter(vm.id, {
-            //   acBonus: acBonus
-            // });
-
-            characterService.updateCharacter(vm.id, {
-              acBonus: bonus
-            }).then(function(){
-              $scope.$digest();
-            });
-            // characterService.getCharacter(vm.id).then(function(character){
-            //   $log.log(character);
-            // });
-            // switch(name) {
-            //     case 'acBonus':
-            //     // $log.log('ac bonus!');
-            //       characterService.updateCharacter(vm.id, {
-            //         acBonus: bonus
-            //       });
-            //       characterService.getCharacter(vm.id);
-            //       break;
-            //     case 'initiativeBonus':
-            //       $log.log('init bonus');
-            //       break;
-            //     case 'speedBonus':
-            //       $log.log('speed bonus');
-            // }
-          }
-        }
     }
+
+    vm.showCombatStatsDialog = function(ev, id, title, name, description, abilityModifier, combatStats) {
+      $mdDialog.show({
+        controller: CombatStatsDialogController,
+        templateUrl: '/app/character-sheet/combat-stats/combat-stats.dialog.html',
+        parent: angular.element($document[0].body),
+        targetEvent: ev,
+        clickOutsideToClose: true,
+        controllerAs: 'dialog',
+        locals: {
+          id: id,
+          title: title,
+          name: name,
+          description: description,
+          abilityModifier: abilityModifier,
+          combatStats: combatStats
+        }
+      });
+    };
+
+    function CombatStatsDialogController($mdDialog, id, title, name, description, abilityModifier, combatStats, characterService) {
+      var vm = this;
+
+      vm.id = id;
+      vm.description = description;
+      vm.abilityModifier = abilityModifier;
+      vm.name = name;
+      vm.title = title;
+      vm.combatStats = combatStats;
+      
+      //Cancel the Dialog
+      vm.cancel = function() {
+        $mdDialog.cancel();
+      };
+
+      //Save the combat stats
+      vm.save = function(combatStats){
+        characterService.updateCharacter(vm.id, {
+            combatStats: combatStats
+          });
+      };
+    }
+  }
 })();

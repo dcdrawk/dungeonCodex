@@ -16,14 +16,12 @@ Author: Devin Cook
   function characterService($log, $http, dbService, $q) {
     var characters = [];
     var character = {};
-    var test = 'wut';
 
     var service = {
       getCharacters: getCharacters,
       getCharacter: getCharacter,
       updateCharacter: updateCharacter,
-      character: character,
-      test: test
+      character: character
     };
 
     return service;
@@ -32,8 +30,6 @@ Author: Devin Cook
       characters = [];
       var db = dbService.newDB();
       var deferred = $q.defer();
-      // $log.log('getting characters!');
-      // $log.log(db.version());
       db.characters.each(function(character) {
         characters.push(character);
       }).then(function() {
@@ -52,14 +48,6 @@ Author: Devin Cook
         deferred.resolve(character);
       });
       return deferred.promise;
-
-      // return character = 'lololol';
-      // return dbService.getById(db, 'characters', id).then(function(response) {
-      //   characterService.character = response;
-      //   // test = response;
-      //   // $log.log(characterService);
-      //   return characterService.character;
-      // });
     }
 
     function updateCharacter(id, object) {

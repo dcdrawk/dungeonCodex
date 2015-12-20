@@ -8,7 +8,7 @@
     // factory.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoService($log, dbService) {
+    function basicInfoService(dbService) {
 
         var service = {
             getRaces: getRaces,
@@ -51,10 +51,8 @@
         function getSpeed(race) {
           var db = dbService.newDB();
           return dbService.getItems(db, 'races', 'name', race).then(function(race){
-            $log.log(race.speed);
             return race.speed;
           });
-          // return dbService.getItems(db, 'races', 'name', race);
         }
     }
 })();
