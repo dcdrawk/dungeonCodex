@@ -1,0 +1,61 @@
+<md-dialog aria-label="test" class="size-sm">
+  <form>
+    <!-- Toolbar -->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <!-- Title -->
+        <h2>{{dialog.title}}</h2>
+        <span flex></span>
+        <!-- Close Button -->
+        <md-button class="md-icon-button" ng-click="dialog.cancel()">
+          <md-icon aria-label="Close dialog" class="material_icons">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <!-- Dialog Content -->
+    <md-dialog-content class="md-padding" layout="column">
+      <md-content>
+        <!-- Description -->
+        <p class="md-body-1">{{dialog.description}}</p>
+        <!-- Stats Row -->
+        <div class="skill-stats" layout-wrap layout="row" ng-switch="dialog.name">
+          <div class="stat-container" flex="50">
+            <p>Ability Modifier</p>
+            <!-- Armor Class -->
+            <p ng-switch-when="acBonus" class="stat">{{dialog.abilityModifier+10}}</p>
+            <p ng-switch-when="acBonus" class="md-caption">(10 + Dex Modifier)</p>
+
+            <!-- Initiative -->
+            <p ng-switch-when="initiativeBonus" class="stat">{{dialog.abilityModifier}}</p>
+            <p ng-switch-when="initiativeBonus" class="md-caption">(Dex Modifier)</p>
+
+            <!-- Speed -->
+            <p ng-switch-when="speedBonus" class="stat">{{dialog.abilityModifier}}</p>
+            <p ng-switch-when="speedBonus" class="md-caption">(Race Speed)</p>
+          </div>
+          <div class="stat-container" flex="50" ng-switch="dialog.name">
+            <p>Bonus</p>
+            <p class="stat bonus">
+              <md-input-container flex="33" md-no-float>
+                <!-- Armor Class -->
+                <input ng-switch-when="acBonus" aria-label="skill bonus" ng-change="dialog.save(dialog.combatStats)" ng-model="dialog.combatStats[dialog.name]" placeholder="0" type="number">
+                 <!-- Initiative -->
+                <input ng-switch-when="initiativeBonus" aria-label="skill bonus" ng-change="dialog.save(dialog.combatStats)" ng-model="dialog.combatStats[dialog.name]" placeholder="0" type="number">
+                <!-- Speed -->
+                <input ng-switch-when="speedBonus" step="5" aria-label="skill bonus" ng-change="dialog.save(dialog.combatStats)" ng-model="dialog.combatStats[dialog.name]" placeholder="0" type="number">
+
+
+              </md-input-container>
+              <!-- Armor Class -->
+              <p ng-switch-when="acBonus" class="md-caption no-margin">(Armor / Shield)</p>
+              <!-- Initiative -->
+              <p ng-switch-when="initiativeBonus" class="md-caption no-margin">(Feats)</p>
+              <!-- Speed -->
+              <p ng-switch-when="speedBonus" class="md-caption no-margin">(Feats)</p>
+            </p>
+          </div>
+        </div>
+      </md-content>
+    </md-dialog-content>
+  </form>
+</md-dialog>
