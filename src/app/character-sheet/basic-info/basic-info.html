@@ -2,7 +2,8 @@
   <!-- Class -->
   <md-input-container flex="25">
     <label>Class</label>
-    <md-select ng-model="charCtrl.character.class" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {class:charCtrl.character.class})">
+    <md-select ng-model="charCtrl.character.class" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {class:charCtrl.character.class});
+    charCtrl.getHitDice(charCtrl.character.class);">
       <md-option ng-repeat="class in basicCtrl.classes" value="{{class}}">{{class}}</md-option>
     </md-select>
   </md-input-container>

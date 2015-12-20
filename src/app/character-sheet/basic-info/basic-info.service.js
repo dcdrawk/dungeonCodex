@@ -17,7 +17,8 @@
             getSubraces: getSubraces,
             getAlignments: getAlignments,
             getSpeed: getSpeed,
-            getHealthDetails: getHealthDetails
+            getHealthDetails: getHealthDetails,
+            getHitDice: getHitDice
         };
 
         return service;
@@ -58,10 +59,15 @@
 
         function getHealthDetails(className) {
           var db = dbService.newDB();
-          // $log.log('service health details');
           return dbService.getItems(db, 'classes', 'name', className).then(function(classInfo){
-            // $log.log(classInfo.hitPoints);
             return classInfo.hitPoints;
+          });
+        }
+
+        function getHitDice(className) {
+          var db = dbService.newDB();
+          return dbService.getItems(db, 'classes', 'name', className).then(function(classInfo){
+            return classInfo.hitDice;
           });
         }
     }

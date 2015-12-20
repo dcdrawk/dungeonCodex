@@ -16,6 +16,7 @@
             vm.character = character;
             vm.getSpeed(vm.character.race);
             vm.getHealthDetails(vm.character.class);
+            vm.getHitDice(vm.character.class);
           });
         };
 
@@ -38,12 +39,15 @@
           });
         };
 
+        vm.getHitDice = function(className){
+          basicInfoService.getHitDice(className).then(function(hitDice){
+            vm.character.hitDice = hitDice;
+            $scope.$digest();
+          });
+        };
+
         vm.getHealthDetails = function(className){
-          $log.log('get them health details!');
-          $log.log(className);
           basicInfoService.getHealthDetails(className).then(function(healthDetails){
-            // $log.log(healthDetails);
-            // $log.log('done getting health details');
             vm.character.healthDetails = healthDetails;
             $scope.$digest();
           });
