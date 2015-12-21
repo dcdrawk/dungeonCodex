@@ -1,0 +1,104 @@
+<md-dialog aria-label="test" class="size-sm">
+  <form>
+    <!-- Toolbar -->
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <!-- Title -->
+        <h2>{{dialog.title}}</h2>
+        <span flex></span>
+        <!-- Close Button -->
+        <md-button class="md-icon-button" ng-click="dialog.cancel()">
+          <md-icon aria-label="Close dialog" class="material_icons">close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <!-- Dialog Content -->
+    <md-dialog-content class="md-padding" layout="column">
+      <md-content>
+        <!-- Description -->
+        <div ng-switch="dialog.title">
+          <p class="md-body-1" ng-switch-when="Hit Points">
+            Your character’s hit points define how tough your character is in combat and other dangerous situations. Your hit points are determined by your Hit Dice (short for Hit Point Dice).
+          </p>
+          <p class="md-body-1" ng-switch-when="Hit Dice">
+            Hit Dice represent your character's total maximum hit points. You gain 1 hit dice per character level, and you can spend any number of Hit Dice to recover hit points during a short rest. Spent hit dice are restored after a long rest.
+          </p>
+          <p class="md-body-1" ng-switch-when="Death Saves">Whenever you start your turn with 0 hit points, you must make a special saving throw, called a death saving throw, to determine whether you creep closer to death or hang onto life.</p>
+          <p class="md-body-1" ng-switch-when="Death Saves">Roll a d20. If the roll is 10 or higher, you succeed. Otherwise, you fail. A success or failure has no effect by itself. On your third success, you becom e stable (see below). On your third failure, you die.</p>
+        </div>
+        <!-- Stats Row -->
+        <section ng-switch="dialog.title">
+
+          <!-- Hit Points -->
+          <div class="skill-stats" layout-wrap layout="row" ng-switch-when="Hit Points">
+            <!-- Current Health -->
+            <div class="stat-container" flex="33">
+              <p>Current</p>
+              <p class="stat bonus">
+                <md-input-container md-no-float>
+                  <input aria-label="skill bonus" max="{{dialog.health[dialog.name].max + dialog.health[dialog.name].temp}}" min="0" ng-change="dialog.save(dialog.health)" ng-model="dialog.health[dialog.name].current" placeholder="0" type="number">
+                </md-input-container>
+              </p>
+            </div>
+
+            <!-- Max Health -->
+            <div class="stat-container" flex="33">
+              <p>Max</p>
+              <p class="stat bonus">
+                <md-input-container md-no-float>
+                  <input aria-label="skill bonus" min="0" ng-change="dialog.save(dialog.health)" ng-model="dialog.health[dialog.name].max" placeholder="0" type="number">
+                </md-input-container>
+              </p>
+            </div>
+
+            <!-- Temp Health -->
+            <div class="stat-container" flex="33">
+              <p>Temp HP</p>
+              <p class="stat bonus">
+                <md-input-container md-no-float>
+                  <input aria-label="skill bonus" min="0" ng-change="dialog.save(dialog.health)" ng-model="dialog.health[dialog.name].temp" placeholder="0" type="number">
+                </md-input-container>
+              </p>
+            </div>
+          </div>
+
+          <!-- Hit Dice -->
+          <div class="skill-stats" layout-wrap layout="row" ng-switch-when="Hit Dice">
+            <!-- Current Health -->
+            <div class="stat-container" flex="100">
+              <p>Charges</p>
+              <p class="stat bonus">
+                {{dialog.level}}{{dialog.health}}
+              </p>
+              <p class="md-caption">(Level + Class Dice)</p>
+            </div>
+          </div>
+
+          <!-- Death Saves -->
+          <div class="skill-stats" layout-wrap layout="row" ng-switch-when="Death Saves">
+            <!-- Success -->
+            <div class="stat-container" flex="50">
+              <p>Success</p>
+              <p class="stat bonus">
+                <md-input-container md-no-float>
+                  <input aria-label="skill bonus" max="3" min="0" ng-change="dialog.save(dialog.health)" ng-model="dialog.health[dialog.name].success" placeholder="0" type="number">/ 3
+                </md-input-container>
+              </p>
+            </div>
+
+            <!-- Fail -->
+            <div class="stat-container" flex="50">
+              <p>Failure</p>
+              <p class="stat bonus">
+                <md-input-container md-no-float>
+                  <input aria-label="skill bonus" max="3"  min="0" ng-change="dialog.save(dialog.health)" ng-model="dialog.health[dialog.name].fail" placeholder="0" type="number">/ 3
+                </md-input-container>
+              </p>
+            </div>
+          </div>
+
+        </section>
+      </md-content>
+    </md-dialog-content>
+  </form>
+</md-dialog>

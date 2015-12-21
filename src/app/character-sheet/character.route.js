@@ -41,8 +41,8 @@
           },
           "health@character-sheet": {
             templateUrl: 'app/character-sheet/health/health.html',
-            // controller: 'HealthController',
-            // controllerAs: 'healthCtrl'
+            controller: 'HealthController',
+            controllerAs: 'healthCtrl'
           },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',

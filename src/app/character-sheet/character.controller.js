@@ -15,7 +15,6 @@
           characterService.getCharacter(characterId).then(function(character){
             vm.character = character;
             vm.getSpeed(vm.character.race);
-            vm.getHealthDetails(vm.character.class);
             vm.getHitDice(vm.character.class);
           });
         };
@@ -33,26 +32,18 @@
         //Get character speed based on race
         vm.getSpeed = function(race){
           basicInfoService.getSpeed(race).then(function(speed){
-            // $log.log('what?');
             vm.character.speed = speed;
             $scope.$digest();
           });
         };
 
+        //Get the hit dice for the class
         vm.getHitDice = function(className){
           basicInfoService.getHitDice(className).then(function(hitDice){
             vm.character.hitDice = hitDice;
             $scope.$digest();
           });
         };
-
-        vm.getHealthDetails = function(className){
-          basicInfoService.getHealthDetails(className).then(function(healthDetails){
-            vm.character.healthDetails = healthDetails;
-            $scope.$digest();
-          });
-        }
-
 
         activate();
 
