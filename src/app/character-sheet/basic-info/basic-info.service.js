@@ -17,7 +17,8 @@
             getSubraces: getSubraces,
             getAlignments: getAlignments,
             getSpeed: getSpeed,
-            getHitDice: getHitDice
+            getHitDice: getHitDice,
+            getArchetypes: getArchetypes
         };
 
         return service;
@@ -60,6 +61,13 @@
           var db = dbService.newDB();
           return dbService.getItems(db, 'classes', 'name', className).then(function(classInfo){
             return classInfo.hitDice;
+          });
+        }
+
+        function getArchetypes(className) {
+          var db = dbService.newDB();
+          return dbService.getItems(db, 'classes', 'name', className).then(function(classInfo){
+            return classInfo.specializations;
           });
         }
     }

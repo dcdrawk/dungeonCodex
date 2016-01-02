@@ -52,9 +52,20 @@
           });
         }
 
-        vm.getRaces();
-        vm.getClasses();
-        vm.getBackgrounds();
-        vm.getAlignments();
+        vm.getArchetypes = function (className) {
+          basicInfoService.getArchetypes(className).then(function(archetypes){
+            vm.archetypes = archetypes;
+            $scope.$digest();
+          });
+        }
+
+        activate();
+
+        function activate() {
+          vm.getRaces();
+          vm.getClasses();
+          vm.getBackgrounds();
+          vm.getAlignments();
+        }
     }
 })();

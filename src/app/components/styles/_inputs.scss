@@ -7,6 +7,9 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance:textfield;
 }
+md-select{
+  overflow: hidden;
+}
 .md-select-icon{
   opacity:0;
 }
