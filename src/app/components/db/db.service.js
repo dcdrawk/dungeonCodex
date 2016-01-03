@@ -8,7 +8,7 @@
   /** @ngInject */
   function dbService($http, $log, $mdToast) {
 
-    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'skills'];
+    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
     var path = '/assets/game-data/';
     var fileExtension = '.json';
 
@@ -27,7 +27,8 @@
       var db = new Dexie("DungeonCodex");
       db.version(4).stores({
         characters: "++id,name,race,subrace,class,archetype,alignment,background,level,experience,skills,combatStats,healthStats",
-        classes: "++id,name,hitDice,hitPoints,proficiencies,abilities,specializations",
+        classes: "++id,name,hitDice,hitPoints,proficiencies,specializations",
+        classFeatures: "++id,class,archetype,*abilities",
         backgrounds: "++id,name,description,toolProficiencies,skillProficiencies,languages,equipment,feature,special",
         feats: "++id,name,description",
         languages: "++id,type",

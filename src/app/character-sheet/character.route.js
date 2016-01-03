@@ -44,6 +44,11 @@
             controller: 'HealthController',
             controllerAs: 'healthCtrl'
           },
+          "class-features@character-sheet": {
+            templateUrl: 'app/character-sheet/class-features/class-features.html',
+            controller: 'ClassFeaturesController',
+            controllerAs: 'classFeatsCtrl'
+          },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',

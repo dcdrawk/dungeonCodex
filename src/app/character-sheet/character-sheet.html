@@ -40,12 +40,12 @@
         </md-card>
 
         <md-card>
-          <div id="combat-stats" ui-view="health"></div>
+          <div id="health" ui-view="health"></div>
         </md-card>
     </div>
     <div flex="50">
       <md-card>
-        {{charCtrl.character.combatStats}}
+        <div id="class-features" ui-view="class-features"></div>
       </md-card>
     </div>
       <!-- <md-card flex="100">

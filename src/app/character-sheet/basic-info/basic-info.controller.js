@@ -8,7 +8,7 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, basicInfoService) {
+    function basicInfoController($http, $scope, $rootScope, basicInfoService) {
         var vm = this;
 
         //Get Races
@@ -57,6 +57,7 @@
             vm.archetypes = archetypes;
             $scope.$digest();
           });
+          $rootScope.$emit('classChanged', className);
         }
 
         activate();
