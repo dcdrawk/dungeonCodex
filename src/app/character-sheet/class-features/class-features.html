@@ -1,0 +1,8 @@
+<span class="md-body-2 title">Class Features</span>
+<div class="class-features" ng-if="charCtrl.character.class">
+  <div ng-repeat="feature in classFeatsCtrl.classFeatures.abilities track by $index" ng-if="feature.level <= charCtrl.character.level">
+    <p>
+      {{feature.title}}
+    </p>
+  </div>
+</div>
