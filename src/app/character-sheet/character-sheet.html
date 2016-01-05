@@ -1,33 +1,33 @@
-<section id="character-sheet" layout-wrap layout="row">
+<section id="character-sheet" layout-wrap layout="row" ng-cloak>
   <div flex="33" layout="column">
     <div layout-gt-md="row">
 
       <!-- Character Name -->
-      <md-card flex>
+      <md-card flex ng-show="charCtrl.character">
         <div class="md-padding" ui-view="name"></div>
       </md-card>
 
       <!-- Proficiency Bonus -->
-      <md-card flex>
+      <md-card flex ng-show="charCtrl.character">
         <div class="md-padding" ui-view="proficiency-bonus"></div>
       </md-card>
     </div>
 
     <!-- Stats -->
-    <md-card>
+    <md-card ng-show="charCtrl.character">
       <div class="md-padding" ui-view="stats"></div>
     </md-card>
 
     <!-- Skills -->
-    <md-card>
+    <md-card ng-show="charCtrl.character">
       <div id="skills" ui-view="skills"></div>
     </md-card>
   </div>
 
   <!-- Basic Info -->
-  <div flex="66" layout="column">
+  <div flex="66" layout="column" >
 
-    <md-card>
+    <md-card ng-show="charCtrl.character">
       <div class="md-padding" ui-view="basic"></div>
     </md-card>
 
@@ -35,17 +35,17 @@
 
       <!-- Combat Stats -->
       <div flex="50">
-        <md-card>
+        <md-card ng-show="charCtrl.character.race">
           <div id="combat-stats" ui-view="combat-stats"></div>
         </md-card>
 
-        <md-card>
+        <md-card ng-show="charCtrl.character.race">
           <div id="health" ui-view="health"></div>
         </md-card>
     </div>
     <div flex="50">
-      <md-card>
-        <div id="class-features" ui-view="class-features"></div>
+      <md-card ng-show="charCtrl.character">
+        <div id="class-features" class="md-padding" ui-view="class-features"></div>
       </md-card>
     </div>
       <!-- <md-card flex="100">

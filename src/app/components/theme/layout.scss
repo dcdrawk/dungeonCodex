@@ -3,7 +3,8 @@
 #main-view{
   min-height:calc(100vh - 56px);
   margin-top:56px;
-  background-color:#BBDEFB;
+  // background-color:#BBDEFB;
+  background-color:#CFD8DC;
 }
 md-dialog-content{
   margin-top:56px;
@@ -72,7 +73,7 @@ md-card{
 
 .character-card.ng-enter {
   position:relative;
-  transition:0.5s $easeOutExpo all;
+  transition:1s $easeOutExpo all;
   top:24px;
   opacity:0;
   // transition-delay: .9s;

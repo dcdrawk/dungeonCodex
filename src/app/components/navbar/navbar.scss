@@ -1,26 +1,26 @@
-md-toolbar{
-  position:fixed;
-  top: 0;
-}
 
-.acme-navbar-text{
+md-toolbar {
+  position        : fixed;
+  top             : 0;
+  background-color: rgb(25,118,210);
+}
+.acme-navbar-text {
   color: white;
 }
-
-md-menu-item > .md-button md-icon{
-    margin: auto 3px auto 0;
-
+md-menu-item > .md-button md-icon {
+  margin: auto 3px auto 0;
 }
 // md-menu-item > .md-button:not(.md-raised){
 //   color:#000;
 // }
-md-toolbar:not(.md-menu-toolbar){
+md-toolbar:not(.md-menu-toolbar) {
   md-menu-item {
-     .md-button:not(.md-raised), md-icon{
-        color: rgba(0,0,0,0.54);
+    .md-button:not(.md-raised),
+    md-icon {
+      color: rgba(0,0,0,0.54);
     }
   }
 }
-md-backdrop.md-menu-backdrop{
+md-backdrop.md-menu-backdrop {
   z-index: 1;
 }
