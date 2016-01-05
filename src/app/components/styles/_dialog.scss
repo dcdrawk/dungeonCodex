@@ -1,4 +1,8 @@
 md-dialog {
+  &.size-xl {
+    width: 80vw;
+    height: 80vh;
+  }
   &.size-lg {
     width: 800px;
   }
