@@ -1,4 +1,7 @@
 md-dialog {
+  md-content{
+    overflow:visible;
+  }
   &.size-xl {
     width: 80vw;
     height: 80vh;

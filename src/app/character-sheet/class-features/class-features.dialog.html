@@ -1,5 +1,5 @@
 <md-dialog aria-label="Class Features Dialog" class="size-xl">
-  <form>
+  <!-- <form> -->
     <!-- Toolbar -->
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -15,10 +15,9 @@
     <!-- Dialog Content -->
     <md-dialog-content layout="column">
       <!-- Loading Spinner -->
-      <div class="loading-spinner" layout-align="space-around" layout-sm="column" layout="row" ng-if="!dialog.classFeatures.abilities">
+      <div class="loading-spinner" layout-align="space-around" layout-sm="column" layout="row"  ng-if="!dialog.classFeatures.abilities">
         <md-progress-circular md-diameter="96" md-mode="indeterminate"></md-progress-circular>
       </div>
-
       <!-- Filters -->
       <section class="md-padding" class="md-padding" id="class-features-filters" layout-wrap layout="row" ng-if="dialog.classFeatures.abilities">
         <!-- Class -->
@@ -74,5 +73,5 @@
         </md-content>
       </section>
     </md-dialog-content>
-  </form>
+  <!-- </form> -->
 </md-dialog>
