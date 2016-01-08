@@ -20,7 +20,7 @@ gulp.task('partials', function () {
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
       module: 'dc',
-      root: 'app'
+      root: 'dist'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
