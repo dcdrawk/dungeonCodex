@@ -21,21 +21,28 @@
       <!-- Filters -->
       <section class="md-padding" class="md-padding" id="class-features-filters" layout-wrap layout="row" ng-if="dialog.classFeatures.abilities">
         <!-- Class -->
-        <md-input-container flex="25">
+        <md-input-container flex="20">
           <label>Class</label>
-          <md-select ng-change="dialog.getClassFeatures(dialog.className)" ng-model="dialog.className">
+          <md-select ng-change="dialog.getClassFeatures(dialog.className); dialog.getArchetypesList();" ng-model="dialog.className">
             <md-option ng-repeat="class in dialog.classList" value="{{class}}">{{class}}</md-option>
           </md-select>
         </md-input-container>
 
+        <md-input-container flex="20">
+          <label>Archetype</label>
+          <md-select ng-change="dialog.getArchetypeFeatures(dialog.classArchetype)" ng-model="dialog.archetypeName">
+            <md-option ng-repeat="archetype in dialog.archetypeList" value="{{archetype.title}}">{{archetype.title}}</md-option>
+          </md-select>
+        </md-input-container>
+
         <!-- Level -->
-        <md-input-container flex="25">
+        <md-input-container flex="20">
           <label>Level</label>
           <input max="20" min="1" ng-model="dialog.level" type="number"></input>
         </md-input-container>
 
         <!-- Order By -->
-        <md-input-container flex="25">
+        <md-input-container flex="20">
           <label>Order By</label>
           <md-select ng-model="dialog.orderBy">
             <md-option selected value="level">Level</md-option>
@@ -44,7 +51,7 @@
         </md-input-container>
 
         <!-- Direction -->
-        <md-input-container flex="25">
+        <md-input-container flex="20">
           <label>Direction</label>
           <md-select ng-model="dialog.direction">
             <md-option selected value="false">Ascending</md-option>
@@ -58,11 +65,11 @@
         <md-content>
           <md-list>
             <!-- <md-subheader class="md-no-sticky">3 line item</md-subheader> -->
-            <md-list-item class="md-3-line" ng-if="feature.level <= dialog.level "
-            ng-repeat="feature in dialog.classFeatures.abilities | orderBy : dialog.orderBy : dialog.direction==='true'">
+            <md-list-item class="md-3-line" ng-if="feature.level <= dialog.level" flex="100"
+            ng-repeat="feature in features = dialog.classFeatures.abilities.concat(dialog.archetypeFeatures.abilities) | orderBy : dialog.orderBy : dialog.direction==='true'">
               <div class="md-list-item-text  md-long-text" layout="column">
                 <h3>{{ feature.title }}</h3>
-                <h4>Level {{ feature.level }}</h4>
+                <h4>Level {{ feature.level | number}}</h4>
                 <p ng-bind-html="feature.description"></p>
               </div>
               <md-divider ></md-divider>

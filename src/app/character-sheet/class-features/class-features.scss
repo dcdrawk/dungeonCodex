@@ -7,6 +7,7 @@
   md-list-item {
     margin : 16px 0;
     display: inline-block;
+    width: 100%;
     md-divider {
       bottom: -16px;
     }
@@ -44,14 +45,14 @@
   opacity: 1;
   &.ng-enter,
   &.ng-leave {
-    transition: 1s opacity cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+    transition: .5s opacity cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
   }
   &.ng-enter,
-  &.ng-leave-active.ng-leave-active {
-    opacity: 0;
-  }
-  &.ng-leave,
   &.ng-enter.ng-enter-active {
     opacity: 1;
+  }
+  &.ng-leave,
+  &.ng-leave-active.ng-leave-active {
+    opacity: 0;
   }
 }
