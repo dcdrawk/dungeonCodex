@@ -9,7 +9,7 @@
   function dbService($http, $log, $mdToast) {
 
     var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
-    var path = '/assets/game-data/';
+    var path = 'assets/game-data/';
     var fileExtension = '.json';
 
     return {
