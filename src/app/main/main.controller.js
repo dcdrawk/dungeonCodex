@@ -17,7 +17,7 @@
         vm.showAdvanced = function(ev) {
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: '/app/components/newCharacter/new-character.dialog.html',
+                templateUrl: 'app/components/newCharacter/new-character.dialog.html',
                 parent: angular.element($document[0].body),//
                 // parent: angular.element(document.body)
                 targetEvent: ev,
