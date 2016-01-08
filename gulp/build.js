@@ -12,7 +12,7 @@ gulp.task('partials', function () {
   return gulp.src([
     // path.join(conf.paths.src, '/app/**/*.html'),
     path.join(conf.paths.src, '/app/**/**/*.html'),
-    path.join(conf.paths.tmp, '/serve/app/**/**/*.html')
+    path.join(conf.paths.tmp, '/serve/app/test/**/**/*.html')
   ])
     .pipe($.minifyHtml({
       empty: true,
