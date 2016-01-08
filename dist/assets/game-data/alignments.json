@@ -1,0 +1,29 @@
+{"alignments": [{
+        "name":"Lawful Good",
+        "description":"Can be counted on to do the right thing as expected by society."
+    },{
+        "name":"Neutral Good",
+        "description":"Do the best they can to help others according to their needs."
+    },{
+        "name":"Chaotic Good",
+        "description":"Act as their conscience directs, with little regard for what others expect."
+    },{
+        "name":"Lawful Neutral",
+        "description":"Act in accordance with law, tradition, or personal codes."
+    },{
+        "name":"Neutral",
+        "description":"The alignment of those who prefer to steer clear of moral questions and don’t take sides, doing what seems best at the time."
+    },{
+        "name":"Chaotic Neutral",
+        "description":"Creatures follow their whims, holding their personal freedom above all else. Many barbarians and rogues, and some bards, are chaotic neutral. "
+    },{
+        "name":"Lawful Evil",
+        "description":"Methodically take what they want, within the limits of a code of tradition, loyalty, or order. Devils, blue dragons, and hobgoblins are lawful evil."
+    },{
+        "name":"Neutral Evil",
+        "description":"The alignment of those who do whatever they can get away with, without compassion or qualms."
+    },{
+        "name":"Chaotic Evil",
+        "description":"Act with arbitrary violence, spurred by their greed, hatred, or bloodlust."
+    }]
+}

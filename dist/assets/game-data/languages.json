@@ -1,0 +1,5 @@
+{"languages": [{
+    "standard": ["Common", "Dwarvish", "Elvish", "Giant", "Gnomish", "Goblin", "Halfling", "Orc"],
+    "exotic": ["Abyssal", "Celestial", "Draconic", "Deep Speech", "Infernal", "Primordial", "Sylvan", "Undercommon"]
+  }]
+}

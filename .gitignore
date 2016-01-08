@@ -4,5 +4,5 @@ coverage/
 .sass-cache/
 .idea/
 .tmp/
-dist/
+src/
 .vscode/
