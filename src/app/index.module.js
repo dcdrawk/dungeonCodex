@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('dc', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'toastr']);
+    .module('dc', ['ngAnimate', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'ngMaterial', 'toastr', '$templateCache']);
 
 })();
