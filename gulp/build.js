@@ -19,7 +19,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'dc',
+      module: 'templateCache',
       standalone:true,
       root: 'app'
     }))
