@@ -49,6 +49,9 @@
             controller: 'ClassFeaturesController',
             controllerAs: 'classFeatsCtrl'
           },
+          "personality@character-sheet": {
+            templateUrl: 'app/character-sheet/personality/personality.html'
+          },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',

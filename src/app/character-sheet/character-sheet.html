@@ -44,6 +44,11 @@
         </md-card>
     </div>
     <div flex="50">
+
+      <md-card ng-show="charCtrl.character">
+        <div id="pesronality" class="md-padding" ui-view="personality"></div>
+      </md-card>
+
       <md-card ng-show="charCtrl.character">
         <div id="class-features" class="md-padding" ui-view="class-features"></div>
       </md-card>
