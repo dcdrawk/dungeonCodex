@@ -1,0 +1,25 @@
+<span class="md-body-2 title">Personality</span>
+
+<!-- Personality Traits -->
+<md-input-container>
+  <label>Traits</label>
+  <textarea type="text" ng-model="charCtrl.character.personality.traits" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {personality:charCtrl.character.personality})" max="100"></textarea>
+</md-input-container>
+
+<!-- Ideals -->
+<md-input-container>
+  <label>Ideals</label>
+  <textarea type="text" ng-model="charCtrl.character.personality.ideals" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {personality:charCtrl.character.personality})" max="100"></textarea>
+</md-input-container>
+
+<!-- Bonds -->
+<md-input-container>
+  <label>Bonds</label>
+  <textarea type="text" ng-model="charCtrl.character.personality.bonds" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {personality:charCtrl.character.personality})" max="100"></textarea>
+</md-input-container>
+
+<!-- Flaws -->
+<md-input-container>
+  <label>Flaws</label>
+  <textarea type="text" ng-model="charCtrl.character.personality.flaws" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {personality:charCtrl.character.personality})" max="100"></textarea>
+</md-input-container>
