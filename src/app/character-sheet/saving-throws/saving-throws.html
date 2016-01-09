@@ -1,0 +1,151 @@
+<span class="md-body-2 title md-padding">Saving Throws</span>
+
+<!-- Strength Saving Throw -->
+<md-list-item ng-if="charCtrl.character">
+  <!-- Trained  Checkbox -->
+  <md-checkbox ng-model="charCtrl.character.savingThrows.strength.trained"
+  ng-change="charCtrl.updateCharacter(charCtrl.character.id, {savingThrows:charCtrl.character.savingThrows})"></md-checkbox>
+  <!-- Stat Name -->
+  <p>
+    Strength
+  </p>
+  <div ng-switch on="charCtrl.character.savingThrows.strength.trained">
+    <!-- Show this when training = true -->
+    <div ng-switch-when="true">
+      <span>
+        {{savingThrowsCtrl.statMods.strength + charCtrl.character.proficiencyBonus}}
+      </span>
+    </div>
+    <!-- Show this if training = false -->
+    <div ng-switch-default>
+      <span>
+        {{savingThrowsCtrl.statMods.strength}}
+      </span>
+    </div>
+  </div>
+</md-list-item>
+
+<!-- Dexterity Saving Throw -->
+<md-list-item ng-if="charCtrl.character">
+  <!-- Trained  Checkbox -->
+  <md-checkbox ng-model="charCtrl.character.savingThrows.dexterity.trained"
+  ng-change="charCtrl.updateCharacter(charCtrl.character.id, {savingThrows:charCtrl.character.savingThrows})"></md-checkbox>
+  <!-- Stat Name -->
+  <p>
+    Dexterity
+  </p>
+  <div ng-switch on="charCtrl.character.savingThrows.dexterity.trained">
+    <!-- Show this when training = true -->
+    <div ng-switch-when="true">
+      <span>
+        {{savingThrowsCtrl.statMods.dexterity + charCtrl.character.proficiencyBonus}}
+      </span>
+    </div>
+    <!-- Show this if training = false -->
+    <div ng-switch-default>
+      <span>
+        {{savingThrowsCtrl.statMods.dexterity}}
+      </span>
+    </div>
+  </div>
+</md-list-item>
+
+<!-- Constitution Saving Throw -->
+<md-list-item ng-if="charCtrl.character">
+  <!-- Trained  Checkbox -->
+  <md-checkbox ng-model="charCtrl.character.savingThrows.constitution.trained"
+  ng-change="charCtrl.updateCharacter(charCtrl.character.id, {savingThrows:charCtrl.character.savingThrows})"></md-checkbox>
+  <!-- Stat Name -->
+  <p>
+    Constitution
+  </p>
+  <div ng-switch on="charCtrl.character.savingThrows.constitution.trained">
+    <!-- Show this when training = true -->
+    <div ng-switch-when="true">
+      <span>
+        {{savingThrowsCtrl.statMods.constitution + charCtrl.character.proficiencyBonus}}
+      </span>
+    </div>
+    <!-- Show this if training = false -->
+    <div ng-switch-default>
+      <span>
+        {{savingThrowsCtrl.statMods.constitution}}
+      </span>
+    </div>
+  </div>
+</md-list-item>
+
+<!-- Intelligence Saving Throw -->
+<md-list-item ng-if="charCtrl.character">
+  <!-- Trained  Checkbox -->
+  <md-checkbox ng-model="charCtrl.character.savingThrows.intelligence.trained"
+  ng-change="charCtrl.updateCharacter(charCtrl.character.id, {savingThrows:charCtrl.character.savingThrows})"></md-checkbox>
+  <!-- Stat Name -->
+  <p>
+    Intelligence
+  </p>
+  <div ng-switch on="charCtrl.character.savingThrows.intelligence.trained">
+    <!-- Show this when training = true -->
+    <div ng-switch-when="true">
+      <span>
+        {{savingThrowsCtrl.statMods.intelligence + charCtrl.character.proficiencyBonus}}
+      </span>
+    </div>
+    <!-- Show this if training = false -->
+    <div ng-switch-default>
+      <span>
+        {{savingThrowsCtrl.statMods.intelligence}}
+      </span>
+    </div>
+  </div>
+</md-list-item>
+
+<!-- Wisdom Saving Throw -->
+<md-list-item ng-if="charCtrl.character">
+  <!-- Trained  Checkbox -->
+  <md-checkbox ng-model="charCtrl.character.savingThrows.wisdom.trained"
+  ng-change="charCtrl.updateCharacter(charCtrl.character.id, {savingThrows:charCtrl.character.savingThrows})"></md-checkbox>
+  <!-- Stat Name -->
+  <p>
+    Wisdom
+  </p>
+  <div ng-switch on="charCtrl.character.savingThrows.wisdom.trained">
+    <!-- Show this when training = true -->
+    <div ng-switch-when="true">
+      <span>
+        {{savingThrowsCtrl.statMods.wisdom + charCtrl.character.proficiencyBonus}}
+      </span>
+    </div>
+    <!-- Show this if training = false -->
+    <div ng-switch-default>
+      <span>
+        {{savingThrowsCtrl.statMods.wisdom}}
+      </span>
+    </div>
+  </div>
+</md-list-item>
+
+<!-- Charisma Saving Throw -->
+<md-list-item ng-if="charCtrl.character">
+  <!-- Trained  Checkbox -->
+  <md-checkbox ng-model="charCtrl.character.savingThrows.charisma.trained"
+  ng-change="charCtrl.updateCharacter(charCtrl.character.id, {savingThrows:charCtrl.character.savingThrows})"></md-checkbox>
+  <!-- Stat Name -->
+  <p>
+    Charisma
+  </p>
+  <div ng-switch on="charCtrl.character.savingThrows.charisma.trained">
+    <!-- Show this when training = true -->
+    <div ng-switch-when="true">
+      <span>
+        {{savingThrowsCtrl.statMods.charisma + charCtrl.character.proficiencyBonus}}
+      </span>
+    </div>
+    <!-- Show this if training = false -->
+    <div ng-switch-default>
+      <span>
+        {{savingThrowsCtrl.statMods.charisma}}
+      </span>
+    </div>
+  </div>
+</md-list-item>

@@ -18,6 +18,11 @@
       <div class="md-padding" ui-view="stats"></div>
     </md-card>
 
+    <!-- Saving Throws -->
+    <md-card ng-show="charCtrl.character">
+      <div id="saving-throws" ui-view="saving-throws"></div>
+    </md-card>
+
     <!-- Skills -->
     <md-card ng-show="charCtrl.character">
       <div id="skills" ui-view="skills"></div>
