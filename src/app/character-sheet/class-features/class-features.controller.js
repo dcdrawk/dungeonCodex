@@ -72,23 +72,20 @@
       vm.getClassFeatures = function(className) {
         classFeaturesService.getClassFeatures(className).then(function(classFeatures) {
           angular.forEach(classFeatures.abilities, function (feature) {
-
             feature.level = parseFloat(feature.level);
           });
-          $log.log(classFeatures);
           vm.classFeatures = classFeatures;
           $scope.$digest();
         });
       };
 
       vm.getArchetypeFeatures = function(archetypeName) {
-        // $log.log(archetypeName);
         classFeaturesService.getArchetypeFeatures(archetypeName).then(function(archetypeFeatures) {
+          $log.log(archetypeFeatures);
           angular.forEach(archetypeFeatures.abilities, function (feature) {
             feature.level = parseFloat(feature.level);
           });
           vm.archetypeFeatures = archetypeFeatures;
-          // $log.log(archetypeFeatures);
           $scope.$digest();
         });
       };
