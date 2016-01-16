@@ -11,6 +11,7 @@
     "module": true,
     "inject": true,
     "Dexie": true,
+    "PouchDB": true
   },
   "ecmaFeatures": {
         "forOf": true

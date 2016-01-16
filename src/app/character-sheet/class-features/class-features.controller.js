@@ -11,10 +11,12 @@
   function ClassFeaturesController($scope, $rootScope, classFeaturesService, $log, $document, $mdDialog) {
     var vm = this;
 
-    $rootScope.$on('classChanged', function(event, className) {
+    var classChanged = $rootScope.$on('classChanged', function(event, className) {
       $log.log(className);
       vm.getClassFeatures(className);
     });
+
+    $rootScope.$on('$destroy', classChanged);
 
     vm.getClassFeatures = function(className) {
       classFeaturesService.getClassFeatures(className).then(function(classFeatures) {
