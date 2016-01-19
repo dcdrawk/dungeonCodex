@@ -2,6 +2,7 @@
   "classes": [{
     "name": "Barbarian",
     "hitDice": "d12",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d 12 per barbarian level"
@@ -38,6 +39,7 @@
   }, {
     "name": "Bard",
     "hitDice": "d8",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d8 per bard level"
@@ -71,6 +73,7 @@
   }, {
     "name": "Cleric",
     "hitDice": "d8",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d8 per cleric level "
@@ -122,6 +125,7 @@
   }, {
     "name": "Druid",
     "hitDice": "d8",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d8 per druid level "
@@ -158,6 +162,7 @@
   }, {
     "name": "Fighter",
     "hitDice": "d10",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d10 per fighter level "
@@ -197,6 +202,7 @@
   }, {
     "name": "Monk",
     "hitDice": "d8",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d8 per monk level "
@@ -236,6 +242,7 @@
   }, {
     "name": "Paladin",
     "hitDice": "d10",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d10 per paladin level"
@@ -275,6 +282,7 @@
   }, {
     "name": "Ranger",
     "hitDice": "d10",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d 10 per ranger level"
@@ -311,6 +319,7 @@
   }, {
     "name": "Rogue",
     "hitDice": "d8",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d8 per rogue level"
@@ -350,6 +359,7 @@
   }, {
     "name": "Sorcerer",
     "hitDice": "d6",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d6 per sorcerer level "
@@ -386,6 +396,7 @@
   }, {
     "name": "Warlock",
     "hitDice": "d8",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d8 per warlock level"
@@ -425,6 +436,7 @@
   }, {
     "name": "Wizard",
     "hitDice": "d6",
+    "type":"class",
     "hitPoints": [{
       "title": "Hit Dice",
       "description": "1d6 per wizard level"

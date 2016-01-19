@@ -8,7 +8,7 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, $rootScope, basicInfoService) {
+    function basicInfoController($http, $scope, $rootScope, basicInfoService, pouchService, $log) {
         var vm = this;
 
         //Get Races
@@ -46,10 +46,18 @@
 
         //Get the list of alignments
         vm.getAlignments = function() {
-          basicInfoService.getAlignments().then(function(alignments){
+          // basicInfoService.getAlignments().then(function(alignments){
+          //   $log.log(alignments);
+          //   // vm.alignments = alignments;
+          //   // $scope.$digest();
+          // });
+          var params = { selector: {type: 'alignment'}, fields: ['name'], sort: ['type'] } ;
+          pouchService.queryToArray(params).then(function(alignments){
+            // $log.log('pouch query');
+            // $log.log(alignments);
             vm.alignments = alignments;
-            $scope.$digest();
           });
+
         }
 
         vm.getArchetypes = function (className) {

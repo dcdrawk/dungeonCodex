@@ -9,42 +9,39 @@
 
   /* @ngInject */
   function pouchService($log, $q, $mdToast, fileService) {
-    var db = new PouchDB('appData');
+    var db = new PouchDB('appData', {
+      size: 5
+    });
+    // alert('howdy!');
+    // alert(db.info());
+    // var test = openDatabase('appData', 1, 'appData', 5000000, function (db) { alert('it works!'); });
 
-    var fileNames = ['alignments', 'backgrounds'];
+    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
     // var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
 
     var path = '/assets/game-data/';
     var fileExtension = '.json';
 
     var service = {
-      test: test,
       info: info,
       populateDB: populateDB,
       deleteDB: deleteDB,
       allDocs: allDocs,
-      query: query
+      query: query,
+      queryToArray: queryToArray
     };
 
     return service;
 
-    function test() {
-      // var deferred = $q.defer();
-      //
-      // return db.info().then(function (result) {
-      //   $log.log(result);
-      //   // return result;
-      //   deferred.resolve(result);
-      //   return deferred.promise;
-      // }).catch(function (err) {
-      //   $log.error(err);
-      // });
-    }
-
     function info() {
+      // alert('resul');
       return $q(function(resolve, reject) {
         db.info().then(function(result) {
+          // alert(result);
           resolve(result);
+        }).catch(function(err) {
+          alert(err);
+          reject(err);
         });
       });
     }
@@ -55,7 +52,8 @@
           db = new PouchDB('appData');
           resolve(response);
         }).catch(function(err) {
-          console.log(err);
+          alert(err);
+          reject(err);
         });
       });
     }
@@ -70,6 +68,7 @@
           resolve(result);
         }).catch(function(err) {
           $log.log(err);
+          reject(err);
         });
       });
     }
@@ -79,77 +78,74 @@
         for (var fileName of fileNames) {
           fileService.getFile(path, fileName, fileExtension).then(function(file) {
             var bulkDoc = file[file.fileName];
-            db.bulkDocs(bulkDoc).then(function(result) {
+            db.bulkDocs(bulkDoc).then(function() {
               //Create a design doc for the bulk documents
               var mapName = file.fileName.slice(0, file.fileName.length - 1).toLowerCase();
-
               db.createIndex({
                 index: {
                   fields: ['type'],
                   name: mapName,
                   ddoc: mapName
                 }
-              }).then(function (result) {
+              }).then(function(result) {
                 // yo, a result
-              }).catch(function (err) {
+                resolve(result);
+              }).catch(function(err) {
                 // ouch, an error
+                alert(err);
               });
-
-              // var designDoc = createDesignDoc(file.fileName);
-              // db.put(designDoc).then(function(doc) {
-              //   // design doc created!
-              //   resolve(result);
-              // }).catch(function(err) {
-              //   $log.error(err);
-              // });
-
             }).catch(function(err) {
-              $log.error(err);
+              alert(err);
+              reject(err);
             });
           });
         }
       });
     }
 
-    // function mapFunction(doc, mapName) {
-    //   if (doc.type === mapName) {
-    //     emit(doc.name, doc.description);
-    //   }
-    // }
-
-    // function createDesignDoc(name) {
-    //   var ddoc = {
-    //     _id: '_design/' + name,
-    //     views: {}
-    //   };
-    //   ddoc.views[name] = {
-    //     map: function(doc) {
-    //       emit(doc.name);
-    //     }.toString()
-    //   };
-    //   return ddoc;
-    // }
-
-    function query(index) {
-      // db.query('alignments').then(function(result) {
-      //   // do something with result
-      //   $log.log('HERE ARE THE' + index);
-      //   $log.log(result);
-      // });
-      db.find({
-        // selector: {name: 'Acolyte'},
-        selector: {type: {$eq: 'background'}},
-        fields: ['_id', 'name', 'description'],
-        sort: ['type']
-      }).then(function (result) {
-        // yo, a result
-        $log.log('reesultss');
-        $log.log(result);
-      }).catch(function (err) {
-        // ouch, an error
-        $log.error(err);
+    //query the pouchdb, uses indexes
+    //Example query params:
+    //var params = { selector: {type: 'index'}, fields: ['_id', 'name'] }
+    function query(params) {
+      return $q(function(resolve, reject) {
+        db.find(params).then(function(result) {
+          // yo, a result
+          resolve(result);
+        }).catch(function(err) {
+          // ouch, an error
+          $log.error(err);
+          reject(err);
+        });
       });
     }
 
+    //query the pouchdb and return an array
+    //there can only be one field
+    //Example query params:
+    //var params = { selector: {type: 'index'}, fields: ['name'] }
+    function queryToArray(params) {
+      if (params.fields.length === 1) {
+        var key = params.fields[0];
+        return $q(function(resolve, reject) {
+          db.find(params).then(function(result) {
+            var docs = result.docs;
+            var resultsArray = [];
+
+            for (var i in docs) {
+              resultsArray.push(docs[i][key]);
+            }
+            // yo, a result
+            resolve(resultsArray.sort());
+          }).catch(function(err) {
+            // ouch, an error
+            $log.error(err);
+            reject(err);
+          });
+        });
+      } else {
+        //Throw an error if less than or more than one field is given
+        $log.error('queryToArray expects 1 field, ' + params.fields.length + 'given');
+      }
+    }
   }
 })();

@@ -20,7 +20,7 @@
           .textContent('Database deleted!')
         );
         vm.getDBInfo();
-        vm.getAllDocs();
+        // vm.getAllDocs();
       });
     };
 
@@ -31,12 +31,13 @@
           .textContent('Database populated!')
         );
         vm.getDBInfo();
-        vm.getAllDocs();
+        // vm.getAllDocs();
       });
     };
 
     vm.getDBInfo = function() {
       pouchService.info().then(function(dbInfo) {
+        // alert(dbInfo);
         vm.test = dbInfo;
       });
     };
@@ -44,6 +45,7 @@
     vm.getAllDocs = function() {
       pouchService.allDocs().then(function(docs){
         vm.docs = JSON.stringify(docs, null, 4);
+        // vm.docs = docs.toJson();
       });
     };
 
@@ -57,8 +59,8 @@
     function activate() {
       // $log.log('test!');
       vm.getDBInfo();
-      vm.getAllDocs();
-      vm.query('alignments');
+      // vm.getAllDocs();
+      // vm.query('class');
     }
   }
 })();

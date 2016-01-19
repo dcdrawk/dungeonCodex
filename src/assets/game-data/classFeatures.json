@@ -1,6 +1,7 @@
 {
   "classFeatures": [{
     "class": "Barbarian",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Rage",
@@ -61,6 +62,7 @@
     }]
   }, {
     "class": "Barbarian",
+    "type":"classFeature",
     "archetype": "Path of the Berserker",
     "abilities": [{
       "title": "Frenzy",
@@ -81,6 +83,7 @@
     }]
   }, {
     "class": "Barbarian",
+    "type":"classFeature",
     "archetype": "Path of the Totem Warrior",
     "abilities": [{
       "title": "Spirit Seeker",
@@ -105,6 +108,7 @@
     }]
   }, {
     "class": "Bard",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Bardic Inspiration",
@@ -149,7 +153,7 @@
     }]
   }, {
     "class": "Bard",
-    "title": "College of Lore",
+    "type":"classFeature",
     "abilities": [{
       "title": "Bonus Proficiencies",
       "level": "0",
@@ -169,7 +173,7 @@
     }]
   }, {
     "class": "Bard",
-    "title": "College of Valor",
+    "type":"classFeature",
     "abilities": [{
       "title": "Bonus Proficiencies",
       "level": "0",
@@ -189,6 +193,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Divine Domain",
@@ -217,6 +222,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "Knowledge Domain",
     "abilities": [{
       "title": "Blessings of Knowledge",
@@ -241,6 +247,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "Life Domain",
     "abilities": [{
       "title": "Bonus Proficiency",
@@ -269,6 +276,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "Light Domain",
     "abilities": [{
       "title": "Bonus Cantrip",
@@ -297,6 +305,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "Nature Domain",
     "abilities": [{
       "title": "Acolyte of Nature",
@@ -325,6 +334,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "Tempest Domain",
     "abilities": [{
       "title": "Bonus Proficiencies",
@@ -353,6 +363,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "Trickery Domain",
     "abilities": [{
       "title": "Blessing of the Tricksters",
@@ -377,6 +388,7 @@
     }]
   }, {
     "class": "Cleric",
+    "type":"classFeature",
     "archetype": "War Domain",
     "abilities": [{
       "title": "Bonus Proficiencies",
@@ -405,6 +417,7 @@
     }]
   }, {
     "class": "Druid",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Druidic",
@@ -437,6 +450,7 @@
     }]
   }, {
     "class": "Druid",
+    "type":"classFeature",
     "archetype": "Circle of the Land",
     "abilities": [{
       "title": "Bonus Cantrip",
@@ -465,6 +479,7 @@
     }]
   }, {
     "class": "Druid",
+    "type":"classFeature",
     "archetype": "Circle of the Moon",
     "abilities": [{
       "title": "Combat Wild Shape",
@@ -489,6 +504,7 @@
     }]
   }, {
     "class": "Fighter",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Fighting Style",
@@ -538,6 +554,7 @@
       "description": "<p>Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can\u0027t use this feature again until you finish a long rest.</p><p>You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.</p>"
     }, {
       "class": "Fighter",
+      "type":"classFeature",
       "archetype": "Champion",
       "abilities": [{
         "title": "Improved Critical",
@@ -562,6 +579,7 @@
       }]
     }, {
       "class": "Fighter",
+      "type":"classFeature",
       "archetype": "Battle Master",
       "abilities": [{
         "title": "Combat Superiority",
@@ -586,6 +604,7 @@
       }]
     }, {
       "class": "Fighter",
+      "type":"classFeature",
       "archetype": "Eldritch Knight",
       "abilities": [{
         "title": "Spellcasting",
@@ -615,6 +634,7 @@
     }]
   }, {
     "class": "Monk",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Unarmored Defence",
@@ -706,7 +726,8 @@
       "description": "At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points."
     }],
     "class": "Monk",
-    "title": "Way of the Open Hand",
+    "type":"classFeature",
+    "archetype": "Way of the Open Hand",
     "description": "Monks of the Way of the Open Hand are the ultimate masters of martial arts combat, whether armed or unarmed. They learn techniques to push and trip their opponents, manipulate ki to heal damage to their bodies, and practice advanced meditation that can protect them from harm.",
     "abilities": [{
       "title": "Open Hand Technique",
@@ -727,7 +748,8 @@
     }]
   }, {
     "class": "Monk",
-    "title": "Way of the Shadow",
+    "type":"classFeature",
+    "archetype": "Way of the Shadow",
     "description": "Monks of the Way of Shadow follow a tradition that values stealth and subterfuge. These monks might be called ninjas or shadowdancers, and they serve as spies and assassins. Sometim es the mem bers of a ninja monastery are family members, forming a clan sworn to secrecy about their arts and missions. Other monasteries are more like thieves\u0027 guilds, hiring out their services to nobles, rich merchants, or anyone else who can pay their fees. regardless of their methods, the heads of these monasteries expect the unquestioning obedience of their students.",
     "abilities": [{
       "title": "Shadow Arts",
@@ -748,7 +770,8 @@
     }]
   }, {
     "class": "Monk",
-    "title": "Way of the Four Elements",
+    "type":"classFeature",
+    "archetype": "Way of the Four Elements",
     "description": "<p>You follow a monastic tradition that teaches you to harness the elements. When you focus your ki, you can align yourself with the forces of creation and bend the four elements to your will, using them as an extension of your body. Some mem bers of this tradition dedicate themselves to a single element, but others weave the elements together.</p><p>Many monks of this tradition tattoo their bodies with representations of their ki powers, commonly imagined as coiling dragons, but also as phoenixes, fish, plants, mountains, and cresting waves.</p>",
     "abilities": [{
       "title": "Disciple of the Elements",
@@ -825,6 +848,7 @@
     }]
   }, {
     "class": "Paladin",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Divine Sense",
@@ -890,6 +914,7 @@
     }]
   }, {
     "class": "Paladin",
+    "type":"classFeature",
     "archetype": "Oath of Devotion",
     "abilities": [{
       "title": "Channel Divinity: Sacred Weapon",
@@ -914,6 +939,7 @@
     }]
   }, {
     "class": "Paladin",
+    "type":"classFeature",
     "archetype": "Oath of the Ancients",
     "abilities": [{
       "title": "Channel Divinity: Nature\u0027s Wrath",
@@ -938,7 +964,8 @@
     }]
   }, {
     "class": "Paladin",
-    "title": "Oath of Vengeance",
+    "type":"classFeature",
+    "archetype": "Oath of Vengeance",
     "abilities": [{
       "title": "Channel Divinity: Abjur Enemy",
       "level": "3",
@@ -962,6 +989,7 @@
     }]
   }, {
     "class": "Ranger",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Favored Enemy",
@@ -1071,6 +1099,7 @@
     }]
   }, {
     "class": "Ranger",
+    "type":"classFeature",
     "archetype": "Hunter",
     "abilities": [{
       "title": "Hunter\u0027s Prey",
@@ -1128,6 +1157,7 @@
     }]
   }, {
     "class": "Ranger",
+    "type":"classFeature",
     "archetype": "Beast Master",
     "abilities": [{
       "title": "Ranger\u0027s Companion",
@@ -1204,6 +1234,7 @@
     }]
   }, {
     "class": "Rogue",
+    "type":"classFeature",
     "archetype": "Thief",
     "abilities": [{
       "title": "Fast Hands",
@@ -1228,6 +1259,7 @@
     }]
   }, {
     "class": "Rogue",
+    "type":"classFeature",
     "archetype": "Assassin",
     "abilities": [{
       "title": "Bonus Proficiencies",
@@ -1252,6 +1284,7 @@
     }]
   }, {
     "class": "Rogue",
+    "type":"classFeature",
     "archetype": "Arcane Trickster",
     "abilities": [{
       "title": "Mage Hand Legerdemain",
@@ -1272,6 +1305,7 @@
     }]
   }, {
     "class": "Sorcerer",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Sorcerous Origin",
@@ -1321,6 +1355,7 @@
     }]
   }, {
     "class": "Sorcerer",
+    "type":"classFeature",
     "archetype": "Draconic Bloodline",
     "abilities": [{
       "title": "Dragon Ancestor",
@@ -1376,6 +1411,7 @@
     }]
   }, {
     "class": "Sorcerer",
+    "type":"classFeature",
     "archetype": "Wild Magic",
     "abilities": [{
       "title": "Wild Magic Surge",
@@ -1400,6 +1436,7 @@
     }]
   }, {
     "class": "Warlock",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Otherworldly Patron",
@@ -1567,6 +1604,7 @@
     }]
   }, {
     "class": "Warlock",
+    "type":"classFeature",
     "archetype": "The Archfey",
     "abilities": [{
       "title": "Expanded Spell List",
@@ -1596,6 +1634,7 @@
     }]
   }, {
     "class": "Warlock",
+    "type":"classFeature",
     "archetype": "The Fiend",
     "abilities": [{
       "title": "Expanded Spell List",
@@ -1620,6 +1659,7 @@
     }]
   }, {
     "class": "Warlock",
+    "type":"classFeature",
     "archetype": "The Great Old One",
     "abilities": [{
       "title": "Expanded Spell List",
@@ -1644,6 +1684,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Arcane recovery",
@@ -1669,6 +1710,7 @@
   }, {
 
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Abjuration",
     "abilities": [{
       "title": "Abjuration Savant",
@@ -1693,6 +1735,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Conjuration",
     "abilities": [{
       "title": "Conjouration Savant",
@@ -1717,6 +1760,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Divination",
     "abilities": [{
       "title": "Divination Savant",
@@ -1741,6 +1785,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Enchantment",
     "abilities": [{
       "title": "Enchantment Savant",
@@ -1765,6 +1810,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Evocation",
     "abilities": [{
       "title": "Evocation Savant",
@@ -1789,6 +1835,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Illusion",
     "abilities": [{
       "title": "Illusion Savant",
@@ -1813,6 +1860,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Necromancy",
     "abilities": [{
       "title": "Necromancy Savant",
@@ -1837,6 +1885,7 @@
     }]
   }, {
     "class": "Wizard",
+    "type":"classFeature",
     "archetype": "School of Transmutation",
     "abilities": [{
       "title": "Transmutation Savant",
