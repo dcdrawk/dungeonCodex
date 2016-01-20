@@ -8,7 +8,7 @@
   //Controller.$inject = ['dependencies'];
 
   /* @ngInject */
-  function SkillsController(skillsService, $log, $scope, $mdDialog, statsService, $timeout, $document, pouchService) {
+  function SkillsController($log, $scope, $mdDialog, statsService, $timeout, $document, pouchService) {
     var vm = this;
 
     //Bind statMods to this controller

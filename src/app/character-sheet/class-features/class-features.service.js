@@ -8,29 +8,12 @@
   // factory.$inject = ['dependencies'];
 
   /* @ngInject */
-  function classFeaturesService(dbService, $log) {
+  function classFeaturesService(dbService) {
     var service = {
-      getClassFeatures: getClassFeatures,
-      getArchetypeFeatures: getArchetypeFeatures,
       filterAbilities: filterAbilities
     };
 
     return service;
-
-    function getClassFeatures(className) {
-      var db = dbService.newDB();
-      return dbService.getItems(db, 'classFeatures', 'class', className).then(function(classFeatures) {
-        // $log.log(classFeatures);
-        return classFeatures;
-      });
-    }
-
-    function getArchetypeFeatures(archetypeName) {
-      var db = dbService.newDB();
-      return dbService.getItems(db, 'classFeatures', 'archetype', archetypeName).then(function(archetypeFeatures) {
-        return archetypeFeatures;
-      });
-    }
 
     function filterAbilities(classFeatures, archetype) {
       var results = [];

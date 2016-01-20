@@ -60,7 +60,7 @@
       });
     };
 
-    function CombatStatsDialogController($mdDialog, className, archetypeName, level, characterService, classFeaturesService, basicInfoService, $log) {
+    function CombatStatsDialogController($mdDialog, className, archetypeName, level, characterService, classFeaturesService, $log) {
       var vm = this;
       vm.className = className;
       vm.archetypeName = archetypeName;
@@ -69,13 +69,6 @@
       vm.cancel = function() {
         $mdDialog.cancel();
       };
-
-      //Save the combat stats
-      // vm.save = function() {
-      //   // characterService.updateCharacter(vm.id, {
-      //   //   combatStats: combatStats
-      //   // });
-      // };
 
       vm.getClassFeatures = function(className) {
         vm.archetypeFeatures = [];
@@ -93,13 +86,6 @@
           });
           vm.classFeatures = classFeatures[0];
         });
-        // classFeaturesService.getClassFeatures(className).then(function(classFeatures) {
-        //   angular.forEach(classFeatures.abilities, function(feature) {
-        //     feature.level = parseFloat(feature.level);
-        //   });
-        //   vm.classFeatures = classFeatures;
-        //   $scope.$digest();
-        // });
       };
 
       vm.getArchetypeFeatures = function(archetypeName) {
@@ -117,28 +103,19 @@
             });
           vm.archetypeFeatures = archetypeFeatures[0];
         });
-
-        // classFeaturesService.getArchetypeFeatures(archetypeName).then(function(archetypeFeatures) {
-        //   $log.log(archetypeFeatures);
-        //   angular.forEach(archetypeFeatures.abilities, function(feature) {
-        //     feature.level = parseFloat(feature.level);
-        //   });
-        //   vm.archetypeFeatures = archetypeFeatures;
-        //   $scope.$digest();
-        // });
       };
 
       vm.getClassList = function() {
-        basicInfoService.getClasses().then(function(classList) {
+        var params = { selector: {type: 'class'}, fields: ['name'] } ;
+        pouchService.queryToArray(params, 'name').then(function(classList){
           vm.classList = classList;
-          $scope.$digest();
         });
       };
 
       vm.getArchetypesList = function() {
-        basicInfoService.getArchetypes(vm.className).then(function(archetypes) {
-          vm.archetypeList = archetypes;
-          $scope.$digest();
+        var params = { selector: {type: 'class', name: vm.className }, fields: ['name', 'specializations'] } ;
+        pouchService.queryToArray(params, 'specializations').then(function(archetypeList){
+          vm.archetypeList = archetypeList;
         });
       };
 
@@ -150,7 +127,6 @@
         vm.getClassList();
         vm.getArchetypesList();
       }
-
     }
   }
 })();

@@ -8,7 +8,7 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, $rootScope, basicInfoService, pouchService, $log) {
+    function basicInfoController($http, $scope, $rootScope, pouchService) {
         var vm = this;
 
         //Get Races

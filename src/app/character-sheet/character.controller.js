@@ -6,7 +6,7 @@
     .controller('CharacterController', CharacterController);
 
   /** @ngInject */
-  function CharacterController($stateParams, characterService, proficiencyBonusService, basicInfoService, $log, $scope, $rootScope) {
+  function CharacterController($stateParams, characterService, proficiencyBonusService, $log, $scope, $rootScope, pouchService) {
     var vm = this;
     var characterId = $stateParams.characterId;
 
@@ -31,17 +31,17 @@
 
     //Get character speed based on race
     vm.getSpeed = function(race) {
-      basicInfoService.getSpeed(race).then(function(speed) {
-        vm.character.speed = speed;
-        $scope.$digest();
+      var params = { selector: {type: 'race', name: race}, fields: ['speed'] } ;
+      pouchService.query(params).then(function(result){
+        vm.character.speed = result[0].speed;
       });
     };
 
     //Get the hit dice for the class
     vm.getHitDice = function(className) {
-      basicInfoService.getHitDice(className).then(function(hitDice) {
-        vm.character.hitDice = hitDice;
-        $scope.$digest();
+      var params = { selector: {type: 'class', name: className}, fields: ['hitDice'] } ;
+      pouchService.query(params).then(function(result){
+        vm.character.hitDice = result[0].hitDice;
       });
     };
 
