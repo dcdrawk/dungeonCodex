@@ -8,29 +8,40 @@
   // Controller.$inject = ['dependencies'];
 
   /* @ngInject */
-  function ClassFeaturesController($scope, $rootScope, classFeaturesService, $log, $document, $mdDialog) {
+  function ClassFeaturesController($scope, $rootScope, classFeaturesService, $log, $document, $mdDialog, pouchService) {
     var vm = this;
 
     var classChanged = $rootScope.$on('classChanged', function(event, className) {
-      $log.log(className);
+      vm.className = className;
       vm.getClassFeatures(className);
     });
 
+    var archetypeChanged = $rootScope.$on('archetypeChanged', function(event, archetype) {
+      vm.archetype = archetype;
+      vm.classFeatures = classFeaturesService.filterAbilities(vm.classFeaturesList, archetype);
+    });
+
     $rootScope.$on('$destroy', classChanged);
+    $rootScope.$on('$destroy', archetypeChanged);
 
     vm.getClassFeatures = function(className) {
-      classFeaturesService.getClassFeatures(className).then(function(classFeatures) {
-        // $log.log(classFeatures);
-        vm.classFeatures = classFeatures;
-        $log.log(vm.classFeatures);
-        $scope.$digest();
+      var params = {
+        selector: {
+          type: 'classFeature',
+          class: className
+        },
+        fields: ['class', 'archetype', 'abilities']
+      };
+
+      pouchService.query(params).then(function(classFeaturesList) {
+        vm.classFeaturesList = classFeaturesList;
+        vm.classFeatures = classFeaturesService.filterAbilities(classFeaturesList, vm.archetype);
       });
     }
 
     activate();
 
     function activate() {
-      // vm.getClassFeatures('Barbarian');
     }
 
     vm.showClassFeaturesDialog = function(ev, className, archetypeName, level) {
@@ -42,13 +53,9 @@
         clickOutsideToClose: true,
         controllerAs: 'dialog',
         locals: {
-          //   id: id,
-          //   title: title,
           className: className,
           archetypeName: archetypeName,
           level: level
-            //   abilityModifier: abilityModifier,
-            //   combatStats: combatStats
         }
       });
     };
@@ -58,38 +65,67 @@
       vm.className = className;
       vm.archetypeName = archetypeName;
       vm.level = level;
-      //Cancel the Dialog
-      // $log.log(vm.className);
+
       vm.cancel = function() {
         $mdDialog.cancel();
       };
 
       //Save the combat stats
-      vm.save = function() {
-        // characterService.updateCharacter(vm.id, {
-        //   combatStats: combatStats
+      // vm.save = function() {
+      //   // characterService.updateCharacter(vm.id, {
+      //   //   combatStats: combatStats
+      //   // });
+      // };
+
+      vm.getClassFeatures = function(className) {
+        vm.archetypeFeatures = [];
+        var params = {
+          selector: {
+            type: 'classFeature',
+            class: className,
+            archetype: 'None'
+          },
+          fields: ['class', 'archetype', 'abilities']
+        };
+        pouchService.query(params).then(function(classFeatures) {
+          angular.forEach(classFeatures[0].abilities, function(feature) {
+            feature.level = parseFloat(feature.level);
+          });
+          vm.classFeatures = classFeatures[0];
+        });
+        // classFeaturesService.getClassFeatures(className).then(function(classFeatures) {
+        //   angular.forEach(classFeatures.abilities, function(feature) {
+        //     feature.level = parseFloat(feature.level);
+        //   });
+        //   vm.classFeatures = classFeatures;
+        //   $scope.$digest();
         // });
       };
 
-      vm.getClassFeatures = function(className) {
-        classFeaturesService.getClassFeatures(className).then(function(classFeatures) {
-          angular.forEach(classFeatures.abilities, function (feature) {
-            feature.level = parseFloat(feature.level);
-          });
-          vm.classFeatures = classFeatures;
-          $scope.$digest();
-        });
-      };
-
       vm.getArchetypeFeatures = function(archetypeName) {
-        classFeaturesService.getArchetypeFeatures(archetypeName).then(function(archetypeFeatures) {
-          $log.log(archetypeFeatures);
-          angular.forEach(archetypeFeatures.abilities, function (feature) {
-            feature.level = parseFloat(feature.level);
-          });
-          vm.archetypeFeatures = archetypeFeatures;
-          $scope.$digest();
+        var params = {
+          selector: {
+            type: 'classFeature',
+            class: vm.className,
+            archetype: archetypeName
+          },
+          fields: ['class', 'archetype', 'abilities']
+        };
+        pouchService.query(params).then(function(archetypeFeatures) {
+            angular.forEach(archetypeFeatures[0].abilities, function(feature) {
+              feature.level = parseFloat(feature.level);
+            });
+          vm.archetypeFeatures = archetypeFeatures[0];
         });
+
+        // classFeaturesService.getArchetypeFeatures(archetypeName).then(function(archetypeFeatures) {
+        //   $log.log(archetypeFeatures);
+        //   angular.forEach(archetypeFeatures.abilities, function(feature) {
+        //     feature.level = parseFloat(feature.level);
+        //   });
+        //   vm.archetypeFeatures = archetypeFeatures;
+        //   $scope.$digest();
+        // });
       };
 
       vm.getClassList = function() {

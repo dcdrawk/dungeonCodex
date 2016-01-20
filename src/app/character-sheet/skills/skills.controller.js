@@ -8,36 +8,19 @@
   //Controller.$inject = ['dependencies'];
 
   /* @ngInject */
-  function SkillsController(skillsService, $log, $scope, $mdDialog, statsService, $timeout, $document) {
+  function SkillsController(skillsService, $log, $scope, $mdDialog, statsService, $timeout, $document, pouchService) {
     var vm = this;
 
     //Bind statMods to this controller
     vm.statMods = statsService.statMods;
 
-    //Get the skill names
-    // vm.getSkillNames = function() {
-    //   skillsService.getSkillNames().then(function(skillNames) {
-    //     vm.skillNames = skillNames;
-    //   });
-    // };
-
     //Get all of the skill info
     vm.getSkills = function() {
-      skillsService.getSkills().then(function(skills) {
+      var params = { selector: {type: 'skill'}, fields: ['name', 'abilityScore', 'description'] } ;
+      pouchService.query(params).then(function(skills){
         vm.skills = skills;
-        vm.getSkillMods(vm.skills, statsService.statMods)
       });
     };
-
-    //Get all of the skill info
-    // vm.setTraining = function(training, skill, proficiencyBonus) {
-    //   $log.log(training);
-    //   if(training === true){
-    //     skill.proficiencyBonus = proficiencyBonus;
-    //   } else {
-    //     skill.proficiencyBonus = 0;
-    //   }
-    // };
 
     activate();
 

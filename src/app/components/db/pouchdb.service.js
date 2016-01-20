@@ -110,7 +110,7 @@
       return $q(function(resolve, reject) {
         db.find(params).then(function(result) {
           // yo, a result
-          resolve(result);
+          resolve(result.docs);
         }).catch(function(err) {
           // ouch, an error
           $log.error(err);
@@ -120,32 +120,28 @@
     }
 
     //query the pouchdb and return an array
-    //there can only be one field
     //Example query params:
-    //var params = { selector: {type: 'index'}, fields: ['name'] }
-    function queryToArray(params) {
-      if (params.fields.length === 1) {
-        var key = params.fields[0];
-        return $q(function(resolve, reject) {
-          db.find(params).then(function(result) {
-            var docs = result.docs;
-            var resultsArray = [];
-
-            for (var i in docs) {
-              resultsArray.push(docs[i][key]);
-            }
-            // yo, a result
+    //var params = { selector: {type: 'index'...}, fields: ['name'...] }
+    function queryToArray(params, key) {
+      return $q(function(resolve, reject) {
+        db.find(params).then(function(result) {
+          var docs = result.docs;
+          var resultsArray = [];
+          for (var i in docs) {
+            resultsArray.push(docs[i][key]);
+          }
+          // return the result
+          if (typeof resultsArray[0] === 'object') {
+            resolve(resultsArray[0].sort());
+          } else {
             resolve(resultsArray.sort());
-          }).catch(function(err) {
-            // ouch, an error
-            $log.error(err);
-            reject(err);
-          });
+          }
+        }).catch(function(err) {
+          // ouch, an error
+          $log.error(err);
+          reject(err);
         });
-      } else {
-        //Throw an error if less than or more than one field is given
-        $log.error('queryToArray expects 1 field, ' + params.fields.length + 'given');
-      }
+      });
     }
   }
 })();

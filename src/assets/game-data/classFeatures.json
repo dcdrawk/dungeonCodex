@@ -1178,6 +1178,7 @@
     }]
   }, {
     "class": "Rogue",
+    "type":"classFeature",
     "archetype": "None",
     "abilities": [{
       "title": "Expertise",

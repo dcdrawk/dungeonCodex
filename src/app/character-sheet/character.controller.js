@@ -6,7 +6,7 @@
     .controller('CharacterController', CharacterController);
 
   /** @ngInject */
-  function CharacterController($stateParams, characterService, proficiencyBonusService, basicInfoService, $log, $scope) {
+  function CharacterController($stateParams, characterService, proficiencyBonusService, basicInfoService, $log, $scope, $rootScope) {
     var vm = this;
     var characterId = $stateParams.characterId;
 
@@ -44,6 +44,10 @@
         $scope.$digest();
       });
     };
+
+    vm.emitArchetype = function(archetype) {
+      $rootScope.$emit('archetypeChanged', archetype);
+    }
 
     activate();
 
