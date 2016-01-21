@@ -120,6 +120,7 @@
       return $q(function(resolve, reject) {
         db.find(params).then(function(result) {
           // yo, a result
+          $log.log(result);
           resolve(result.docs);
         }).catch(function(err) {
           // ouch, an error

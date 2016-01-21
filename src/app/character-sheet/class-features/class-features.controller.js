@@ -18,6 +18,7 @@
 
     var archetypeChanged = $rootScope.$on('archetypeChanged', function(event, archetype) {
       vm.archetype = archetype;
+      $log.log(archetype);
       vm.classFeatures = classFeaturesService.filterAbilities(vm.classFeaturesList, archetype);
     });
 
@@ -89,6 +90,7 @@
       };
 
       vm.getArchetypeFeatures = function(archetypeName) {
+        $log.log(archetypeName);
         var params = {
           selector: {
             type: 'classFeature',
@@ -98,6 +100,7 @@
           fields: ['class', 'archetype', 'abilities']
         };
         pouchService.query(params).then(function(archetypeFeatures) {
+          $log.log(archetypeFeatures);
             angular.forEach(archetypeFeatures[0].abilities, function(feature) {
               feature.level = parseFloat(feature.level);
             });
