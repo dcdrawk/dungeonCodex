@@ -38,13 +38,11 @@
             <p class="stat bonus">
               <md-input-container flex="33" md-no-float>
                 <!-- Armor Class -->
-                <input ng-switch-when="acBonus" aria-label="skill bonus" ng-change="dialog.save(dialog.combatStats)" ng-model="dialog.combatStats[dialog.name]" placeholder="0" type="number">
+                <input ng-switch-when="acBonus" aria-label="skill bonus" ng-change="dialog.save()" ng-model="dialog.character.combatStats[dialog.name]" placeholder="0" type="number">
                  <!-- Initiative -->
-                <input ng-switch-when="initiativeBonus" aria-label="skill bonus" ng-change="dialog.save(dialog.combatStats)" ng-model="dialog.combatStats[dialog.name]" placeholder="0" type="number">
+                <input ng-switch-when="initiativeBonus" aria-label="skill bonus" ng-change="dialog.save()" ng-model="dialog.character.combatStats[dialog.name]" placeholder="0" type="number">
                 <!-- Speed -->
-                <input ng-switch-when="speedBonus" step="5" aria-label="skill bonus" ng-change="dialog.save(dialog.combatStats)" ng-model="dialog.combatStats[dialog.name]" placeholder="0" type="number">
-
-
+                <input ng-switch-when="speedBonus" step="5" aria-label="skill bonus" ng-change="dialog.save()" ng-model="dialog.character.combatStats[dialog.name]" placeholder="0" type="number">
               </md-input-container>
               <!-- Armor Class -->
               <p ng-switch-when="acBonus" class="md-caption no-margin">(Armor / Shield)</p>

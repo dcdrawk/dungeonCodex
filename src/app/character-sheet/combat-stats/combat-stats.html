@@ -2,24 +2,24 @@
 
   <!-- Armor Class -->
   <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
-  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Armor Class', 'acBonus',
-   combatCtrl.descriptions.armorClass, combatCtrl.statMods.dexterity, charCtrl.character.combatStats);">
+  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character, 'Armor Class', 'acBonus',
+   combatCtrl.descriptions.armorClass, combatCtrl.statMods.dexterity);">
     <span class="md-body-2 title">AC</span>
     <span class="combat-stat" >{{combatCtrl.statMods.dexterity + 10 + charCtrl.character.combatStats.acBonus}}</span>
   </div>
 
   <!-- Initiative -->
   <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
-  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Initiative', 'initiativeBonus',
-   combatCtrl.descriptions.initiative, combatCtrl.statMods.dexterity, charCtrl.character.combatStats);">
+  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character, 'Initiative', 'initiativeBonus',
+   combatCtrl.descriptions.initiative, combatCtrl.statMods.dexterity);">
     <span class="md-body-2 title">Init.</span>
     <span class="combat-stat">{{combatCtrl.statMods.dexterity + charCtrl.character.combatStats.initiativeBonus}}</span>
   </div>
 
   <!-- Speed -->
   <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
-  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character.id, 'Speed', 'speedBonus',
-   combatCtrl.descriptions.speed, charCtrl.character.speed, charCtrl.character.combatStats);">
+  ng-click="combatCtrl.showCombatStatsDialog($event, charCtrl.character, 'Speed', 'speedBonus',
+   combatCtrl.descriptions.speed, charCtrl.character.speed);">
     <span class="md-body-2 title">Spd.</span>
     <span class="combat-stat">{{1 * charCtrl.character.speed + charCtrl.character.combatStats.speedBonus}}'</span>
   </div>

@@ -1,10 +1,15 @@
-.death-saves{
-  p{
+.death-saves {
+//  background-color: orange;
+  .title {
+    margin-bottom:8px;
+  }
+  p {
     text-align: center;
-    margin: 4px 0px 4px 0 ;
-    // margin-right:8px;
+    margin: 4px 0px 4px 0;
+    // margin-right:8px;    
   }
 }
-.health-stat{
-  margin-top:48px;
-}
+
+//.health-stat{
+//  margin-top:48px;
+//}

@@ -39,7 +39,7 @@
             });
         };
 
-        function DialogController($scope, $mdDialog, dbService) {
+        function DialogController($scope, $mdDialog, dbService, pouchService) {
             var vm = this;
 
             vm.hide = function() {
@@ -56,9 +56,11 @@
 
             //use dbService to save a new character to the database
             vm.newCharacter = function(character){
-                var db = dbService.newDB();
-                db.characters.add(character);
-                $mdDialog.hide(character);
+              character.type = 'character';
+              pouchService.post(character);
+//                var db = dbService.newDB();
+//                db.characters.add(character);
+//                $mdDialog.hide(character);
             };
         }
 

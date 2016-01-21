@@ -28,7 +28,10 @@
       deleteDB: deleteDB,
       allDocs: allDocs,
       query: query,
-      queryToArray: queryToArray
+      queryToArray: queryToArray,
+      get: get,
+      put: put,
+      post: post
     };
 
     return service;
@@ -73,13 +76,20 @@
       });
     }
 
+
+    //Popupate the DB with docs from the json game-data
     function populateDB() {
       return $q(function(resolve, reject) {
+        
+        //Create an index for characters
+        createCharacterIndex();
+        
+        //Go through the list of file names
         for (var fileName of fileNames) {
           fileService.getFile(path, fileName, fileExtension).then(function(file) {
             var bulkDoc = file[file.fileName];
             db.bulkDocs(bulkDoc).then(function() {
-              //Create a design doc for the bulk documents
+              //Create a design doc for the file
               var mapName = file.fileName.slice(0, file.fileName.length - 1).toLowerCase();
               db.createIndex({
                 index: {
@@ -138,6 +148,66 @@
           }
         }).catch(function(err) {
           // ouch, an error
+          $log.error(err);
+          reject(err);
+        });
+      });
+    }
+
+
+    //Initialize the character index
+    function createCharacterIndex() {
+      db.createIndex({
+        index: {
+          fields: ['type'],
+          name: 'character',
+          ddoc: 'character'
+        }
+      }).then(function(result) {//
+        // handle result
+        $log.log('created character index');
+        $log.log(result);
+      }).catch(function(err) {
+        //handle error
+        $log.log(err);
+      });
+    }
+    
+    //Get a document from the db
+    //Requires an '_id'
+    function get(id) {
+      return $q(function(resolve, reject) {
+        db.get(id).then(function(response) {
+          resolve(response);
+        }).catch(function(err) {
+          $log.error(err);
+          reject(err);
+        });
+      });
+    }
+    
+    //Put a document into the db
+    //Requires the doc to have and '_id' and '_rev'
+    function put(doc) {
+      return $q(function(resolve, reject) {
+        db.put(doc).then(function(response) {
+          $log.log(response);
+          resolve(response);
+        }).catch(function(err) {
+          $log.error(err);
+          reject(err);
+        });
+      });
+    }
+    
+    //Post a document into the db
+    //Auto-generates an '_id' and '_rev'
+    function post(doc) {
+      return $q(function(resolve, reject) {
+        db.post(doc).then(function(response) {
+          $log.log(response);
+          resolve(response);
+        }).catch(function(err) {
           $log.error(err);
           reject(err);
         });

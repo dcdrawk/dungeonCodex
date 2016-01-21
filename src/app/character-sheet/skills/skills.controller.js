@@ -28,7 +28,7 @@
       vm.getSkills();
     }
 
-    vm.showSkillDialog = function(ev, id, skill, skills, abilityModifier) {
+    vm.showSkillDialog = function(ev, character, skill, skills, abilityModifier) {
       $mdDialog.show({
         controller: SkillDialogController,
         templateUrl: '/app/character-sheet/skills/skill.dialog.html',
@@ -37,7 +37,7 @@
         clickOutsideToClose: true,
         controllerAs: 'dialog',
         locals: {
-          id: id,
+          character: character,
           skill: skill,
           skills: skills,
           abilityModifier: abilityModifier
@@ -45,10 +45,10 @@
       });
     };
 
-    function SkillDialogController($mdDialog, id, skill, skills, abilityModifier, characterService) {
+    function SkillDialogController($mdDialog, character, skill, skills, abilityModifier, characterService) {
       var vm = this;
 
-      vm.id = id;
+      vm.character = character;
       vm.skill = skill;
       vm.skills = skills;
       // vm.trained = trained;
@@ -67,10 +67,13 @@
         $mdDialog.hide(answer);
       };
 
-      vm.saveSkills = function(skills) {
-        characterService.updateCharacter(vm.id, {
-          skills: skills
+      vm.saveSkills = function() {
+        pouchService.put(vm.character).then(function(update){
+          vm.character._rev = update.rev;
         });
+//        characterService.updateCharacter(vm.id, {
+//          skills: skills
+//        });
       }
     }
   }
