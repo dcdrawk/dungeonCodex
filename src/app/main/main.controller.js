@@ -19,6 +19,11 @@
         targetEvent: ev,
         clickOutsideToClose: true,
         controllerAs: 'dialog'
+      })
+      .then(function(character) {
+          vm.characters.push(character);
+      }, function() {
+          //Dialog Canceled
       });
     };
 
