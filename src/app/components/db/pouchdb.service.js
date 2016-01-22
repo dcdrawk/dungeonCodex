@@ -19,7 +19,7 @@
     var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
     // var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
 
-    var path = '/assets/game-data/';
+    var path = 'assets/game-data/';
     var fileExtension = '.json';
 
     var service = {
@@ -80,14 +80,14 @@
     //Popupate the DB with docs from the json game-data
     function populateDB() {
       return $q(function(resolve, reject) {
-        
+
         //Create an index for characters
         createCharacterIndex();
-        
+
         //Go through the list of file names
 //        for (var fileName of fileNames) {
         angular.forEach(fileNames, function(fileName){
-        
+
           fileService.getFile(path, fileName, fileExtension).then(function(file) {
             var bulkDoc = file[file.fileName];
             db.bulkDocs(bulkDoc).then(function() {
@@ -177,7 +177,7 @@
         $log.log(err);
       });
     }
-    
+
     //Get a document from the db
     //Requires an '_id'
     function get(id) {
@@ -190,7 +190,7 @@
         });
       });
     }
-    
+
     //Put a document into the db
     //Requires the doc to have and '_id' and '_rev'
     function put(doc) {
@@ -204,7 +204,7 @@
         });
       });
     }
-    
+
     //Post a document into the db
     //Auto-generates an '_id' and '_rev'
     function post(doc) {
