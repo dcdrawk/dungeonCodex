@@ -17,7 +17,7 @@
 
     }
 
-    vm.showHealthDialog = function(ev, id, level, title, name, health) {
+    vm.showHealthDialog = function(ev, character, level, title, name, health) {
       $mdDialog.show({
         controller: CombatStatsDialogController,
         templateUrl: '/app/character-sheet/health/health.dialog.html',
@@ -26,7 +26,7 @@
         clickOutsideToClose: true,
         controllerAs: 'dialog',
         locals: {
-          id: id,
+          character: character,
           title: title,
           name: name,
           health: health,
@@ -35,14 +35,17 @@
       });
     };
 
-    function CombatStatsDialogController($mdDialog, id, level, title, name, health, characterService) {
+    function CombatStatsDialogController($mdDialog, character, level, title, name, health, characterService, pouchService, $log) {
       var vm = this;
 
-      vm.id = id;
+      vm.character = character;
       vm.title = title;
       vm.name = name;
       vm.level = level;
-      vm.health = health;
+      $log.log(health);
+      vm.character.healthStats = health;
+      
+      $log.log(vm.character);
 
       //Cancel the Dialog
       vm.cancel = function() {
@@ -50,10 +53,14 @@
       };
 
       //Save the combat stats
-      vm.save = function(healthStats) {
-        characterService.updateCharacter(vm.id, {
-          healthStats: healthStats
+      vm.save = function() {
+        $log.log(vm.character);
+        pouchService.put(vm.character).then(function(update){
+          vm.character._rev = update.rev;
         });
+//        characterService.updateCharacter(vm.id, {
+//          healthStats: healthStats
+//        });
       };
     }
   }

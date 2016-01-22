@@ -23,34 +23,33 @@
 
     }
 
-    vm.showCombatStatsDialog = function(ev, id, title, name, description, abilityModifier, combatStats) {
+    vm.showCombatStatsDialog = function(ev, character, title, name, description, abilityModifier) {
       $mdDialog.show({
         controller: CombatStatsDialogController,
-        templateUrl: '/app/character-sheet/combat-stats/combat-stats.dialog.html',
+        templateUrl: 'app/character-sheet/combat-stats/combat-stats.dialog.html',
         parent: angular.element($document[0].body),
         targetEvent: ev,
         clickOutsideToClose: true,
         controllerAs: 'dialog',
         locals: {
-          id: id,
+          character: character,
           title: title,
           name: name,
           description: description,
-          abilityModifier: abilityModifier,
-          combatStats: combatStats
+          abilityModifier: abilityModifier
         }
       });
     };
 
-    function CombatStatsDialogController($mdDialog, id, title, name, description, abilityModifier, combatStats, characterService) {
+    function CombatStatsDialogController($mdDialog, character, title, name, description, abilityModifier, characterService, pouchService) {
       var vm = this;
 
-      vm.id = id;
+      vm.character = character;
       vm.description = description;
       vm.abilityModifier = abilityModifier;
       vm.name = name;
       vm.title = title;
-      vm.combatStats = combatStats;
+//      vm.combatStats = vm.character.combatStats;
       
       //Cancel the Dialog
       vm.cancel = function() {
@@ -58,10 +57,11 @@
       };
 
       //Save the combat stats
-      vm.save = function(combatStats){
-        characterService.updateCharacter(vm.id, {
-            combatStats: combatStats
-          });
+      vm.save = function(){
+        pouchService.put(vm.character).then(function(update){
+          $log.log('Combat stats updated!');
+          vm.character._rev = update.rev;
+        });
       };
     }
   }

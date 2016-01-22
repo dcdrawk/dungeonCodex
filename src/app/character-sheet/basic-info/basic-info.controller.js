@@ -8,54 +8,53 @@
     // basicInfoController.$inject = ['dependencies'];
 
     /* @ngInject */
-    function basicInfoController($http, $scope, $rootScope, basicInfoService) {
+    function basicInfoController($http, $scope, $rootScope, pouchService) {
         var vm = this;
 
         //Get Races
         vm.getRaces = function() {
-          basicInfoService.getRaces().then(function(races){
+          var params = { selector: {type: 'race'}, fields: ['name'] } ;
+          pouchService.queryToArray(params, 'name').then(function(races){
             vm.races = races;
-            $scope.$digest();
           });
         }
 
         //Get backgrounds
         vm.getBackgrounds = function() {
-          basicInfoService.getBackgrounds().then(function(backgrounds){
+          var params = { selector: {type: 'background'}, fields: ['name'] } ;
+          pouchService.queryToArray(params, 'name').then(function(backgrounds){
             vm.backgrounds = backgrounds;
-            $scope.$digest();
           });
         }
 
         //Get the list of classes
         vm.getClasses = function() {
-          basicInfoService.getClasses().then(function(classes){
+          var params = { selector: {type: 'class'}, fields: ['name'] } ;
+          pouchService.queryToArray(params, 'name').then(function(classes){
             vm.classes = classes;
-            $scope.$digest();
           });
         }
 
         //Get the list of subraces based on race name
         vm.getSubraces = function(raceName) {
-          vm.subrace = undefined;
-          basicInfoService.getSubraces(raceName).then(function(subraces){
+          var params = { selector: {type: 'race', name: raceName}, fields: ['name', 'subraces'], sort: ['type'] } ;
+          pouchService.queryToArray(params, 'subraces').then(function(subraces){
             vm.subraces = subraces;
-            $scope.$digest();
           });
         }
 
         //Get the list of alignments
         vm.getAlignments = function() {
-          basicInfoService.getAlignments().then(function(alignments){
+          var params = { selector: {type: 'alignment'}, fields: ['name'], sort: ['type'] } ;
+          pouchService.queryToArray(params, 'name').then(function(alignments){
             vm.alignments = alignments;
-            $scope.$digest();
           });
         }
 
         vm.getArchetypes = function (className) {
-          basicInfoService.getArchetypes(className).then(function(archetypes){
+          var params = { selector: {type: 'class', name: className }, fields: ['name', 'specializations'] } ;
+          pouchService.queryToArray(params, 'specializations').then(function(archetypes){
             vm.archetypes = archetypes;
-            $scope.$digest();
           });
           $rootScope.$emit('classChanged', className);
         }

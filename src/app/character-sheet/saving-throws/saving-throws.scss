@@ -1,0 +1,16 @@
+#saving-throws md-checkbox {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 19px;
+}
+
+#saving-throws md-list-item, #saving-throws md-list-item .md-list-item-inner {
+    // padding-right: 0;
+    min-height: 36px;
+}
+
+#saving-throws md-list-item{
+    &:nth-last-child(1){
+      margin-bottom:8px;
+    }
+}

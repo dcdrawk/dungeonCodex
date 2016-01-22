@@ -30,7 +30,7 @@
 
         <md-input-container flex="20">
           <label>Archetype</label>
-          <md-select ng-change="dialog.getArchetypeFeatures(dialog.classArchetype)" ng-model="dialog.archetypeName">
+          <md-select ng-change="dialog.getArchetypeFeatures(dialog.archetypeName)" ng-model="dialog.archetypeName">
             <md-option ng-repeat="archetype in dialog.archetypeList" value="{{archetype.title}}">{{archetype.title}}</md-option>
           </md-select>
         </md-input-container>
@@ -59,7 +59,6 @@
           </md-select>
         </md-input-container>
       </section>
-
       <!-- Class Features List -->
       <section id="class-features-list" layout="column" ng-if="dialog.classFeatures.abilities">
         <md-content>

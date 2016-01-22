@@ -13,8 +13,8 @@ Author: Devin Cook
   // factory.$inject = ['dependencies'];
 
   /* @ngInject */
-  function characterService($log, $http, dbService, $q) {
-    var characters = [];
+  function characterService($log, $http, dbService, $q, pouchService) {
+//    var characters = [];
     var character = {};
 
     var service = {
@@ -27,34 +27,49 @@ Author: Devin Cook
     return service;
 
     function getCharacters() {
-      characters = [];
-      var db = dbService.newDB();
-      var deferred = $q.defer();
-      db.characters.each(function(character) {
-        characters.push(character);
-      }).then(function() {
-        deferred.resolve(characters);
+//      var params = {};
+      
+      var params = { selector: {type: 'character'}, fields: ['name', '_id'] } ;
+      return pouchService.query(params).then(function(characters){
+        $log.log(characters);
+        return characters;
       });
-      return deferred.promise;
+//      characters = [];
+//      var db = dbService.newDB();
+//      var deferred = $q.defer();
+//      db.characters.each(function(character) {
+//        characters.push(character);
+//      }).then(function() {
+//        deferred.resolve(characters);
+//      });
+//      return deferred.promise;
     }
 
     //Get a specific character by id
     function getCharacter(id) {
-      characterService.test = 'lol';
-      var db = dbService.newDB();
-      var deferred = $q.defer();
-      dbService.getById(db, 'characters', id).then(function(response) {
-        character = response;
-        deferred.resolve(character);
+//      var params = { selector: {type: 'character'}, fields: ['name', '_id'] } ;
+      return pouchService.get(id).then(function(character){
+//        $log.log(character);
+        return character;
       });
-      return deferred.promise;
+//      characterService.test = 'lol';
+//      var db = dbService.newDB();
+//      var deferred = $q.defer();
+//      dbService.getById(db, 'characters', id).then(function(response) {
+//        character = response;
+//        deferred.resolve(character);
+//      });
+//      return deferred.promise;
     }
 
-    function updateCharacter(id, object) {
-      $log.log(id);
-      $log.log(object);
-      var db = dbService.newDB();
-      return dbService.updateById(db, 'characters', id, object);
+    function updateCharacter(character) {
+      pouchService.put(character).then(function(characters){
+        $log.log(characters);
+      });
+//      $log.log(id);
+//      $log.log(object);
+//      var db = dbService.newDB();
+//      return dbService.updateById(db, 'characters', id, object);
     }
   }
 })();

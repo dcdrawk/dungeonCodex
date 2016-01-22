@@ -52,6 +52,11 @@
           "personality@character-sheet": {
             templateUrl: 'app/character-sheet/personality/personality.html'
           },
+          "saving-throws@character-sheet": {
+            templateUrl: 'app/character-sheet/saving-throws/saving-throws.html',
+            controller: 'SavingThrowsController',
+            controllerAs: 'savingThrowsCtrl'
+          },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',

@@ -25,7 +25,7 @@
           <div class="stat-container" flex="33">
             <p>Training</p>
             <md-input-container>
-              <md-checkbox aria-label="training checkbox" ng-change="dialog.saveSkills(dialog.skills)" ng-model="dialog.skills[dialog.skill.name].trained"></md-checkbox>
+              <md-checkbox aria-label="training checkbox" ng-change="dialog.saveSkills()" ng-model="dialog.skills[dialog.skill.name].trained"></md-checkbox>
             </md-input-container>
             <p class="md-caption">(+ prof. bonus)</p>
           </div>
@@ -40,7 +40,7 @@
             <p>Bonus</p>
             <p class="stat bonus">
               <md-input-container flex="33" md-no-float>
-                <input aria-label="skill bonus" ng-change="dialog.saveSkills(dialog.skills)" ng-model="dialog.skills[dialog.skill.name].bonus" placeholder="0" type="number">
+                <input aria-label="skill bonus" ng-change="dialog.saveSkills()" ng-model="dialog.skills[dialog.skill.name].bonus" placeholder="0" type="number">
               </md-input-container>
             </p>
           </div>

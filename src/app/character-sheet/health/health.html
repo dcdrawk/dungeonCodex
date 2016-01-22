@@ -1,8 +1,8 @@
 <div layout-wrap layout="row" ng-if="charCtrl.character.level">
 
   <!-- Health -->
-  <div class="combat-stat-container md-padding" flex="50" md-ink-ripple
-   ng-click="healthCtrl.showHealthDialog($event, charCtrl.character.id, charCtrl.character.level, 'Hit Points', 'hitPoints', charCtrl.character.healthStats)">
+  <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
+   ng-click="healthCtrl.showHealthDialog($event, charCtrl.character, charCtrl.character.level, 'Hit Points', 'hitPoints', charCtrl.character.healthStats)">
     <span class="md-body-2 title">Hit Points</span>
     <span class="combat-stat health-stat">
       {{charCtrl.character.healthStats.hitPoints.current}} / {{charCtrl.character.healthStats.hitPoints.max + charCtrl.character.healthStats.hitPoints.temp }}
@@ -10,17 +10,20 @@
   </div>
 
   <!-- Initiative -->
-  <div flex="50">
-    <div flex="100" class="combat-stat-container md-padding" md-ink-ripple
-     ng-click="healthCtrl.showHealthDialog($event, charCtrl.character.id, charCtrl.character.level, 'Hit Dice', 'hitDice', charCtrl.character.hitDice)">
+<!--  <div flex="33">-->
+    <div flex="33" class="combat-stat-container md-padding" md-ink-ripple
+     ng-click="healthCtrl.showHealthDialog($event, charCtrl.character, charCtrl.character.level, 'Hit Dice', 'hitDice', charCtrl.character.hitDice)">
       <span class="md-body-2 title">Hit Dice</span>
       <span class="combat-stat">{{charCtrl.character.level}}{{charCtrl.character.hitDice}}</span>
     </div>
 
-    <div flex="100" class="combat-stat-container md-padding death-saves"  md-ink-ripple
-     ng-click="healthCtrl.showHealthDialog($event, charCtrl.character.id, charCtrl.character.level, 'Death Saves', 'deathSaves', charCtrl.character.healthStats)">
+    <div flex="33" class="combat-stat-container md-padding death-saves"  md-ink-ripple
+     ng-click="healthCtrl.showHealthDialog($event, charCtrl.character, charCtrl.character.level, 'Death Saves', 'deathSaves', charCtrl.character.healthStats)">
       <span class="md-body-2 title">Death Saves</span>
-      <p class="md-body-1">
+      <p class="md-body-1" ng-if="!charCtrl.character.healthStats.deathSaves.success">
+        Success 0/3
+      </p>
+      <p class="md-body-1" ng-if="charCtrl.character.healthStats.deathSaves.success">
         Success {{charCtrl.character.healthStats.deathSaves.success}}/3
       </p>
       <p class="md-body-1" ng-if="!charCtrl.character.healthStats.deathSaves.fail">
@@ -30,9 +33,11 @@
         Failure {{charCtrl.character.healthStats.deathSaves.fail}}/3
       </p>
     </div>
-  </div>
+<!--  </div>-->
   <!-- Initiative -->
+<!--
   <div flex="50">
 
   </div>
+-->
 </div>

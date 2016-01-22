@@ -1,12 +1,10 @@
 <div ng-click="classFeatsCtrl.showClassFeaturesDialog($event, charCtrl.character.class, charCtrl.character.archetype, charCtrl.character.level)" md-ink-ripple>
 <span class="md-body-2 title">Class Features</span>
   <div class="class-features" ng-if="charCtrl.character.class">
-
-    <div ng-repeat="feature in classFeatsCtrl.classFeatures.abilities track by $index" ng-if="feature.level <= charCtrl.character.level">
+    <div ng-repeat="feature in classFeatsCtrl.classFeatures | orderBy:'level' track by $index" ng-if="charCtrl.character.level >= feature.level">
       <p>
-        {{feature.title}}
+         {{feature.level}} - {{feature.title}}
       </p>
     </div>
-
   </div>
 </div>

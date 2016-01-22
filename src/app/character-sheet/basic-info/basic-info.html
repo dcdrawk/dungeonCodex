@@ -10,9 +10,10 @@
   </md-input-container>
 
   <!-- Archetype -->
-  <md-input-container flex="25" ng-if="charCtrl.character.class" ng-init="basicCtrl.getArchetypes(charCtrl.character.class);">
+  <md-input-container flex="25" ng-if="charCtrl.character.class" ng-init="basicCtrl.getArchetypes(charCtrl.character.class);charCtrl.emitArchetype(charCtrl.character.archetype);">
     <label>Archetype</label>
-    <md-select ng-model="charCtrl.character.archetype" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {archetype:charCtrl.character.archetype});">
+    <md-select ng-model="charCtrl.character.archetype" ng-change="charCtrl.updateCharacter(charCtrl.character.id, {archetype:charCtrl.character.archetype});
+    charCtrl.emitArchetype(charCtrl.character.archetype);">
       <md-option ng-repeat="archetype in basicCtrl.archetypes" value="{{archetype.title}}">{{archetype.title}}</md-option>
     </md-select>
   </md-input-container>
