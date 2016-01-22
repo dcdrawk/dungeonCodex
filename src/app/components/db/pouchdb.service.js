@@ -85,7 +85,9 @@
         createCharacterIndex();
         
         //Go through the list of file names
-        for (var fileName of fileNames) {
+//        for (var fileName of fileNames) {
+        angular.forEach(fileNames, function(fileName){
+        
           fileService.getFile(path, fileName, fileExtension).then(function(file) {
             var bulkDoc = file[file.fileName];
             db.bulkDocs(bulkDoc).then(function() {
@@ -109,7 +111,7 @@
               reject(err);
             });
           });
-        }
+        });
       });
     }
 
