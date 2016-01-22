@@ -20,7 +20,7 @@
     vm.showHealthDialog = function(ev, character, level, title, name, health) {
       $mdDialog.show({
         controller: CombatStatsDialogController,
-        templateUrl: '/app/character-sheet/health/health.dialog.html',
+        templateUrl: 'app/character-sheet/health/health.dialog.html',
         parent: angular.element($document[0].body),
         targetEvent: ev,
         clickOutsideToClose: true,
