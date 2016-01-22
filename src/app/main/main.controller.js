@@ -50,7 +50,7 @@
         pouchService.post(character);
         //                var db = dbService.newDB();
         //                db.characters.add(character);
-        //                $mdDialog.hide(character);
+        $mdDialog.hide(character);
       };
     }
 
