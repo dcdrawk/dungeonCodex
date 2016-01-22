@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($timeout, webDevTec, toastr, $mdDialog, $scope, $mdMedia, characterService, $document) {
+  function MainController($timeout, webDevTec, toastr, $mdDialog, $scope, $mdMedia, characterService, $document, $log) {
     var vm = this;
     vm.characters = [];
 
@@ -21,6 +21,8 @@
         controllerAs: 'dialog'
       })
       .then(function(character) {
+          $log.log('here is the character:');
+          $log.log(character);
           vm.characters.push(character);
       }, function() {
           //Dialog Canceled
@@ -34,7 +36,7 @@
       });
     };
 
-    function DialogController($scope, $mdDialog, dbService, pouchService) {
+    function DialogController($scope, $mdDialog, dbService, pouchService, $log) {
       var vm = this;
 
       vm.hide = function () {
@@ -52,10 +54,15 @@
       //use dbService to save a new character to the database
       vm.newCharacter = function (character) {
         character.type = 'character';
-        pouchService.post(character);
+        pouchService.post(character).then(function(response){
+          character._id = response.id;
+          character._rev = response.rev;
+          $log.log(response);
+          $mdDialog.hide(character);
+        });
         //                var db = dbService.newDB();
         //                db.characters.add(character);
-        $mdDialog.hide(character);
+//        $mdDialog.hide(character);
       };
     }
 
