@@ -1,5 +1,6 @@
 {"backgrounds": [{
     "name": "Acolyte",
+    "type":"background",
     "description": "<p>You have spent your life in the service of a temple to a specific god or pantheon of gods. You act as an intermediary between the realm of the holy and the mortal world, performing sacred rites and offering sacrifices in order to conduct worshipers into the presence of the divine. You are not necessarily a cleric-perform ing sacred rites is not the same thing as channeling divine power.</p><p>Choose a god, a pantheon of gods, or some other quasi-divine being from among those listed in appendix B or those specified by your DM, and work with your DM to detail the nature of your religious service. Were you a lesser functionary in a temple, raised from childhood to assist the priests in the sacred rites? Or were you a high priest who suddenly experienced a call to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established temple structure, or even an occult group that served a fiendish master that you now deny.</p>",
     "skillProficiencies": "Insight, Religion",
     "languages": "Two of your choice",
@@ -10,6 +11,7 @@
     }
   },{
     "name": "Charlatan",
+    "type":"background",
     "description": "<p>You have always had a way with people. You know what makes them tick, you can tease out their hearts\u0027 desires after a few minutes of conversation, and with a few leading questions you can read them like they were children\u0027s books. It’s a useful talent, and one that you’re perfectly willing to use for your advantage.</p><p>You know what people want and you deliver, or rather, you promise to deliver. Com mon sense should steer people away from things that sound too good to be true, but common sense seems to be in short supply when you’re around. The bottle of pink-colored liquid will surely cure that unseemly rash, this ointment—nothing more than a bit of fat with a sprinkle of silver dust—can restore youth and vigor, and there’s a bridge in the city that just happens to be for sale. These marvels sound implausible, but you make them sound like the real deal.</p>",
     "skillProficiencies": "Deception, Sleight of Hand",
     "toolProficiencies": "Disguise kit, Forgery kit",
@@ -24,6 +26,7 @@
     }
   },{
     "name": "Criminal",
+    "type":"background",
     "description": "You are an experienced criminal with a history of breaking the law. You have spent a lot of time among other criminals and still have contacts within the criminal underworld. You’re far closer than most people to the world of murder, theft, and violence that pervades the underbelly of civilization, and you have survived up to this point by flouting the rules and regulations of society.",
     "skillProficiencies": "Deception, Stealth",
     "toolProficiencies": "One type of gaming set, Thieves’ tools",
@@ -38,6 +41,7 @@
     }
   },{
     "name": "Entertainer",
+    "type":"background",
     "description": "You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them. Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever techniques you use, your art is your life.",
     "skillProficiencies": "Acrobatics, Performance",
     "toolProficiencies": "Disguise kit, one type of musical instrument",
@@ -52,6 +56,7 @@
     }
   },{
     "name": "Folk Hero",
+    "type":"background",
     "description": "You come from a humble social rank, but you are destined for so much more. Already the people of your home village regard you as their champion, and your destiny calls you to stand against the tyrants and monsters that threaten the common folk everywhere.",
     "skillProficiencies": "Animal Handling, Survival",
     "toolProficiencies": "One type of artisan’s tools, vehicles (land)",
@@ -66,6 +71,7 @@
     }
   },{
     "name": "Guild Artisan",
+    "type":"background",
     "description": "You are a member of an artisan’s guild, skilled in a particular field and closely associated with other artisans. You are a well-established part of the mercantile world, freed by talent and wealth from the constraints of a feudal social order. You learned your skills as an apprentice to a master artisan, under the sponsorship of your guild, until you became a master in your own right.",
     "skillProficiencies": "Insight, Persuasion",
     "toolProficiencies": "One type of artisan’s tools",
@@ -81,6 +87,7 @@
     }
   },{
     "name": "Hermit",
+    "type":"background",
     "description": "You lived in seclusion—either in a sheltered community such as a monastery, or entirely alone—for a formative part of your life. In your time apart from the clamor of society, you found quiet, solitude, and perhaps some of the answers you were looking for.",
     "skillProficiencies": "Medicine, Religion",
     "toolProficiencies": "Herbalism Kit",
@@ -96,6 +103,7 @@
     }
   },{
     "name": "Noble",
+    "type":"background",
     "description": "<p>You understand wealth, power, and privilege. You carry a noble title, and your family owns land, collects taxes, and wields significant political influence. You might be a pampered aristocrat unfamiliar with work or discomfort, a former merchant just elevated to the nobility, or a disinherited scoundrel with a disproportionate sense of entitlement. Or you could be an honest, hard-working landowner who cares deeply about the people who live and work on your land, keenly aware of your responsibility to them.</p><p>Work with your DM to come up with an appropriate title and determine how much authority that title carries. A noble title doesn’t stand on its own—it’s connected to an entire family, and whatever title you hold, you will pass it down to your own children. Not only do you need to determine your noble title, but you should also work with the DM to describe your family and their influence on you.</p>",
     "skillProficiencies": "History, Persuasion",
     "toolProficiencies": "One type of gaming set",
@@ -107,6 +115,7 @@
     }
   },{
     "name": "Outlander",
+    "type":"background",
     "description": "You grew up in the wilds, far from civilization and the comforts of town and technology. You’ve witnessed the migration of herds larger than forests, survived weather more extreme than any city-dweller could comprehend, and enjoyed the solitude of being the only thinking creature for miles in any direction. The wilds are in your blood, whether you were a nomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in places where you don’t know the specific features of the terrain, you know the ways of the wild.",
     "skillProficiencies": "Athletics, Survival",
     "toolProficiencies": "One type of musical instrument ",
@@ -122,6 +131,7 @@
     }
   },{
     "name": "Sage",
+    "type":"background",
     "description": "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your fields of study.",
     "skillProficiencies": "Arcana, History ",
     "languages": "Two of your choice",
@@ -136,6 +146,7 @@
     }
   },{
     "name": "Sailor",
+    "type":"background",
     "description": "<p>You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep, and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon, but the time has come to try your hand at something new.</p><p>Discuss the nature of the ship you previously sailed with your Dungeon Master. Was it a merchant ship, a naval vessel, a ship of discovery, or a pirate ship? How famous (or infamous) is it? Is it widely traveled? Is it still sailing, or is it missing and presumed lost with all hands?</p><p>What were your duties on board-boatswain, captain, navigator, cook, or some other position? Who were the captain and first mate? Did you leave your ship on good terms with your fellows, or on the run?</p>",
     "skillProficiencies": "Athletics, Perception",
     "toolProficiencies": "Navigator’s tools, vehicles (water)",
@@ -146,6 +157,7 @@
     }
   },{
     "name": "Soldier",
+    "type":"background",
     "description": "<p>War has been your life for as long as you care to remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques, including how to stay alive on the battlefield. You might have been part of a standing national army or a mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.</p><p>When you choose this background, work with your DM to determine which military organization you were a part of, how far through its ranks you progressed, and what kind of experiences you had during your military career. Was it a standing army, a town guard, or a village militia? Or it might have been a noble’s or merchant’s private army, or a mercenary company.</p>",
     "skillProficiencies": "Athletics, Intimidation ",
     "toolProficiencies": "One type of gaming set, vehicles (land)",
@@ -160,6 +172,7 @@
     }
   },{
     "name": "Urchin",
+    "type":"background",
     "description": "<p>You grew up on the streets alone, orphaned, and poor. You had no one to watch over you or to provide for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the elements, and endured sickness without the advantage of medicine or a place to recuperate. You’ve survived despite all odds, and did so through cunning, strength, speed, or some combination of each.</p><p>You begin your adventuring career with enough money to live modestly but securely for at least ten days. How did you come by that money? What allowed you to break free of your desperate circumstances and embark on a better life?</p>",
     "skillProficiencies": "Sleight of Hand, Stealth",
     "toolProficiencies": "Disguise kit, Thieves’ tools",
