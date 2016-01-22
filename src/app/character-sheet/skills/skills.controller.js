@@ -31,7 +31,7 @@
     vm.showSkillDialog = function(ev, character, skill, skills, abilityModifier) {
       $mdDialog.show({
         controller: SkillDialogController,
-        templateUrl: '/app/character-sheet/skills/skill.dialog.html',
+        templateUrl: 'app/character-sheet/skills/skill.dialog.html',
         parent: angular.element($document[0].body),
         targetEvent: ev,
         clickOutsideToClose: true,
@@ -45,7 +45,7 @@
       });
     };
 
-    function SkillDialogController($mdDialog, character, skill, skills, abilityModifier, characterService) {
+    function SkillDialogController($mdDialog, character, skill, skills, abilityModifier) {
       var vm = this;
 
       vm.character = character;

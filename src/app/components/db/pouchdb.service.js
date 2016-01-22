@@ -142,7 +142,9 @@
             resultsArray.push(docs[i][key]);
           }
           // return the result
-          if (typeof resultsArray[0] === 'object') {
+          if (angular.isObject(resultsArray[0])) {
+
+//          if (typeof resultsArray[0] === 'object') {
             resolve(resultsArray[0].sort());
           } else {
             resolve(resultsArray.sort());

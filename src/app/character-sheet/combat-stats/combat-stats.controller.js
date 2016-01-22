@@ -26,7 +26,7 @@
     vm.showCombatStatsDialog = function(ev, character, title, name, description, abilityModifier) {
       $mdDialog.show({
         controller: CombatStatsDialogController,
-        templateUrl: '/app/character-sheet/combat-stats/combat-stats.dialog.html',
+        templateUrl: 'app/character-sheet/combat-stats/combat-stats.dialog.html',
         parent: angular.element($document[0].body),
         targetEvent: ev,
         clickOutsideToClose: true,
@@ -57,7 +57,7 @@
       };
 
       //Save the combat stats
-      vm.save = function(character){
+      vm.save = function(){
         pouchService.put(vm.character).then(function(update){
           $log.log('Combat stats updated!');
           vm.character._rev = update.rev;

@@ -14,7 +14,7 @@ Author: Devin Cook
 
   /* @ngInject */
   function characterService($log, $http, dbService, $q, pouchService) {
-    var characters = [];
+//    var characters = [];
     var character = {};
 
     var service = {
@@ -27,7 +27,7 @@ Author: Devin Cook
     return service;
 
     function getCharacters() {
-      var params = {};
+//      var params = {};
       
       var params = { selector: {type: 'character'}, fields: ['name', '_id'] } ;
       return pouchService.query(params).then(function(characters){
@@ -64,7 +64,7 @@ Author: Devin Cook
 
     function updateCharacter(character) {
       pouchService.put(character).then(function(characters){
-        $log.log('character updated!');
+        $log.log(characters);
       });
 //      $log.log(id);
 //      $log.log(object);

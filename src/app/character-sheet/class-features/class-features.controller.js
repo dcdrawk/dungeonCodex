@@ -48,7 +48,7 @@
     vm.showClassFeaturesDialog = function(ev, className, archetypeName, level) {
       $mdDialog.show({
         controller: CombatStatsDialogController,
-        templateUrl: '/app/character-sheet/class-features/class-features.dialog.html',
+        templateUrl: 'app/character-sheet/class-features/class-features.dialog.html',
         parent: angular.element($document[0].body),
         targetEvent: ev,
         clickOutsideToClose: true,

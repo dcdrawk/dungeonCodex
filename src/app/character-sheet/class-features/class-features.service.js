@@ -8,7 +8,7 @@
   // factory.$inject = ['dependencies'];
 
   /* @ngInject */
-  function classFeaturesService(dbService) {
+  function classFeaturesService() {
     var service = {
       filterAbilities: filterAbilities
     };
