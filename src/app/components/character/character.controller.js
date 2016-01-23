@@ -45,7 +45,7 @@
     vm.getHitDice = function(className) {
       var params = { selector: {type: 'class', name: className}, fields: ['hitDice'] } ;
       pouchService.query(params).then(function(result){
-        vm.character.hitDice = result[0].hitDice;
+        vm.character.healthStats.hitDice = result[0].hitDice;
       });
     };
 
