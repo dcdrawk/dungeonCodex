@@ -1,0 +1,11 @@
+{
+  "weapons": [{
+    "name": "Club",
+    "type": "Simple Melee",
+    "cost": "1 sp",
+    "damage": "1d4",
+    "damageType": "bludgeoning",
+    "weight": "2 lb.",
+    "properties": ['Light']
+    }]
+}
