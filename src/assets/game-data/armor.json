@@ -1,11 +1,94 @@
 {
   "weapons": [{
-    "name": "Club",
-    "type": "Simple Melee",
-    "cost": "1 sp",
-    "damage": "1d4",
-    "damageType": "bludgeoning",
-    "weight": "2 lb.",
-    "properties": ['Light']
-    }]
+    "name": "Padded",
+    "type": "Light",
+    "cost": "5 gp",
+    "ac": "11 + Dex Modifier",
+    "properties": ["Stealth Disadvantage"],
+    "weight": "8 lb."
+  },{
+    "name": "Leather",
+    "type": "Light",
+    "cost": "10 gp",
+    "ac": "11 + Dex Modifier",
+    "properties": [],
+    "weight": "10 lb."
+  },{
+    "name": "Studded Leather",
+    "type": "Light",
+    "cost": "45 gp",
+    "ac": "12 + Dex Modifier",
+    "properties": [],
+    "weight": "13 lb."
+  },{
+    "name": "Hide",
+    "type": "Medium",
+    "cost": "10 gp",
+    "ac": "12 + Dex Modifier (max 2)",
+    "properties": [],
+    "weight": "12 lb."
+  },{
+    "name": "Chain Shirt",
+    "type": "Medium",
+    "cost": "50 gp",
+    "ac": "13 + Dex Modifier (max 2)",
+    "properties": [],
+    "weight": "20 lb."
+  },{
+    "name": "Scale Mail",
+    "type": "Medium",
+    "cost": "50 gp",
+    "ac": "14 + Dex Modifier (max 2)",
+    "properties": ["Stealth Disadvantage"],
+    "weight": "45 lb."
+  },{
+    "name": "Breastplate",
+    "type": "Medium",
+    "cost": "400 gp",
+    "ac": "14 + Dex Modifier (max 2)",
+    "properties": [],
+    "weight": "20 lb."
+  },{
+    "name": "Half Plate",
+    "type": "Medium",
+    "cost": "750 gp",
+    "ac": "15 + Dex Modifier (max 2)",
+    "properties": ["Stealth Disadvantage"],
+    "weight": "40 lb."
+  },{
+    "name": "Ring Mail",
+    "type": "Heavy",
+    "cost": "30 gp",
+    "ac": "14",
+    "properties": ["Stealth Disadvantage"],
+    "weight": "40 lb."
+  },{
+    "name": "Chain Mail",
+    "type": "Heavy",
+    "cost": "75 gp",
+    "ac": "16",
+    "properties": ["Str. 13", "Stealth Disadvantage"],
+    "weight": "55 lb."
+  },{
+    "name": "Splint",
+    "type": "Heavy",
+    "cost": "200 gp",
+    "ac": "17",
+    "properties": ["Str. 15", "Stealth Disadvantage"],
+    "weight": "60 lb."
+  },{
+    "name": "Plate",
+    "type": "Heavy",
+    "cost": "1500 gp",
+    "ac": "18",
+    "properties": ["Str. 15", "Stealth Disadvantage"],
+    "weight": "65 lb."
+  },{
+    "name": "Shield",
+    "type": "Shield",
+    "cost": "10 gp",
+    "ac": "+2",
+    "properties": [],
+    "weight": "6 lb."
+  }]
 }
