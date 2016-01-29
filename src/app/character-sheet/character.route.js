@@ -57,6 +57,11 @@
             controller: 'SavingThrowsController',
             controllerAs: 'savingThrowsCtrl'
           },
+          "weapons@character-sheet": {
+            templateUrl: 'app/character-sheet/weapons/weapons.html',
+            controller: 'WeaponsController',
+            controllerAs: 'weaponsCtrl'
+          },
           "": {
             templateUrl: 'app/character-sheet/character-sheet.html',
             controller: 'CharacterController',

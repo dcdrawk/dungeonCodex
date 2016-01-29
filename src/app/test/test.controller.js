@@ -44,7 +44,7 @@
 
     vm.getAllDocs = function() {
       pouchService.allDocs().then(function(docs){
-        $log.log(docs)
+//        $log.log(docs)
 //        vm.docs = JSON.stringify(docs, null, 4);
         // vm.docs = docs.toJson();
       });

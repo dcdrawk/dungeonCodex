@@ -1,7 +1,8 @@
 {
   "weapons": [{
     "name": "Club",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "1 sp",
     "damage": "1d4",
     "damageType": "bludgeoning",
@@ -9,7 +10,8 @@
     "properties": ["Light"]
     }, {
     "name": "Dagger",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "2 gp",
     "damage": "1d4",
     "damageType": "piercing",
@@ -17,7 +19,8 @@
     "properties": ["Finesse", "Light", "Thrown (range 20/60)"]
     }, {
     "name": "Greatclub",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "2 sp",
     "damage": "1d8",
     "damageType": "bludgeoning",
@@ -25,7 +28,8 @@
     "properties": ["Two-handed"]
     }, {
     "name": "Handaxe",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "5 gp",
     "damage": "1d6",
     "damageType": "slashing",
@@ -33,7 +37,8 @@
     "properties": ["Light", "Thrown (range 20/60)"]
     }, {
     "name": "Javelin",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "5 sp",
     "damage": "1d6",
     "damageType": "pircing",
@@ -41,7 +46,8 @@
     "properties": ["Thrown (range 30/120)"]
     }, {
     "name": "Light Hammer",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "2 gp",
     "damage": "1d4",
     "damageType": "bludgeoning",
@@ -49,7 +55,8 @@
     "properties": ["Light", "Thrown (range 20/60)", "Versatile (1d8)"]
     }, {
     "name": "Mace",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "5 gp",
     "damage": "1d6",
     "damageType": "bludgeoning",
@@ -57,7 +64,8 @@
     "properties": []
     }, {
     "name": "Quarterstaff",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "2 sp",
     "damage": "1d6",
     "damageType": "bludgeoning",
@@ -65,7 +73,8 @@
     "properties": ["Versatile (1d8)"]
     }, {
     "name": "Sickle",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "1 gp",
     "damage": "1d4",
     "damageType": "slashing",
@@ -73,7 +82,8 @@
     "properties": ["Light"]
     }, {
     "name": "Spear",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "1 gp",
     "damage": "1d6",
     "damageType": "piercing",
@@ -81,7 +91,8 @@
     "properties": ["Thrown (range 20/60)", "Versatile (1d8)"]
     }, {
     "name": "Unarmed Strike",
-    "type": "Simple Melee",
+    "type": "weapon",
+    "weaponType": "Simple Melee",
     "cost": "",
     "damage": "1",
     "damageType": "bludgeoning",
@@ -89,7 +100,8 @@
     "properties": []
     }, {
     "name": "Light Crossbow",
-    "type": "Simple Ranged",
+    "type": "weapon",
+    "weaponType": "Simple Ranged",
     "cost": "25 gp",
     "damage": "1d8",
     "damageType": "piercing",
@@ -97,7 +109,8 @@
     "properties": ["Ammunition (range 80/320)", "Loading", "Two-handed"]
     }, {
     "name": "Dart",
-    "type": "Simple Ranged",
+    "type": "weapon",
+    "weaponType": "Simple Ranged",
     "cost": "5 cp",
     "damage": "1d4",
     "damageType": "piercing",
@@ -105,7 +118,8 @@
     "properties": ["Finesse", "Thrown (range 20/60)"]
     }, {
     "name": "Shortbow",
-    "type": "Simple Ranged",
+    "type": "weapon",
+    "weaponType": "Simple Ranged",
     "cost": "25 gp",
     "damage": "1d6",
     "damageType": "piercing",
@@ -113,7 +127,8 @@
     "properties": ["Ammunition (range 80/320)", "Two-handed"]
     }, {
     "name": "Sling",
-    "type": "Simple Ranged",
+    "type": "weapon",
+    "weaponType": "Simple Ranged",
     "cost": "1 sp",
     "damage": "1d4",
     "damageType": "bludgeoning",
@@ -121,7 +136,8 @@
     "properties": ["Ammunition (range 30/120)"]
     }, {
     "name": "Battleaxe",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "10 gp",
     "damage": "1d8",
     "damageType": "slashing",
@@ -129,7 +145,8 @@
     "properties": ["Versatile (1d10)"]
     }, {
     "name": "Flail",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "10 gp",
     "damage": "1d8",
     "damageType": "bludgeoning",
@@ -137,7 +154,8 @@
     "properties": []
     }, {
     "name": "Glaive",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "20 gp",
     "damage": "1d10",
     "damageType": "slashing",
@@ -145,7 +163,8 @@
     "properties": ["Heavy", "Reach", "Two-handed"]
     }, {
     "name": "Greataxe",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "30 gp",
     "damage": "1d12",
     "damageType": "slashing",
@@ -153,7 +172,8 @@
     "properties": ["Heavy", "Two-handed"]
     }, {
     "name": "Greatsword",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "50 gp",
     "damage": "2d6",
     "damageType": "slashing",
@@ -161,7 +181,8 @@
     "properties": ["Heavy", "Two-handed"]
     }, {
     "name": "Halberd",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "20 gp",
     "damage": "1d10",
     "damageType": "slashing",
@@ -169,7 +190,8 @@
     "properties": ["Heavy", "Reach", "Two-handed"]
     }, {
     "name": "Lance",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "10 gp",
     "damage": "1d12",
     "damageType": "piercing",
@@ -178,7 +200,8 @@
     "special": "You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren’t mounted."
     }, {
     "name": "Longsword",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "15 gp",
     "damage": "1d8",
     "damageType": "slashing",
@@ -186,7 +209,8 @@
     "properties": ["Versatile (1d10)"]
     }, {
     "name": "Maul",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "10 gp",
     "damage": "2d6",
     "damageType": "bludgeoning",
@@ -194,7 +218,8 @@
     "properties": ["Heavy", "Two-handed"]
     }, {
     "name": "Morningstar",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "15 gp",
     "damage": "1d8",
     "damageType": "piercing",
@@ -202,7 +227,8 @@
     "properties": []
     }, {
     "name": "Pike",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "5 gp",
     "damage": "1d10",
     "damageType": "piercing",
@@ -210,7 +236,8 @@
     "properties": ["Heavy", "Reach", "Two-handed"]
     }, {
     "name": "Rapier",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "25 gp",
     "damage": "1d8",
     "damageType": "piercing",
@@ -218,7 +245,8 @@
     "properties": ["Finesse"]
     }, {
     "name": "Scimitar",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "25 gp",
     "damage": "1d6",
     "damageType": "slashing",
@@ -226,7 +254,8 @@
     "properties": ["Finesse", "Ligt"]
     }, {
     "name": "Shortsword",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "10 gp",
     "damage": "1d6",
     "damageType": "piercing",
@@ -234,7 +263,8 @@
     "properties": ["Finesse", "Light"]
     }, {
     "name": "Trident",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "5 gp",
     "damage": "1d6",
     "damageType": "piercing",
@@ -242,7 +272,8 @@
     "properties": ["Thrown (range 20/60)", "Versatile (1d8)"]
     }, {
     "name": "War Pick",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "5 gp",
     "damage": "1d8",
     "damageType": "piercing",
@@ -250,7 +281,8 @@
     "properties": []
     }, {
     "name": "Warhammer",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "15 gp",
     "damage": "1d8",
     "damageType": "bludgeoning",
@@ -258,7 +290,8 @@
     "properties": ["Versatile (1d10)"]
     }, {
     "name": "Whip",
-    "type": "Martial Melee",
+    "type": "weapon",
+    "weaponType": "Martial Melee",
     "cost": "2 gp",
     "damage": "1d4",
     "damageType": "slashing",
@@ -266,7 +299,8 @@
     "properties": ["Finesse", "Reach"]
     }, {
     "name": "Blowgun",
-    "type": "Marial Ranged",
+    "type": "weapon",
+    "weaponType": "Marial Ranged",
     "cost": "10 gp",
     "damage": "1",
     "damageType": "piercing",
@@ -274,7 +308,8 @@
     "properties": ["Ammunition (range 25/100)", "Loading"]
     }, {
     "name": "Hand Crossbow",
-    "type": "Marial Ranged",
+    "type": "weapon",
+    "weaponType": "Marial Ranged",
     "cost": "75 gp",
     "damage": "1d6",
     "damageType": "piercing",
@@ -282,7 +317,8 @@
     "properties": ["Ammunition (range 30/120)", "Light", "Loading"]
     }, {
     "name": "Heavy Crossbow",
-    "type": "Marial Ranged",
+    "type": "weapon",
+    "weaponType": "Marial Ranged",
     "cost": "50 gp",
     "damage": "1d10",
     "damageType": "piercing",
@@ -290,7 +326,8 @@
     "properties": ["Ammunition (range 100/400)", "Heavy", "Loading", "Two-handed"]
     }, {
     "name": "Longbow",
-    "type": "Marial Ranged",
+    "type": "weapon",
+    "weaponType": "Marial Ranged",
     "cost": "50 gp",
     "damage": "1d8",
     "damageType": "piercing",
@@ -298,7 +335,8 @@
     "properties": ["Ammunition (range 150/600)","Heavy", "Two-handed"]
     }, {
     "name": "Net",
-    "type": "Marial Ranged",
+    "type": "weapon",
+    "weaponType": "Marial Ranged",
     "cost": "cost",
     "damage": "",
     "damageType": "",

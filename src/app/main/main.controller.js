@@ -21,8 +21,8 @@
         controllerAs: 'dialog'
       })
       .then(function(character) {
-          $log.log('here is the character:');
-          $log.log(character);
+          //$log.log('here is the character:');
+          //$log.log(character);
           vm.characters.push(character);
       }, function() {
           //Dialog Canceled

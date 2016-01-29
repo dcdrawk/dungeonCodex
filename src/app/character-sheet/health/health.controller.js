@@ -42,10 +42,7 @@
       vm.title = title;
       vm.name = name;
       vm.level = level;
-      $log.log(health);
       vm.character.healthStats = health;
-      
-      $log.log(vm.character);
 
       //Cancel the Dialog
       vm.cancel = function() {
@@ -54,13 +51,9 @@
 
       //Save the combat stats
       vm.save = function() {
-        $log.log(vm.character);
         pouchService.put(vm.character).then(function(update){
           vm.character._rev = update.rev;
         });
-//        characterService.updateCharacter(vm.id, {
-//          healthStats: healthStats
-//        });
       };
     }
   }

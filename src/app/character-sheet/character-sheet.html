@@ -47,6 +47,10 @@
         <md-card ng-show="charCtrl.character.race">
           <div id="health" ui-view="health"></div>
         </md-card>
+        
+        <md-card ng-show="charCtrl.character">
+          <div id="weapons" class="md-padding" ui-view="weapons"></div>
+        </md-card>
     </div>
     <div flex="50">
 

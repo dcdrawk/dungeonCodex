@@ -16,7 +16,7 @@
     // alert(db.info());
     // var test = openDatabase('appData', 1, 'appData', 5000000, function (db) { alert('it works!'); });
 
-    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
+    var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills', 'weapons', 'armor'];
     // var fileNames = ['alignments', 'backgrounds', 'feats', 'races', 'languages', 'classes', 'classFeatures', 'skills'];
 
     var path = 'assets/game-data/';
@@ -31,7 +31,9 @@
       queryToArray: queryToArray,
       get: get,
       put: put,
-      post: post
+      post: post,
+      search: search,
+      autocomplete: autocomplete
     };
 
     return service;
@@ -170,8 +172,8 @@
         }
       }).then(function(result) {//
         // handle result
-        $log.log('created character index');
-        $log.log(result);
+        //$log.log('created character index');
+        //$log.log(result);
       }).catch(function(err) {
         //handle error
         $log.log(err);
@@ -196,7 +198,7 @@
     function put(doc) {
       return $q(function(resolve, reject) {
         db.put(doc).then(function(response) {
-          $log.log(response);
+          //$log.log(response);
           resolve(response);
         }).catch(function(err) {
           $log.error(err);
@@ -210,11 +212,63 @@
     function post(doc) {
       return $q(function(resolve, reject) {
         db.post(doc).then(function(response) {
+          //$log.log(response);
+          resolve(response);
+        }).catch(function(err) {
+          $log.error(err);
+          reject(err);
+        });
+      });
+    }
+    
+    //Search the database
+    //Example query: { query: 'mario', fields: ['title', 'text'], include_docs: true, highlighting: true }
+    function search(query) {
+      return $q(function(resolve, reject) {
+        db.search(query).then(function(response) {
           $log.log(response);
           resolve(response);
         }).catch(function(err) {
           $log.error(err);
           reject(err);
+        });
+      });
+    }
+    
+    function autoMap(doc) {
+      if (doc.type === 'Simple Weapon') {
+        if (doc.name === 'Pikachu') {
+          emit('Pika pi!');
+        } else {
+          emit(doc.name);
+        }
+      }
+    }
+    
+    //Autocomplete
+    function autocomplete(index, string) {
+      return $q(function(resolve, reject) {
+//        db.query( 'Weapon', {
+//          name: 'Dagger',
+//          include_docs: true
+////          endkey: string + '\uffff'
+//        }).then(function(response) {
+//          $log.log(response);
+//          resolve(response);
+//        }).catch(function(err) {
+//          $log.error(err);
+//          reject(err);
+//        });
+        db.query(autoMap, {
+          startkey     : 'P',
+          endkey       : 'P\uffff',
+          limit        : 5,
+          include_docs : true
+        }).then(function (result) {
+          // handle result
+          $log.log(result);
+        }).catch(function (err) {
+          // handle errors
         });
       });
     }

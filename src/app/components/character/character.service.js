@@ -31,7 +31,7 @@ Author: Devin Cook
       
       var params = { selector: {type: 'character'}, fields: ['name', '_id'] } ;
       return pouchService.query(params).then(function(characters){
-        $log.log(characters);
+        //$log.log(characters);
         return characters;
       });
 //      characters = [];
