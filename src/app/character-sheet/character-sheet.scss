@@ -29,7 +29,8 @@ md-input-container.character-name label.character-label{
   // height:200px;
   transition:1s all $easeOutExpo .1s;
   opacity:1;
-  top:0px;
+  // top:0px;
+  transform: translateY(0px);
   position:relative;
 
   &.ng-hide-add,
@@ -47,14 +48,16 @@ md-input-container.character-name label.character-label{
   }
   &.ng-hide-add {
     opacity:1;
-    top:0px;
+    // top:0px;
+    transform: translateY(0px);
   }
   &.ng-hide-add.ng-hide-add-active {
 
   }
   &.ng-hide-remove {
     opacity:0;
-    top:24px;
+    // top:24px;
+    transform: translateY(24px);
   }
   &.ng-hide-remove.ng-hide-remove-active {
 

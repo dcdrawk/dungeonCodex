@@ -40,7 +40,6 @@
                 </md-select>
               </md-input-container>
 
-
               <md-input-container flex="20">
                 <label>Archetype</label>
                 <md-select ng-change="dialog.getArchetypeFeatures(dialog.archetypeName)" ng-model="dialog.archetypeName">
@@ -79,7 +78,8 @@
                   <md-list-item class="md-3-line" ng-if="feature.level <= dialog.level" flex="100" ng-repeat="feature in features = dialog.classFeatures.abilities.concat(dialog.archetypeFeatures.abilities) | orderBy : dialog.orderBy : dialog.direction==='true'">
                     <div class="md-list-item-text  md-long-text" layout="column">
                       <h3>{{ feature.title }}</h3>
-                      <h4>Level {{ feature.level | number}}</h4>
+                      <h4>Level
+                        {{ feature.level | number}}</h4>
                       <p ng-bind-html="feature.description"></p>
                     </div>
                     <md-divider></md-divider>
@@ -89,23 +89,31 @@
                 </md-list>
               </md-content>
             </section>
-        </md-tab>
-        <md-tab label="Browse">
-          <md-content class="md-padding">
-            <md-autocomplete ng-model="dialog.searchText" ng-disabled="dialog.isDisabled" md-no-cache="dialog.noCache" md-selected-item="dialog.selectedItem" md-search-text-change="" md-search-text="dialog.searchText" md-selected-item-change="" md-items="item in dialog.filterWeapons(dialog.searchText) | orderBy : 'item.name'" md-item-text="item.name" md-min-length="1" placeholder="Search Weapons">
-              <md-item-template>
-                <span md-highlight-text="dialog.searchText" md-highlight-flags="^i">{{item.name}}</span>
-              </md-item-template>
-              <md-not-found>
-                No Weapons matching "{{dialog.searchText}}"
-                <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
-              </md-not-found>
-            </md-autocomplete>
+          </md-tab>
+          <md-tab label="Browse">
+            <md-content>
+              <md-autocomplete ng-model="dialog.searchText" md-selected-item="dialog.selectedItem" md-search-text="dialog.searchText" md-items="item in dialog.filterWeapons(dialog.searchText) | orderBy : 'item.name'" md-item-text="item.name" md-min-length="1" placeholder="Search Weapons">
+                <md-item-template>
+                  <span md-highlight-text="dialog.searchText" md-highlight-flags="^i">{{item.name}}</span>
+                </md-item-template>
+                <md-not-found>
+                  No Weapons matching "{{dialog.searchText}}"
+                  <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+                </md-not-found>
+              </md-autocomplete>
 
-          </md-content>
-        </md-tab>
-      </md-tabs>
+              <!-- Weapons List -->
+              <md-list>
+                <md-list-item ng-click="dialog.test()" ng-repeat="weapon in dialog.weaponsList | filter : dialog.searchText">
+                  <p>{{weapon.name}}</p>
+                  <md-icon class="material-icons md-secondary" ng-click="dialog.test2()">add</md-icon>
+                </md-list-item>
+              </md-list>
+
+            </md-content>
+          </md-tab>
+        </md-tabs>
       </md-content>
-  </md-dialog-content>
-  <!-- </form> -->
-</md-dialog>
+    </md-dialog-content>
+    <!-- </form> -->
+  </md-dialog>
