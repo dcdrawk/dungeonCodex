@@ -1,6 +1,5 @@
 <div layout-wrap layout="row" ng-if="charCtrl.character.level">
 
-  <!-- Health -->
   <div class="combat-stat-container md-padding" flex="33" md-ink-ripple
    ng-click="healthCtrl.showHealthDialog($event, charCtrl.character, charCtrl.character.level, 'Hit Points', 'hitPoints', charCtrl.character.healthStats)">
     <span class="md-body-2 title">Hit Points</span>
@@ -9,8 +8,6 @@
     </span>
   </div>
 
-  <!-- Initiative -->
-<!--  <div flex="33">-->
     <div flex="33" class="combat-stat-container md-padding" md-ink-ripple
      ng-click="healthCtrl.showHealthDialog($event, charCtrl.character, charCtrl.character.level, 'Hit Dice', 'hitDice', charCtrl.character.healthStats)">
       <span class="md-body-2 title">Hit Dice</span>
@@ -33,11 +30,4 @@
         Failure {{charCtrl.character.healthStats.deathSaves.fail}}/3
       </p>
     </div>
-<!--  </div>-->
-  <!-- Initiative -->
-<!--
-  <div flex="50">
-
-  </div>
--->
 </div>

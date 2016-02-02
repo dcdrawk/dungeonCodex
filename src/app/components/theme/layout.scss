@@ -34,6 +34,13 @@ md-card{
     margin:0;
   }
 }
+
+md-content {
+  .full-height {
+    min-height: calc(80vh - 113px);
+    // max-height: calc(80vh - 113px);
+  }
+}
 //
 // .character-card.ng-hide-add, .character-card.ng-hide-remove {
 //   transition: all linear 1s;

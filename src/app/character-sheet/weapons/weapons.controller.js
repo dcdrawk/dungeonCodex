@@ -37,6 +37,8 @@
       vm.myOrder = 'name';
       vm.character = character;
       vm.selected = [];
+      vm.newWeapons = 0;
+
       vm.cancel = function () {
         $mdDialog.cancel();
       };
@@ -46,7 +48,7 @@
           selector: {
             type: 'weapon'
           },
-          fields: ['name', '_id', 'weaponType'],
+          fields: ['name', '_id', 'weaponType', 'damage', 'damageType', 'cost', 'weight'],
           // include_docs: true
         };
 
@@ -59,9 +61,11 @@
         vm.filterWeapons = function (searchText) {
           var results = [];
           for (var i in vm.weaponsList) {
-            //            $log.log(response)
+            //  $log.log(vm.weaponsList[i]);
             vm.weaponsList[i].name = vm.weaponsList[i].name.toLowerCase();
             if (vm.weaponsList[i].name.indexOf(searchText) !== -1) {
+              vm.weaponsList[i].name = vm.weaponsList[i].name.capitalizeFirstLetter();
+              $log.log(vm.weaponsList[i].name)
               results.push(vm.weaponsList[i]);
             }
           }
@@ -84,6 +88,8 @@
               vm.character._rev = update.rev;
             });
           });
+          vm.newWeapons++;
+          $log.log(vm.newWeapons);
         }
 
         vm.showWeaponDetails = function (weaponName) {
@@ -102,6 +108,26 @@
           });
         }
 
+        vm.showEquippedWeaponDetails = function (weaponName) {
+          var params = {
+            selector: {
+              type: 'weapon',
+              name: weaponName
+            },
+            fields: ['name', '_id', 'weaponType', 'cost', 'damage', 'damageType', 'properties', 'weight'],
+            // include_docs: true
+          };
+
+          pouchService.query(params).then(function (response) {
+            $log.log(response);
+            vm.equippedWeaponDetails = response[0];
+          });
+        };
+
+        vm.selectEquipped = function () {
+          vm.newWeapons = 0;
+        };
+
         vm.removing = {};
         vm.showActions = function (weapon) {
           weapon.showActions = true;
@@ -118,6 +144,10 @@
         vm.clearWeaponDetails = function () {
           vm.weaponDetails = null;
         };
+
+        vm.clearEquippedWeaponDetails = function () {
+          vm.equippedWeaponDetails = null;
+        }
 
         //Remove weapons from the list
         vm.removeWeapon = function (index) {

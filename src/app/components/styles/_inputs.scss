@@ -23,3 +23,12 @@ md-input-container{
     display:none;
   }
 }
+
+//Search Filter
+.search-filter {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  background-color: #EEEEEE;
+  md-input-container {
+    margin:0;
+  }
+}

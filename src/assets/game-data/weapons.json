@@ -41,7 +41,7 @@
     "weaponType": "Simple Melee",
     "cost": "5 sp",
     "damage": "1d6",
-    "damageType": "pircing",
+    "damageType": "piercing",
     "weight": "2 lb",
     "properties": ["Thrown (range 30/120)"]
     }, {
@@ -150,7 +150,7 @@
     "cost": "10 gp",
     "damage": "1d8",
     "damageType": "bludgeoning",
-    "weight": "weig",
+    "weight": "2 lb.",
     "properties": []
     }, {
     "name": "Glaive",
@@ -337,7 +337,7 @@
     "name": "Net",
     "type": "weapon",
     "weaponType": "Marial Ranged",
-    "cost": "cost",
+    "cost": "1gp",
     "damage": "",
     "damageType": "",
     "weight": "3 lb.",

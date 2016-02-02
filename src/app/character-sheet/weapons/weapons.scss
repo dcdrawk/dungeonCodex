@@ -1,7 +1,9 @@
 .weapon-details {
-  // position: absolute;
+  position: absolute;
+  width: 100%;
   // top: 0;
   // height: auto;
+  background-color: #fff;
 }
 
 .details-header {
@@ -37,7 +39,9 @@
     padding:0;
   }
 }
-
+.weapons-list {
+  width:100%;
+}
 .weapon-details, .weapons-list {
   opacity: 1;
   transform: translateY(0px);
@@ -58,7 +62,7 @@
   &.ng-leave,
   &.ng-enter.ng-enter-active {
     opacity: 1;
-    position: relative;
+    position: absolute;
   }
   &.ng-leave {
     width: 100%;
