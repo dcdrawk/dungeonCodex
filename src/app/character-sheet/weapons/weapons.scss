@@ -1,0 +1,87 @@
+.weapon-details {
+  // position: absolute;
+  // top: 0;
+  // height: auto;
+}
+
+.details-header {
+  background-color: #66BB6A;
+  color:#fff;
+  h2, h3 {
+    margin:8px;
+  }
+  .header-text, button {
+    display:inline-block;
+  }
+  button {
+    vertical-align: top;
+    &.md-icon-button {
+      margin-top: 8px;
+    }
+  }
+  button md-icon {
+    color:#fff;
+  }
+}
+
+.details-body {
+  p {
+    line-height: 24px;
+  }
+  .md-chips .md-chip {
+    // font-size:14px;
+    margin: 0px 8px 0 0;
+  }
+  md-chips-wrap {
+    box-shadow: none;
+    padding:0;
+  }
+}
+
+.weapon-details, .weapons-list {
+  opacity: 1;
+  transform: translateY(0px);
+  top:0px;
+  overflow:visible;
+  min-height: calc(80vh - 105px);
+  &.ng-enter,
+  &.ng-leave {
+    transition: .5s all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+    position: absolute;
+    // top:0px;
+  }
+  &.ng-enter,
+  &.ng-leave-active.ng-leave-active {
+    opacity: 0;
+    position: absolute;
+  }
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity: 1;
+    position: relative;
+  }
+  &.ng-leave {
+    width: 100%;
+    position: absolute;
+  }
+}
+
+.weapon-details{
+  &.ng-enter,
+  &.ng-leave {
+    transition: .5s all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+    position: absolute;
+    // top:0px;
+    transform: translateY(0px);
+  }
+  &.ng-enter,
+  &.ng-leave-active.ng-leave-active {
+    transform: translateY(48px);
+  }
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    transform: translateY(0px);
+  }
+  &.ng-leave {
+  }
+}
