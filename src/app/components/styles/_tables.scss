@@ -76,15 +76,21 @@ table.md-table {
       // padding:0px;
     }
   }
-  // .button-cell{
-  //   // min-width: 48px;
-  //   padding:0;
+   .button-cell{
+      min-width: 52px;
+     padding:0;
   //   button {
   //     min-width: 48px;
   //     padding:0px;
   //
   //   }
-  // }
+  }
+  th.button-cell.md-column:last-child,
+  td.button-cell.md-cell:last-child {
+    padding:0;
+    width: 52px;
+    max-width: 52px;
+  }
 }
 
 table.md-table:not(.md-row-select) td.button-cell.md-cell:first-child,

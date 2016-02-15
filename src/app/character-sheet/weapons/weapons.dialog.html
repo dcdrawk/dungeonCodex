@@ -28,91 +28,97 @@
           <md-tab-body>
 
             <md-content class="full-height">
-            <section class="weapons-list" ng-if="!dialog.equippedWeaponDetails">
+              <section class="weapons-list" ng-if="!dialog.equippedWeaponDetails">
 
-              <md-table-container>
-                <table md-table ng-model="dialog.selected">
-                  <thead md-head md-row md-order="dialog.myOrder">
-                    <!-- when the user clicks this cell, the myOrder variable will get the value 'nameToLower' -->
-                    <tr md-row>
-                      <th md-column class="button-cell">
-                        <md-button>
-                          <md-icon class="list-add material-icons">edit</md-icon>
-                        </md-button>
-                      </th>
-                      <th md-column md-order-by="name" md-default>Name</th>
-                      <!-- the variable myOrder will not be changed when this cell is clicked -->
-                      <!-- <th md-column>Weapon Type</th> -->
-                      <th md-column>Damage</th>
-                      <th md-column>Damage Type</th>
-                      <th md-column>Weight</th>
-                      <!-- <th md-column ng-if="dialog.removing">test</th> -->
-                    </tr>
-                  </thead>
-                  <tbody md-body>
-                    <!-- we can let ng-repeat sort the columns for us -->
-                    <tr md-row md-select="weapon" md-select-id="{{weapon.id}}" ng-repeat="weapon in dialog.character.weapons | orderBy: dialog.myOrder track by $index"
-                    ng-click="dialog.showEquippedWeaponDetails(weapon.name);">
-                      <td md-cell class="button-cell" ng-click="dialog.removeWeapon($index); $event.stopPropagation();">
-                        <md-button>
-                          <md-icon class="list-add material-icons">remove_circle</md-icon>
-                        </md-button>
-                      </td>
-                      <td md-cell>
-                        {{weapon.name}}
-                      </td>
-                      <td md-cell>
-                        {{weapon.damage}}
-                      </td>
-                      <td md-cell>
-                        {{weapon.damageType}}
-                      </td>
-                      <td md-cell>
-                        {{weapon.weight}}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </md-table-container>
-            </section>
-            <!-- Weapons Details -->
-            <section class="weapon-details" ng-if="dialog.equippedWeaponDetails">
-              <div class="details-header md-padding">
-                <md-button class="md-icon-button" aria-label="back" ng-click="dialog.clearEquippedWeaponDetails();">
-                  <md-icon class="material-icons">expand_more</md-icon>
-                </md-button>
-                <div class="header-text">
-                  <h2 class="md-display-1">{{dialog.equippedWeaponDetails.name}}</h2>
-                  <h3 class="md-subhead">{{dialog.equippedWeaponDetails.weaponType}}</h3>
+                <md-table-container>
+                  <table md-table ng-model="dialog.selected">
+                    <thead md-head md-row md-order="dialog.myOrder">
+                      <!-- when the user clicks this cell, the myOrder variable will get the value 'nameToLower' -->
+                      <tr md-row>
+                        <th md-column md-order-by="name" md-default>Name</th>
+                        <!-- the variable myOrder will not be changed when this cell is clicked -->
+                        <!-- <th md-column>Weapon Type</th> -->
+                        <th md-column>Damage</th>
+                        <th md-column>Damage Type</th>
+                        <th md-column>Weight</th>
+                        <!-- <th md-column ng-if="dialog.removing">test</th> -->
+                        <th md-column class="button-cell">
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody md-body>
+                      <!-- we can let ng-repeat sort the columns for us -->
+                      <tr md-row md-select="weapon" md-select-id="{{weapon.id}}" ng-repeat="weapon in dialog.character.weapons | orderBy: dialog.myOrder track by $index">
+                        <td md-cell>
+                          {{weapon.name}}
+                        </td>
+                        <td md-cell>
+                          {{weapon.damage}}
+                        </td>
+                        <td md-cell>
+                          {{weapon.damageType}}
+                        </td>
+                        <td md-cell>
+                          {{weapon.weight}}
+                        </td>
+                        <td md-cell class="button-cell">
+                          <md-menu md-position-mode="target-right target" md-offset="-64 12">
+                            <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                              <md-icon class="list-add material-icons">more_horiz</md-icon>
+                            </md-button>
+                            <md-menu-content width="2">
+                              <md-menu-item>
+                                <md-button ng-click="dialog.showEquippedWeaponDetails(weapon.name);"> <span md-menu-align-target>View</span></md-button>
+                              </md-menu-item>
+                              <md-menu-item>
+                                <md-button ng-click="dialog.removeWeapon($index); $event.stopPropagation();"> <span md-menu-align-target>Remove</span></md-button>
+                              </md-menu-item>
+                            </md-menu-content>
+                          </md-menu>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </md-table-container>
+              </section>
+              <!-- Weapons Details -->
+              <section class="weapon-details" ng-if="dialog.equippedWeaponDetails">
+                <div class="details-header md-padding">
+                  <md-button class="md-icon-button" aria-label="back" ng-click="dialog.clearEquippedWeaponDetails();">
+                    <md-icon class="material-icons">expand_more</md-icon>
+                  </md-button>
+                  <div class="header-text">
+                    <h2 class="md-display-1">{{dialog.equippedWeaponDetails.name}}</h2>
+                    <h3 class="md-subhead">{{dialog.equippedWeaponDetails.weaponType}}</h3>
+                  </div>
                 </div>
-              </div>
 
-              <table class="details-table">
-                <tr>
-                  <td>Damage</td>
-                  <td>{{dialog.equippedWeaponDetails.damage}}</td>
-                </tr>
-                <tr>
-                  <td>Damage Type</td>
-                  <td>{{dialog.equippedWeaponDetails.damageType}}</td>
-                </tr>
-                <tr>
-                  <td>Cost</td>
-                  <td>{{dialog.equippedWeaponDetails.cost}}</td>
-                </tr>
-                <tr>
-                  <td>Weight</td>
-                  <td>{{dialog.equippedWeaponDetails.weight}}</td>
-                </tr>
-                <tr ng-if="dialog.equippedWeaponDetails.properties.length > 0">
-                  <td>Properties</td>
-                  <td>
-                    <div class="details-chip" ng-repeat="property in dialog.equippedWeaponDetails.properties">
-                      {{property}}</div>
-                  </td>
-                </tr>
-              </table>
-            </section>
+                <table class="details-table">
+                  <tr>
+                    <td>Damage</td>
+                    <td>{{dialog.equippedWeaponDetails.damage}}</td>
+                  </tr>
+                  <tr>
+                    <td>Damage Type</td>
+                    <td>{{dialog.equippedWeaponDetails.damageType}}</td>
+                  </tr>
+                  <tr>
+                    <td>Cost</td>
+                    <td>{{dialog.equippedWeaponDetails.cost}}</td>
+                  </tr>
+                  <tr>
+                    <td>Weight</td>
+                    <td>{{dialog.equippedWeaponDetails.weight}}</td>
+                  </tr>
+                  <tr ng-if="dialog.equippedWeaponDetails.properties.length > 0">
+                    <td>Properties</td>
+                    <td>
+                      <div class="details-chip" ng-repeat="property in dialog.equippedWeaponDetails.properties">
+                        {{property}}</div>
+                    </td>
+                  </tr>
+                </table>
+              </section>
             </md-content>
           </md-tab-body>
         </md-tab>
@@ -132,7 +138,6 @@
                   <thead md-head md-row md-order="dialog.myOrder">
                     <!-- when the user clicks this cell, the myOrder variable will get the value 'nameToLower' -->
                     <tr md-row>
-                      <th md-column></th>
                       <th md-column md-order-by="name" md-default>Name</th>
                       <!-- the variable myOrder will not be changed when this cell is clicked -->
                       <!-- <th md-column>Weapon Type</th> -->
@@ -141,16 +146,12 @@
                       <!-- <th md-column md-order-by="cost">Cost</th> -->
                       <th md-column md-order-by="weight">Weight</th>
                       <!-- <th md-column ng-if="dialog.removing">test</th> -->
+                      <th md-column></th>
                     </tr>
                   </thead>
                   <tbody md-body>
                     <!-- we can let ng-repeat sort the columns for us -->
                     <tr md-row md-select="weapon" md-select-id="{{weapon.id}}" ng-repeat="weapon in dialog.weaponsList | filter : dialog.searchText | orderBy: dialog.myOrder" ng-click="dialog.showWeaponDetails(weapon.name);">
-                      <td md-cell class="button-cell" ng-click="dialog.addWeapon(weapon.name); $event.stopPropagation();">
-                        <md-button>
-                          <md-icon class="list-add material-icons">add</md-icon>
-                        </md-button>
-                      </td>
                       <td md-cell>
                         {{weapon.name}}
                       </td>
@@ -168,6 +169,21 @@
                       </td> -->
                       <td md-cell>
                         {{weapon.weight}}
+                      </td>
+                      <td md-cell class="button-cell">
+                        <md-menu md-position-mode="target-right target" md-offset="-48 4">
+                          <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                            <md-icon class="list-add material-icons" md-menu-origin>more_horiz</md-icon>
+                          </md-button>
+                          <md-menu-content width="2">
+                            <md-menu-item>
+                              <md-button ng-click="dialog.showWeaponDetails(weapon.name);"> <span md-menu-align-target>View</span></md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                              <md-button ng-click="dialog.addWeapon(weapon.name)"> <span md-menu-align-target>Add</span></md-button>
+                            </md-menu-item>
+                          </md-menu-content>
+                        </md-menu>
                       </td>
                     </tr>
                   </tbody>

@@ -71,6 +71,7 @@
           }
           return results;
         }
+        
         vm.addWeapon = function (weaponName) {
           var params = {
             selector: {
