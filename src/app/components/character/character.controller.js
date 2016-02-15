@@ -14,7 +14,8 @@
     vm.getCharacter = function(characterId) {
       characterService.getCharacter(characterId).then(function(character) {
         vm.character = character;
-        vm.character.healthStats = {};
+        $log.log(character);
+//        vm.character.healthStats = {};
         vm.getSpeed(vm.character.race);
         vm.getHitDice(vm.character.class);
       });
@@ -47,6 +48,7 @@
       var params = { selector: {type: 'class', name: className}, fields: ['hitDice'] } ;
       pouchService.query(params).then(function(result){
         $log.log(result);
+        $log.log(vm.character);
         vm.character.healthStats.hitDice = result[0].hitDice;
       });
     };

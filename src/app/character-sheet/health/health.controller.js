@@ -51,7 +51,9 @@
 
       //Save the combat stats
       vm.save = function() {
+        $log.log('saving health');
         pouchService.put(vm.character).then(function(update){
+          $log.log(update);
           vm.character._rev = update.rev;
         });
       };
