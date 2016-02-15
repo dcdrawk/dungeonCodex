@@ -16,7 +16,7 @@
     "damage": "1d4",
     "damageType": "piercing",
     "weight": "1 lb.",
-    "properties": ["Finesse", "Light", "Thrown (range 20/60)"]
+    "properties": ["Finesse", "Light", "Thrown", "(range 20/60)"]
     }, {
     "name": "Greatclub",
     "type": "weapon",
@@ -34,7 +34,7 @@
     "damage": "1d6",
     "damageType": "slashing",
     "weight": "2 lb.",
-    "properties": ["Light", "Thrown (range 20/60)"]
+    "properties": ["Light", "Thrown", "(range 20/60)"]
     }, {
     "name": "Javelin",
     "type": "weapon",
@@ -43,7 +43,7 @@
     "damage": "1d6",
     "damageType": "piercing",
     "weight": "2 lb",
-    "properties": ["Thrown (range 30/120)"]
+    "properties": ["Thrown", "(range 30/120)"]
     }, {
     "name": "Light Hammer",
     "type": "weapon",
@@ -52,7 +52,7 @@
     "damage": "1d4",
     "damageType": "bludgeoning",
     "weight": "2 lb.",
-    "properties": ["Light", "Thrown (range 20/60)", "Versatile (1d8)"]
+    "properties": ["Light", "Thrown", "(range 20/60)", "Versatile (1d8)"]
     }, {
     "name": "Mace",
     "type": "weapon",
@@ -88,7 +88,7 @@
     "damage": "1d6",
     "damageType": "piercing",
     "weight": "3 lb.",
-    "properties": ["Thrown (range 20/60)", "Versatile (1d8)"]
+    "properties": ["Thrown", "(range 20/60)", "Versatile (1d8)"]
     }, {
     "name": "Unarmed Strike",
     "type": "weapon",
@@ -106,7 +106,7 @@
     "damage": "1d8",
     "damageType": "piercing",
     "weight": "5 lb.",
-    "properties": ["Ammunition (range 80/320)", "Loading", "Two-handed"]
+    "properties": ["Ammunition", "Ranged", "(range 80/320)", "Loading", "Two-handed"]
     }, {
     "name": "Dart",
     "type": "weapon",
@@ -115,7 +115,7 @@
     "damage": "1d4",
     "damageType": "piercing",
     "weight": "1/4 lb.",
-    "properties": ["Finesse", "Thrown (range 20/60)"]
+    "properties": ["Finesse", "Thrown", "(range 20/60)"]
     }, {
     "name": "Shortbow",
     "type": "weapon",
@@ -124,7 +124,7 @@
     "damage": "1d6",
     "damageType": "piercing",
     "weight": "1 lb.",
-    "properties": ["Ammunition (range 80/320)", "Two-handed"]
+    "properties": ["Ammunition", "Ranged", "(range 80/320)", "Two-handed"]
     }, {
     "name": "Sling",
     "type": "weapon",
@@ -133,7 +133,7 @@
     "damage": "1d4",
     "damageType": "bludgeoning",
     "weight": "",
-    "properties": ["Ammunition (range 30/120)"]
+    "properties": ["Ammunition", "Ranged", "(range 30/120)"]
     }, {
     "name": "Battleaxe",
     "type": "weapon",
@@ -251,7 +251,7 @@
     "damage": "1d6",
     "damageType": "slashing",
     "weight": "3 lb.",
-    "properties": ["Finesse", "Ligt"]
+    "properties": ["Finesse", "Light"]
     }, {
     "name": "Shortsword",
     "type": "weapon",
@@ -269,7 +269,7 @@
     "damage": "1d6",
     "damageType": "piercing",
     "weight": "4 lb.",
-    "properties": ["Thrown (range 20/60)", "Versatile (1d8)"]
+    "properties": ["Thrown", "(range 20/60)", "Versatile (1d8)"]
     }, {
     "name": "War Pick",
     "type": "weapon",
@@ -300,48 +300,48 @@
     }, {
     "name": "Blowgun",
     "type": "weapon",
-    "weaponType": "Marial Ranged",
+    "weaponType": "Martial Ranged",
     "cost": "10 gp",
     "damage": "1",
     "damageType": "piercing",
     "weight": "1 lb.",
-    "properties": ["Ammunition (range 25/100)", "Loading"]
+    "properties": ["Ammunition", "Ranged", "(range 25/100)", "Loading"]
     }, {
     "name": "Hand Crossbow",
     "type": "weapon",
-    "weaponType": "Marial Ranged",
+    "weaponType": "Martial Ranged",
     "cost": "75 gp",
     "damage": "1d6",
     "damageType": "piercing",
     "weight": "3 lb.",
-    "properties": ["Ammunition (range 30/120)", "Light", "Loading"]
+    "properties": ["Ammunition", "Ranged", "(range 30/120)", "Light", "Loading"]
     }, {
     "name": "Heavy Crossbow",
     "type": "weapon",
-    "weaponType": "Marial Ranged",
+    "weaponType": "Martial Ranged",
     "cost": "50 gp",
     "damage": "1d10",
     "damageType": "piercing",
     "weight": "18 lb.",
-    "properties": ["Ammunition (range 100/400)", "Heavy", "Loading", "Two-handed"]
+    "properties": ["Ammunition", "Ranged", "(range 100/400)", "Heavy", "Loading", "Two-handed"]
     }, {
     "name": "Longbow",
     "type": "weapon",
-    "weaponType": "Marial Ranged",
+    "weaponType": "Martial Ranged",
     "cost": "50 gp",
     "damage": "1d8",
     "damageType": "piercing",
     "weight": "2 lb.",
-    "properties": ["Ammunition (range 150/600)","Heavy", "Two-handed"]
+    "properties": ["Ammunition", "Ranged", "(range 150/600)","Heavy", "Two-handed"]
     }, {
     "name": "Net",
     "type": "weapon",
-    "weaponType": "Marial Ranged",
+    "weaponType": "Martial Ranged",
     "cost": "1gp",
     "damage": "",
     "damageType": "",
     "weight": "3 lb.",
-    "properties": ["Special", "Thrown (range 5/15)"],
+    "properties": ["Special", "Thrown", "(range 5/15)"],
     "special": "<p>A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net.</p><p>When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.</p>"
     }]
 }

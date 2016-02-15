@@ -4,10 +4,13 @@
   // top: 0;
   // height: auto;
   background-color: #fff;
+  md-checkbox {
+    margin-bottom: 0px;
+  }
 }
 
 .details-header {
-  background-color: #66BB6A;
+  background-color: #2196F3;
   color:#fff;
   h2, h3 {
     margin:8px;
@@ -50,7 +53,7 @@
 //  min-height: calc(80vh - 105px);
   &.ng-enter,
   &.ng-leave {
-    transition: .5s all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+    transition: .25s all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
     position: absolute;
     // top:0px;
   }
@@ -73,7 +76,7 @@
 .weapon-details{
   &.ng-enter,
   &.ng-leave {
-    transition: .5s all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
+    transition: .25s all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s;
     position: absolute;
     // top:0px;
     transform: translateY(0px);

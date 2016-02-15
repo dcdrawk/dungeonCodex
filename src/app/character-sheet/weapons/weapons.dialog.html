@@ -38,6 +38,7 @@
                         <th md-column md-order-by="name" md-default>Name</th>
                         <!-- the variable myOrder will not be changed when this cell is clicked -->
                         <!-- <th md-column>Weapon Type</th> -->
+                        <th md-column>Attack Roll</th> 
                         <th md-column>Damage</th>
                         <th md-column>Damage Type</th>
                         <th md-column>Weight</th>
@@ -53,7 +54,11 @@
                           {{weapon.name}}
                         </td>
                         <td md-cell>
-                          {{weapon.damage}}
+                          <span ng-if="!weapon.addProficiency">{{dialog.getAttackRoll(weapon.properties)}}</span>
+                          <span ng-if="weapon.addProficiency">{{dialog.getAttackRoll(weapon.properties) + dialog.character.proficiencyBonus}}</span>
+                        </td>
+                        <td md-cell>
+                          {{weapon.damage}} + {{dialog.getAttackRoll(weapon.properties)}}
                         </td>
                         <td md-cell>
                           {{weapon.damageType}}
@@ -68,7 +73,7 @@
                             </md-button>
                             <md-menu-content width="2">
                               <md-menu-item>
-                                <md-button ng-click="dialog.showEquippedWeaponDetails(weapon.name);"> <span md-menu-align-target>View</span></md-button>
+                                <md-button ng-click="dialog.showEquippedWeaponDetails(weapon);"> <span md-menu-align-target>View</span></md-button>
                               </md-menu-item>
                               <md-menu-item>
                                 <md-button ng-click="dialog.removeWeapon($index); $event.stopPropagation();"> <span md-menu-align-target>Remove</span></md-button>
@@ -89,14 +94,23 @@
                   </md-button>
                   <div class="header-text">
                     <h2 class="md-display-1">{{dialog.equippedWeaponDetails.name}}</h2>
-                    <h3 class="md-subhead">{{dialog.equippedWeaponDetails.weaponType}}</h3>
+                    <h3 class="md-subhead">{{dialog.equippedWeaponDetails.weaponType}} Weapon</h3>
                   </div>
                 </div>
 
                 <table class="details-table">
                   <tr>
+                    <td>Add Proficiency</td>
+                    <td><md-checkbox ng-model="dialog.equippedWeaponDetails.addProficiency" ng-change="dialog.saveCharacter();"></md-checkbox></td>
+                  </tr>
+                  <tr>
+                    <td>Attack Roll</td>
+                    <td ng-if="dialog.equippedWeaponDetails.addProficiency !== true">{{dialog.getAttackRoll(dialog.equippedWeaponDetails.properties)}}</td>
+                    <td ng-if="dialog.equippedWeaponDetails.addProficiency === true">{{dialog.getAttackRoll(dialog.equippedWeaponDetails.properties) + dialog.proficiencyBonus}}</td>
+                  </tr>
+                  <tr>
                     <td>Damage</td>
-                    <td>{{dialog.equippedWeaponDetails.damage}}</td>
+                    <td>{{dialog.equippedWeaponDetails.damage}} + {{dialog.getAttackRoll(dialog.equippedWeaponDetails.properties)}}</td>
                   </tr>
                   <tr>
                     <td>Damage Type</td>
@@ -140,7 +154,7 @@
                     <tr md-row>
                       <th md-column md-order-by="name" md-default>Name</th>
                       <!-- the variable myOrder will not be changed when this cell is clicked -->
-                      <!-- <th md-column>Weapon Type</th> -->
+                      <th md-column>Attack Roll</th> 
                       <th md-column md-order-by="damage">Damage</th>
                       <th md-column md-order-by="damageType">Damage Type</th>
                       <!-- <th md-column md-order-by="cost">Cost</th> -->
@@ -155,9 +169,10 @@
                       <td md-cell>
                         {{weapon.name}}
                       </td>
-                      <!-- <td md-cell>
-                        {{weapon.weaponType}}
-                      </td> -->
+                      <!-- attack rolls -->
+                      <td md-cell>
+                        <span>{{dialog.getAttackRoll(weapon.properties)}}</span>
+                      </td> 
                       <td md-cell>
                         {{weapon.damage}}
                       </td>
@@ -200,7 +215,7 @@
                 </md-button>
                 <div class="header-text">
                   <h2 class="md-display-1">{{dialog.weaponDetails.name}}</h2>
-                  <h3 class="md-subhead">{{dialog.weaponDetails.weaponType}}</h3>
+                  <h3 class="md-subhead">{{dialog.weaponDetails.weaponType}} Weapon</h3>
                 </div>
               </div>
 

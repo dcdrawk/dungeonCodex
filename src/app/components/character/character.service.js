@@ -21,7 +21,8 @@ Author: Devin Cook
       getCharacters: getCharacters,
       getCharacter: getCharacter,
       updateCharacter: updateCharacter,
-      character: character
+      character: character,
+      saveCharacter: saveCharacter
     };
 
     return service;
@@ -70,6 +71,13 @@ Author: Devin Cook
 //      $log.log(object);
 //      var db = dbService.newDB();
 //      return dbService.updateById(db, 'characters', id, object);
+    }
+    
+    function saveCharacter(character) {
+      return pouchService.put(character).then(function(character){
+        $log.log(character);
+        return character;
+      });
     }
   }
 })();

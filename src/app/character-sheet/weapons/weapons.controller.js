@@ -1,75 +1,81 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('dc')
-    .controller('WeaponsController', WeaponsController);
+    angular
+      .module('dc')
+      .controller('WeaponsController', WeaponsController);
 
-  //  Controller.$inject = ['dependencies'];
+    //  Controller.$inject = ['dependencies'];
 
-  /* @ngInject */
-  function WeaponsController($mdDialog, $document) {
-    var vm = this;
-
-
-    //Show the weapons dialog
-    vm.showWeaponsDialog = function (ev, character, statMods) {
-      $mdDialog.show({
-        controller: WeaponsDialogController,
-        templateUrl: 'app/character-sheet/weapons/weapons.dialog.html',
-        parent: angular.element($document[0].body),
-        targetEvent: ev,
-        clickOutsideToClose: true,
-        controllerAs: 'dialog',
-        locals: {
-          character: character,
-          statMods: statMods
-        }
-      });
-    };
-
-    //Weapons Dialog controller
-    function WeaponsDialogController($mdDialog, character, statMods, $log, pouchService, autocompleteService, $filter) {
+    /* @ngInject */
+    function WeaponsController($mdDialog, $document, statsService) {
       var vm = this;
-      vm.weaponsList = [];
-      vm.searchText = '';
-      // vm.weapons = [];
-      vm.myOrder = 'name';
-      vm.character = character;
-      vm.selected = [];
-      vm.newWeapons = 0;
 
-      vm.cancel = function () {
-        $mdDialog.cancel();
+
+      //Show the weapons dialog
+      vm.showWeaponsDialog = function (ev, character) {
+        $mdDialog.show({
+          controller: WeaponsDialogController,
+          templateUrl: 'app/character-sheet/weapons/weapons.dialog.html',
+          parent: angular.element($document[0].body),
+          targetEvent: ev,
+          clickOutsideToClose: true,
+          controllerAs: 'dialog',
+          locals: {
+            character: character
+          }
+        });
       };
 
-      vm.getAllWeapons = function () {
-        var params = {
-          selector: {
-            type: 'weapon'
-          },
-          fields: ['name', '_id', 'weaponType', 'damage', 'damageType', 'cost', 'weight'],
-          // include_docs: true
+      //Weapons Dialog controller
+      function WeaponsDialogController($mdDialog, character, $log, pouchService, autocompleteService, $filter, statsService) {
+        var vm = this;
+        vm.weaponsList = [];
+        vm.searchText = '';
+        // vm.weapons = [];
+        vm.myOrder = 'name';
+        vm.character = character;
+        vm.selected = [];
+        vm.newWeapons = 0;
+
+        var strMod = statsService.statMods.strength;
+        var dexMod = statsService.statMods.dexterity;
+        $log.log('character:');
+        $log.log(vm.character);
+        vm.proficiencyBonus = character.proficiencyBonus;
+
+        vm.cancel = function () {
+          $mdDialog.cancel();
         };
 
-        pouchService.query(params).then(function (response) {
-          var results = [];
-          var sortedResults = autocompleteService.compare(response, 'name');
-          vm.weaponsList = sortedResults;
-        });
+        vm.getAllWeapons = function () {
+          var params = {
+            selector: {
+              type: 'weapon'
+            },
+            fields: ['name', '_id', 'weaponType', 'damage', 'damageType', 'cost', 'weight', 'properties'],
+            // include_docs: true
+          };
 
-        vm.filterWeapons = function (searchText) {
-          var results = [];
-          for (var i in vm.weaponsList) {
-            //  $log.log(vm.weaponsList[i]);
-            vm.weaponsList[i].name = vm.weaponsList[i].name.toLowerCase();
-            if (vm.weaponsList[i].name.indexOf(searchText) !== -1) {
-              vm.weaponsList[i].name = vm.weaponsList[i].name.capitalizeFirstLetter();
-              $log.log(vm.weaponsList[i].name)
-              results.push(vm.weaponsList[i]);
+          pouchService.query(params).then(function (response) {
+            var results = [];
+            var sortedResults = autocompleteService.compare(response, 'name');
+            vm.weaponsList = sortedResults;
+          });
+
+          vm.filterWeapons = function (searchText) {
+            var results = [];
+            for (var i in vm.weaponsList) {
+              //  $log.log(vm.weaponsList[i]);
+              vm.weaponsList[i].name = vm.weaponsList[i].name.toLowerCase();
+              if (vm.weaponsList[i].name.indexOf(searchText) !== -1) {
+                vm.weaponsList[i].name = vm.weaponsList[i].name.capitalizeFirstLetter();
+                $log.log(vm.weaponsList[i].name)
+                results.push(vm.weaponsList[i]);
+              }
             }
+            return results;
           }
-          return results;
         }
         
         vm.addWeapon = function (weaponName) {
@@ -85,7 +91,7 @@
 
             vm.character.weapons.push(response[0]);
 
-            pouchService.put(vm.character).then(function(update){
+            pouchService.put(vm.character).then(function (update) {
               vm.character._rev = update.rev;
             });
           });
@@ -109,20 +115,21 @@
           });
         }
 
-        vm.showEquippedWeaponDetails = function (weaponName) {
-          var params = {
-            selector: {
-              type: 'weapon',
-              name: weaponName
-            },
-            fields: ['name', '_id', 'weaponType', 'cost', 'damage', 'damageType', 'properties', 'weight'],
-            // include_docs: true
-          };
-
-          pouchService.query(params).then(function (response) {
-            $log.log(response);
-            vm.equippedWeaponDetails = response[0];
-          });
+        vm.showEquippedWeaponDetails = function (weapon) {
+          vm.equippedWeaponDetails = weapon;
+//          var params = {
+//            selector: {
+//              type: 'weapon',
+//              name: weaponName
+//            },
+//            fields: ['name', '_id', 'weaponType', 'cost', 'damage', 'damageType', 'properties', 'weight'],
+//            // include_docs: true
+//          };
+//
+//          pouchService.query(params).then(function (response) {
+//            $log.log(response);
+//            vm.equippedWeaponDetails = response[0];
+//          });
         };
 
         vm.selectEquipped = function () {
@@ -148,7 +155,7 @@
 
         vm.clearEquippedWeaponDetails = function () {
           vm.equippedWeaponDetails = null;
-        }
+        };
 
         //Remove weapons from the list
         vm.removeWeapon = function (index) {
@@ -158,18 +165,39 @@
           array.splice(index, 1);
           vm.character.weapons = array;
 
-          pouchService.put(vm.character).then(function(update){
+          pouchService.put(vm.character).then(function (update) {
             vm.character._rev = update.rev;
           });
         };
-      };
+
+        //Get Attack roll for a weapon
+        vm.getAttackRoll = function (properties) {
+          if (properties.indexOf('Ranged') !== -1) {
+            return strMod;
+          } else
+          if (properties.indexOf('Finesse') !== -1 || properties.indexOf('Thrown') !== -1) {
+            return strMod > dexMod ? strMod : dexMod;
+          } else {
+            return strMod;
+          }
+        }
+
+        vm.saveCharacter = function () {
+          $log.log('saving character!!!');
+          $log.log(vm.character);
+          pouchService.put(vm.character).then(function (update) {
+            $log.log('done saving');
+            vm.character._rev = update.rev;
+          });
+        }
+      
 
       activate();
 
       function activate() {
         vm.getAllWeapons();
 
-        if(!vm.character.weapons) {
+        if (!vm.character.weapons) {
           vm.character.weapons = [];
         }
       }
